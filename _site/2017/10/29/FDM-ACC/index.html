@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sailfish 固件的加速度性能分析</title>
+    <meta name="description" content="Sailfish 固件的加速度性能分析">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/10/29/FDM-ACC/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Sailfish 固件的加速度性能分析</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2017-10-29
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#FDM" title="Tag: FDM" rel="tag">FDM</a>&nbsp;
+    
+        <a href="/tag/#3D打印" title="Tag: 3D打印" rel="tag">3D打印</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#stepperaccel-性能分析" id="markdown-toc-stepperaccel-性能分析">StepperAccel 性能分析</a>    <ul>
+      <li><a href="#判断队列耗尽时的判断" id="markdown-toc-判断队列耗尽时的判断">判断队列耗尽时的判断</a></li>
+      <li><a href="#周期性判断的部分" id="markdown-toc-周期性判断的部分">周期性判断的部分</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><code class="highlighter-rouge">Sailfish</code> 固件的加速度性能分析</p>
+
+<h1 id="stepperaccel-性能分析">StepperAccel 性能分析</h1>
+<p>StepperAccel 是 <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham 算法的一个实现</a>,总的来说是</p>
+<h2 id="判断队列耗尽时的判断">判断队列耗尽时的判断</h2>
+<p>这部分代码每个Block只执行一次，就是初始化代码</p>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code>    <span class="k">if</span> <span class="p">(</span><span class="n">current_block</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Anything in the buffer?
+</span>        <span class="n">current_block</span> <span class="o">=</span> <span class="n">plan_get_current_block</span><span class="p">();</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_block</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+	    <span class="n">SET_IS_WORKING</span><span class="p">();</span>
+	    <span class="n">pStatus0</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>
+            <span class="n">setup_next_block</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	    <span class="n">pStatus0</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>
+	    <span class="n">CLR_IS_WORKING</span><span class="p">();</span>
+            <span class="n">TIM_SetAutoreload</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span><span class="mi">2000</span><span class="p">);</span>
+	    <span class="c1">//TIM_SetIC1Prescaler(TIM2,(SystemCoreClock/2000000)-1);
+</span>
+	    <span class="n">TIM2</span><span class="o">-&gt;</span><span class="n">PSC</span> <span class="o">=</span><span class="p">(</span><span class="n">SystemCoreClock</span><span class="o">/</span><span class="mi">2000000</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	    <span class="n">stepperAxisSetHardwareEnabledToMatch</span><span class="p">(</span><span class="n">axesEnabled</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+</code></pre>
+</div>
+<p>这里的<code class="highlighter-rouge">setup_next_block()</code>是设置下一个block的位置，这里每个<code class="highlighter-rouge">block</code>的结构如下</p>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="c1">// Fields used by the bresenham algorithm for tracing the line
+</span>    <span class="kt">int32_t</span>		<span class="n">steps</span><span class="p">[</span><span class="n">STEPPER_COUNT</span><span class="p">];</span>			<span class="c1">// Step count along each axis
+</span>    <span class="kt">uint32_t</span>	<span class="n">step_event_count</span><span class="p">;</span>			<span class="c1">// The number of step events required to complete this block
+</span>    <span class="kt">int32_t</span>		<span class="n">starting_position</span><span class="p">[</span><span class="n">STEPPER_COUNT</span><span class="p">];</span>
+    <span class="kt">int32_t</span>		<span class="n">accelerate_until</span><span class="p">;</span>			<span class="c1">// The index of the step event on which to stop acceleration
+</span>    <span class="kt">int32_t</span>		<span class="n">decelerate_after</span><span class="p">;</span>			<span class="c1">// The index of the step event on which to start decelerating
+</span>    <span class="kt">int32_t</span>		<span class="n">acceleration_rate</span><span class="p">;</span>			<span class="c1">// The acceleration rate used for acceleration calculation
+</span>    <span class="kt">unsigned</span> <span class="kt">char</span>	<span class="n">direction_bits</span><span class="p">;</span>				<span class="c1">// The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
+</span>    <span class="kt">unsigned</span> <span class="kt">char</span>	<span class="n">active_extruder</span><span class="p">;</span>			<span class="c1">// Selects the active extruder
+</span>    <span class="kt">uint8_t</span>		<span class="n">active_toolhead</span><span class="p">;</span>			<span class="c1">// The toolhead currently active.  Note this isn't the same as active extruder
+</span><span class="cp">#ifdef JKN_ADVANCE
+</span>    <span class="n">bool</span>	<span class="n">use_advance_lead</span><span class="p">;</span>
+    <span class="kt">int16_t</span>	<span class="n">advance_lead_entry</span><span class="p">;</span>
+    <span class="kt">int16_t</span>	<span class="n">advance_lead_exit</span><span class="p">;</span>
+    <span class="kt">int32_t</span>	<span class="n">advance_pressure_relax</span><span class="p">;</span>			<span class="c1">//Decel phase only
+</span>    <span class="kt">int16_t</span>	<span class="n">advance_lead_prime</span><span class="p">;</span>
+    <span class="kt">int16_t</span>	<span class="n">advance_lead_deprime</span><span class="p">;</span>
+<span class="cp">#endif
+</span>
+    <span class="c1">// Fields used by the motion planner to manage acceleration
+</span>    <span class="n">FPTYPE</span>		<span class="n">nominal_speed</span><span class="p">;</span>				<span class="c1">// The nominal speed for this block in mm/min
+</span>    <span class="n">FPTYPE</span>		<span class="n">entry_speed</span><span class="p">;</span>				<span class="c1">// Entry speed at previous-current junction in mm/min
+</span>    <span class="n">FPTYPE</span>		<span class="n">max_entry_speed</span><span class="p">;</span>			<span class="c1">// Maximum allowable junction entry speed in mm/min
+</span>    <span class="n">FPTYPE</span>		<span class="n">millimeters</span><span class="p">;</span>				<span class="c1">// The total travel of this block in mm
+</span>    <span class="n">FPTYPE</span>		<span class="n">acceleration</span><span class="p">;</span>				<span class="c1">// acceleration mm/sec^2
+</span>    <span class="kt">unsigned</span> <span class="kt">char</span>	<span class="n">recalculate_flag</span><span class="p">;</span>			<span class="c1">// Planner flag to recalculate trapezoids on entry junction
+</span>    <span class="kt">unsigned</span> <span class="kt">char</span>	<span class="n">nominal_length_flag</span><span class="p">;</span>			<span class="c1">// Planner flag for nominal speed always reached
+</span>
+    <span class="c1">// Settings for the trapezoid generator
+</span>    <span class="kt">uint32_t</span>	<span class="n">nominal_rate</span><span class="p">;</span>				<span class="c1">// The nominal step rate for this block in step_events/sec
+</span>    <span class="kt">int64_t</span>		<span class="n">nominal_rate_sq</span><span class="p">;</span>			<span class="c1">// nominal_rate * nominal_rate
+</span>    <span class="kt">uint32_t</span>	<span class="n">initial_rate</span><span class="p">;</span>				<span class="c1">// The jerk-adjusted step rate at start of block
+</span>    <span class="kt">uint32_t</span>	<span class="n">final_rate</span><span class="p">;</span>				<span class="c1">// The minimal rate at exit
+</span>    <span class="kt">uint32_t</span>	<span class="n">acceleration_st</span><span class="p">;</span>			<span class="c1">// acceleration steps/sec^2
+</span>    <span class="kt">char</span>		<span class="n">use_accel</span><span class="p">;</span>				<span class="c1">// Use acceleration when true
+</span>    <span class="kt">char</span>		<span class="n">speed_changed</span><span class="p">;</span>				<span class="c1">// Entry speed has changed
+</span>    <span class="k">volatile</span> <span class="kt">char</span>	<span class="n">busy</span><span class="p">;</span>
+
+<span class="cp">#ifdef SIMULATOR
+</span>    <span class="n">FPTYPE</span>	<span class="n">feed_rate</span><span class="p">;</span>				<span class="c1">// Original feed rate before being modified for nomimal_speed
+</span>    <span class="kt">int</span>	<span class="n">planned</span><span class="p">;</span>				<span class="c1">// Count of the number of times the block was passed to caclulate_trapezoid_for_block()
+</span>    <span class="kt">char</span>	<span class="n">message</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+<span class="cp">#endif
+</span>
+<span class="cp">#ifdef DEBUG_BLOCK_BY_MOVE_INDEX
+</span>    <span class="kt">uint32_t</span> <span class="n">move_index</span><span class="p">;</span>
+<span class="cp">#endif
+</span>
+    <span class="kt">uint8_t</span>		<span class="n">dda_master_axis_index</span><span class="p">;</span>
+    <span class="kt">uint8_t</span>		<span class="n">axesEnabled</span><span class="p">;</span>
+    <span class="kt">uint8_t</span>		<span class="n">isTwoWheelMotor</span><span class="p">;</span>
+    <span class="kt">int32_t</span>		<span class="n">rpm</span><span class="p">[</span><span class="n">STEPPER_COUNT</span><span class="p">];</span>			<span class="c1">// Step count along each axis
+</span><span class="p">}</span>
+</code></pre>
+</div>
+<h2 id="周期性判断的部分">周期性判断的部分</h2>
+<p>这部分代码是在定时器时钟中断里面的，周期性执行。</p>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">current_block</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Take multiple steps per interrupt (For high speed moves)
+</span>        <span class="k">for</span><span class="p">(</span><span class="kt">int8_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">step_loops</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifdef JKN_ADVANCE
+</span>            <span class="k">if</span> <span class="p">(</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">use_accel</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span> <span class="kt">uint8_t</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="n">EXTRUDERS</span><span class="p">;</span> <span class="n">e</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span> <span class="n">advance_state</span> <span class="o">==</span> <span class="n">ADVANCE_STATE_ACCEL</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">stepperAxis_dda_shift_phase16</span><span class="p">(</span><span class="n">A_AXIS</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">advance_lead_entry</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span> <span class="p">(</span> <span class="n">advance_state</span> <span class="o">==</span> <span class="n">ADVANCE_STATE_DECEL</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">stepperAxis_dda_shift_phase16</span><span class="p">(</span><span class="n">A_AXIS</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="o">-</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">advance_lead_exit</span><span class="p">);</span>
+                        <span class="n">stepperAxis_dda_shift_phase32</span><span class="p">(</span><span class="n">A_AXIS</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="o">-</span> <span class="n">advance_pressure_relax_accumulator</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+<span class="cp">#endif
+</span>	    <span class="c1">//Step the dda for each axis
+</span>	    <span class="n">printf</span><span class="p">(</span><span class="s">"move! %d/%d</span><span class="se">\n\r</span><span class="s">"</span><span class="p">,</span><span class="n">step_events_completed</span><span class="p">,</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">step_event_count</span><span class="p">);</span>
+	    <span class="n">SetPIN</span><span class="p">(</span><span class="n">XST_GPIO_PORT</span><span class="p">,</span><span class="n">XST_PIN</span><span class="p">);</span>
+	    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+		<span class="n">_delay_us</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	    <span class="n">asm</span><span class="p">(</span><span class="s">"nop"</span><span class="p">);</span>
+	    <span class="n">asm</span><span class="p">(</span><span class="s">"nop"</span><span class="p">);</span>
+	    <span class="c1">//stepperAxis_dda_step_mul(0x7F);
+</span>	    <span class="n">ClrPIN</span><span class="p">(</span><span class="n">XST_GPIO_PORT</span><span class="p">,</span><span class="n">XST_PIN</span><span class="p">);</span>
+<span class="cp">#ifdef OVERSAMPLED_DDA
+</span>            <span class="n">oversampledCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="cp">#endif
+</span>	    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">isTwoWheelMotor</span><span class="p">){</span>
+		<span class="n">step_events_completed</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+	    <span class="p">}</span>
+	    <span class="k">if</span><span class="p">(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">isTwoWheelMotor</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">step_event_count</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+		    <span class="k">continue</span><span class="p">;</span>
+		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">X_AXIS</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">Y_AXIS</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+		    <span class="k">if</span><span class="p">(</span><span class="n">totalWheelCnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span>
+			<span class="c1">//STEPPER_IOPORT_WRITE(stepperAxisPorts[i].step,false);
+</span>			<span class="n">STEPPER_IOPORT_WRITE</span><span class="p">(</span><span class="n">stepperAxisPorts</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">enable</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+			<span class="n">wheelFinished</span> <span class="o">|=</span> <span class="n">_BV</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+			<span class="n">step_events_completed</span> <span class="o">=</span> <span class="p">((</span><span class="n">wheelFinished</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">((</span><span class="n">wheelFinished</span><span class="o">&amp;</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+<span class="cp">#ifdef DEBUG_ROBOT
+</span>			<span class="c1">//printf("i=%d steps=%d wheelfinished=%d step_events_completed =%d finished\n\r",i,step_events_completed,wheelFinished,step_events_completed);
+</span><span class="cp">#endif
+</span>		    <span class="p">}</span>
+		<span class="p">}</span>
+	    <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">step_events_completed</span> <span class="o">&gt;=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">step_event_count</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifdef DEBUG_ROBOT
+</span>                <span class="n">printf</span><span class="p">(</span><span class="s">"event_done = %u lround = %d rroudn = %d</span><span class="se">\n\r</span><span class="s">"</span><span class="p">,</span><span class="n">step_events_completed</span><span class="p">,</span><span class="n">totalWheelCnt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">totalWheelCnt</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="cp">#endif
+</span>                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Calculate new timer value
+</span>        <span class="kt">uint16_t</span> <span class="n">timer</span><span class="p">;</span>
+	<span class="c1">//dummy
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">step_events_completed</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">accelerate_until</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ACCELERATION PHASE
+</span>            <span class="c1">// Note that we need to convert acceleration_time from units of
+</span>            <span class="c1">// 2 MHz to seconds.  That is done by dividing acceleration_time
+</span>            <span class="c1">// by 2000000.  But, that will make it 0 when we use integer
+</span>            <span class="c1">// arithmetic.  So, we first multiply block-&gt;acceleration_rate by
+</span>            <span class="c1">// acceleration_time and then do the divide.  However, it's
+</span>            <span class="c1">// convenient to divide by 2^24 ( &gt;&gt; 24 ).  So, block-&gt;acceleration_rate
+</span>            <span class="c1">// has been prescaled by a factor of 9.388608.
+</span>            <span class="c1">//MultiU24X24toH16(acc_step_rate, acceleration_time, current_block-&gt;acceleration_rate);
+</span>            <span class="c1">//acc_step_rate = (acceleration_time* (current_block-&gt;acceleration_rate)) &gt;&gt; 24;
+</span>                               
+            <span class="n">acc_step_rate</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)((</span><span class="kt">float</span><span class="p">)</span><span class="n">acceleration_time</span><span class="o">*</span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">acceleration_rate</span><span class="p">)</span><span class="o">/</span><span class="mi">2000000</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">);</span>
+            <span class="n">acc_step_rate</span> <span class="o">+=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">initial_rate</span><span class="p">;</span>
+<span class="cp">#ifdef DEBUG_ST
+</span>	    <span class="c1">//printf("acc: acceleration_time = %d step_rate = %d \n\r",acceleration_time,acc_step_rate); 
+</span><span class="cp">#endif
+</span>            <span class="c1">// upper limit
+</span>            <span class="k">if</span> <span class="p">(</span><span class="n">acc_step_rate</span> <span class="o">&gt;</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">nominal_rate</span><span class="p">)</span>	<span class="n">acc_step_rate</span> <span class="o">=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">nominal_rate</span><span class="p">;</span>
+            <span class="c1">// step_rate to timer interval
+</span>            <span class="n">timer</span> <span class="o">=</span> <span class="n">calc_timer</span><span class="p">(</span><span class="n">acc_step_rate</span><span class="p">);</span>
+	    <span class="k">if</span><span class="p">(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">isTwoWheelMotor</span><span class="p">){</span>
+		<span class="n">timer</span> <span class="o">=</span> <span class="mi">40</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span>
+	    <span class="p">}</span>
+            <span class="kt">uint16_t</span> <span class="n">temp</span><span class="p">;</span>
+<span class="cp">#ifdef OVERSAMPLED_DDA
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">timer</span> <span class="o">&gt;&gt;</span> <span class="n">OVERSAMPLED_DDA</span><span class="p">;</span>
+            <span class="n">TIM_SetAutoreload</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+<span class="cp">#else
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">timer</span><span class="p">;</span>
+
+	    <span class="c1">//for move
+</span>            <span class="c1">//TIM_SetAutoreload(TIM2,temp);
+</span><span class="cp">#endif
+</span>            <span class="n">acceleration_time</span> <span class="o">+=</span> <span class="n">timer</span><span class="p">;</span>
+
+        <span class="p">}</span>
+	<span class="c1">//dummy
+</span>        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">step_events_completed</span> <span class="o">&gt;</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">decelerate_after</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// DECELERATION PHASE
+</span>
+        <span class="c1">//else if (step_events_completed &gt; 3663) {  // DECELERATION PHASE
+</span><span class="cp">#ifdef JKN_ADVANCE
+</span>            <span class="k">if</span> <span class="p">(</span> <span class="n">advance_state</span> <span class="o">==</span> <span class="n">ADVANCE_STATE_ACCEL</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">advance_state</span> <span class="o">=</span> <span class="n">ADVANCE_STATE_PLATEAU</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">advance_state</span> <span class="o">==</span> <span class="n">ADVANCE_STATE_PLATEAU</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">advance_state</span> <span class="o">=</span> <span class="n">ADVANCE_STATE_DECEL</span><span class="p">;</span>
+                <span class="n">advance_pressure_relax_accumulator</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">advance_pressure_relax_accumulator</span> <span class="o">+=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">advance_pressure_relax</span><span class="p">;</span>
+<span class="cp">#endif
+</span>
+            <span class="c1">// Note that we need to convert deceleration_time from units of
+</span>            <span class="c1">// 2 MHz to seconds.  That is done by dividing deceleration_time
+</span>            <span class="c1">// by 2000000.  But, that will make it 0 when we use integer
+</span>            <span class="c1">// arithmetic.  So, we first multiply block-&gt;acceleration_rate by
+</span>            <span class="c1">// deceleration_time and then do the divide.  However, it's
+</span>            <span class="c1">// convenient to divide by 2^24 ( &gt;&gt; 24 ).  So, block-&gt;acceleration_rate
+</span>            <span class="c1">// has been prescaled by a factor of 8.388608.
+</span>
+            <span class="c1">//MultiU24X24toH16(step_rate, deceleration_time, current_block-&gt;acceleration_rate);
+</span>            <span class="c1">//step_rate = (deceleration_time * (current_block-&gt;acceleration_rate)) &gt;&gt;24;
+</span>            <span class="n">step_rate</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)((</span><span class="kt">float</span><span class="p">)</span><span class="n">deceleration_time</span> <span class="o">*</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">acceleration_rate</span><span class="o">/</span><span class="mi">2000000</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">);</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">step_rate</span> <span class="o">&gt;</span> <span class="n">acc_step_rate</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Check step_rate stays positive
+</span>                <span class="n">step_rate</span> <span class="o">=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">final_rate</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">step_rate</span> <span class="o">=</span> <span class="n">acc_step_rate</span> <span class="o">-</span> <span class="n">step_rate</span><span class="p">;</span> <span class="c1">// Decelerate from aceleration end point.
+</span>                <span class="c1">// lower limit
+</span>                <span class="k">if</span><span class="p">(</span><span class="n">step_rate</span> <span class="o">&lt;</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">final_rate</span><span class="p">)</span>	<span class="n">step_rate</span> <span class="o">=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">final_rate</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="cp">#ifdef DEBUG_FREQUENCY
+</span>           <span class="c1">// printf("current block nominal speed:%f\n", current_block-&gt;nominal_speed);
+</span><span class="cp">#endif
+</span>            <span class="c1">// step_rate to timer interval
+</span>            <span class="n">timer</span> <span class="o">=</span> <span class="n">calc_timer</span><span class="p">(</span><span class="n">step_rate</span><span class="p">);</span>
+	    <span class="k">if</span><span class="p">(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">isTwoWheelMotor</span><span class="p">){</span>
+		<span class="n">timer</span> <span class="o">=</span> <span class="mi">40</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span>
+	    <span class="p">}</span>
+            <span class="kt">uint16_t</span> <span class="n">temp</span><span class="p">;</span>
+<span class="cp">#ifdef OVERSAMPLED_DDA
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">timer</span> <span class="o">&gt;&gt;</span> <span class="n">OVERSAMPLED_DDA</span><span class="p">;</span>
+            <span class="n">TIM_SetAutoreload</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+<span class="cp">#else
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">timer</span><span class="p">;</span>
+	    <span class="c1">//for move
+</span>            <span class="c1">//TIM_SetAutoreload(TIM2,temp);
+</span><span class="cp">#endif
+</span>
+            <span class="n">deceleration_time</span> <span class="o">+=</span> <span class="n">timer</span><span class="p">;</span>
+
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>	<span class="c1">//NOMINAL PHASE
+</span><span class="cp">#ifdef JKN_ADVANCE
+</span>            <span class="k">if</span> <span class="p">(</span> <span class="n">advance_state</span> <span class="o">==</span> <span class="n">ADVANCE_STATE_ACCEL</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">advance_state</span> <span class="o">=</span> <span class="n">ADVANCE_STATE_PLATEAU</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="cp">#endif
+</span>
+            <span class="kt">uint16_t</span> <span class="n">temp</span><span class="p">;</span>
+<span class="cp">#ifdef OVERSAMPLED_DDA
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">OCRnA_nominal</span> <span class="o">&gt;&gt;</span> <span class="n">OVERSAMPLED_DDA</span><span class="p">;</span>
+            <span class="n">TIM_SetAutoreload</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+<span class="cp">#else
+</span>            <span class="n">temp</span> <span class="o">=</span> <span class="n">OCRnA_nominal</span><span class="p">;</span>
+	    <span class="c1">//for move 
+</span>            <span class="c1">//TIM_SetAutoreload(TIM2,temp);
+</span><span class="cp">#endif
+</span>
+
+            <span class="n">step_loops</span> <span class="o">=</span> <span class="n">step_loops_nominal</span><span class="p">;</span>
+        <span class="p">}</span>
+
+
+
+        <span class="c1">// If current block is finished, reset pointer
+</span>        <span class="k">if</span> <span class="p">(</span><span class="n">step_events_completed</span> <span class="o">&gt;=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">step_event_count</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#ifdef JKN_ADVANCE_LEAD_DE_PRIME
+</span>            <span class="k">for</span> <span class="p">(</span> <span class="kt">uint8_t</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="n">EXTRUDERS</span><span class="p">;</span> <span class="n">e</span> <span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">lastAdvanceDeprime</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">advance_lead_deprime</span><span class="p">;</span>
+            <span class="p">}</span>
+<span class="cp">#endif
+</span>
+<span class="cp">#ifdef DEBUG_ROBOT
+</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"block finished</span><span class="se">\n\r</span><span class="s">"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>
+            <span class="n">current_block</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+            <span class="n">plan_discard_current_block</span><span class="p">();</span>
+            <span class="n">block_deleted</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	    <span class="c1">//STEPPER_IOPORT_WRITE();
+</span>	    <span class="k">if</span><span class="p">(</span><span class="n">current_block</span><span class="o">-&gt;</span><span class="n">isTwoWheelMotor</span><span class="p">){</span>
+		<span class="c1">//STEPPER_IOPORT_WRITE(stepperAxisPorts[X_AXIS].step,false);
+</span>		<span class="c1">//STEPPER_IOPORT_WRITE(stepperAxisPorts[Y_AXIS].step,false);
+</span>	    <span class="p">}</span>
+<span class="cp">#ifdef DEBUG_ACCEL
+</span>            <span class="n">printf</span><span class="p">(</span><span class="s">"one block finished</span><span class="se">\n\r</span><span class="s">"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>
+            <span class="c1">// Preprocess the setup for the next block if have have one
+</span>            <span class="n">current_block</span> <span class="o">=</span> <span class="n">plan_get_current_block</span><span class="p">();</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">current_block</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">SET_IS_WORKING</span><span class="p">();</span>
+		<span class="n">pStatus0</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>
+<span class="cp">#ifdef DEBUG_STT
+</span>		<span class="n">printf</span><span class="p">(</span><span class="s">"block poped %d %d %d %d %d rate = %dhz use_accel = %d</span><span class="se">\n\r</span><span class="s">"</span><span class="p">,</span> 
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">steps</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">nominal_rate</span><span class="p">,</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">use_accel</span>
+		    <span class="p">);</span>
+
+	    <span class="n">printf</span><span class="p">(</span><span class="s">"block acc_until=%d dec_after=%d acc_rate = %d </span><span class="se">\n\r</span><span class="s">"</span><span class="p">,</span>
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">accelerate_until</span><span class="p">,</span> 
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">decelerate_after</span><span class="p">,</span> 
+		    <span class="n">current_block</span><span class="o">-&gt;</span><span class="n">acceleration_rate</span><span class="p">);</span>    
+<span class="cp">#endif
+</span>                <span class="n">setup_next_block</span><span class="p">();</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+		<span class="n">CLR_IS_WORKING</span><span class="p">();</span>
+	    <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+	    <span class="n">pStatus0</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>
+<span class="cp">#ifdef DEBUG_ACCEL
+</span>            <span class="c1">//			printf("target %u, finished %u\n\r",step_events_completed,current_block-&gt;step_event_count);
+</span><span class="cp">#endif
+</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+<p>step_loops是做脉冲合并用的
+最开始的一段程序，截止到calculate timer value 是用来进行脉冲反转的，后面的部分是根据速度和加速度来做timer中断时间设置的。</p>
+
+<p>在 <code class="highlighter-rouge">if (step_events_completed &lt;= (uint32_t)current_block-&gt;accelerate_until) { // ACCELERATION PHASE</code>这段代码之后是计算加速阶段该怎么运动的
+这里
+<code class="highlighter-rouge">acc_step_rate = (uint16_t)((float)acceleration_time*(float)(current_block-&gt;acceleration_rate)/2000000.0f);</code>
+的意思是</p>
+<pre><code class="language-math">V_t = a\times t+V_0
+</code></pre>
+<p>后面的减速部分也一样的
+所以总的来看这个st_interrupt除了改变timer的间隔，和形成脉冲宽度没有别的bug了。
+脉冲宽度的形成还是用busy_wait形成的。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/18/rayland-SLA-instructions/">rayland-SLA主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/16/rayland-dual-steering-engine/">rayland-dual主板控制舵机
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-solo-instructions/">rayland-solo主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-dual-instructions/">rayland-dual主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/09/DLP-instructions/">rayland-DLP主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/07/E5CC-temp-control-manual/">E5CC温控器控制手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/10/29/rayland-solo-bridging-net/">Solo主板如何接两个网卡</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/10/29/FDM-ACC/" data-title="Sailfish 固件的加速度性能分析" data-url="http://localhost:4000/2017/10/29/FDM-ACC/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

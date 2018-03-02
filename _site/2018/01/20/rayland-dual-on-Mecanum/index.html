@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>用rayland-dual主板控制麦克纳姆车 控制协议</title>
+    <meta name="description" content="本文简单介绍了用rayland-dual主板控制麦克纳姆车的接线方法和控制协议。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>用rayland-dual主板控制麦克纳姆车 控制协议</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-01-20
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                JiuYang Chen
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#AGV" title="Tag: AGV" rel="tag">AGV</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#概述" id="markdown-toc-概述">概述</a></li>
+  <li><a href="#用板载安卓系统控制麦克纳姆车" id="markdown-toc-用板载安卓系统控制麦克纳姆车">用板载安卓系统控制麦克纳姆车</a></li>
+  <li><a href="#用ros系统控制麦克纳姆车" id="markdown-toc-用ros系统控制麦克纳姆车">用ROS系统控制麦克纳姆车</a></li>
+  <li><a href="#麦克纳姆车硬件接线" id="markdown-toc-麦克纳姆车硬件接线">麦克纳姆车硬件接线</a></li>
+</ul>
+
+<p>本文简单介绍了用<code class="highlighter-rouge">rayland-dual</code>主板控制麦克纳姆车的接线方法和控制协议。</p>
+
+<h2 id="概述">概述</h2>
+
+<div align="center">
+<img src="/images/CBF15C15-F3E4-407B-939B-F6D3D3DA6776.png" height="450" width="450" /></div>
+
+<p>麦克纳姆车是一种很奇特的小车，它搭载了一种全向轮子。由于轮子构造的独特性，这种车可以做出各种奇怪的动作，比如左右平移，斜向运动。以下是这种车能进行的10个运动方向和每个轮子的转动方向之间的关系。</p>
+
+<p><img src="/images/F32A5FE1-6698-4134-96F0-BB5C4BAC61A1.png" alt="F32A5FE1-6698-4134-96F0-BB5C4BAC61A1" /></p>
+
+<p>与控制AGV类似，控制麦克纳姆车也有两种控制方式。一个是板载的安卓控制，另一个是用ROS系统控制，利用安卓控制的控制协议如下。</p>
+
+<h2 id="用板载安卓系统控制麦克纳姆车">用板载安卓系统控制麦克纳姆车</h2>
+
+<p><code class="highlighter-rouge">Android -&gt; Stm32</code></p>
+
+<p>1.1 <strong>控制指令</strong> <code class="highlighter-rouge">cmd_type,pkg_length,seq,is_reset,X,Y,Z,A,B,s,v</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th style="text-align: center">Describe</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Range</th>
+      <th style="text-align: right">Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cmd_type</td>
+      <td style="text-align: center">指令类型</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>pkg_length</td>
+      <td style="text-align: center">包长度</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: center"><code class="highlighter-rouge">9bytes</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>seq</td>
+      <td style="text-align: center">指令序号</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>is_reset</td>
+      <td style="text-align: center">是否抢占</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">0:false 1:true</code></td>
+    </tr>
+    <tr>
+      <td>moving_idx</td>
+      <td style="text-align: center">前后</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right">0: 前后   1: 旋转 2:平移 3:左上和右下 4: 右上和左下</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td style="text-align: center">行驶里程</td>
+      <td style="text-align: center">uint16</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = (1/10)r</code></td>
+    </tr>
+    <tr>
+      <td>v</td>
+      <td style="text-align: center">行驶速度</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: center">-500 ~ 500</td>
+      <td style="text-align: right"><code class="highlighter-rouge">(1/10)r/min</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>2.2 <strong>定义当前坐标</strong> <code class="highlighter-rouge">cmd_type,pkg_length,seq,axis_x,axis_y,ori</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th style="text-align: center">Describe</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: right">Range</th>
+      <th style="text-align: right">Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cmd_type</td>
+      <td style="text-align: center">指令类型</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>pkg_length</td>
+      <td style="text-align: center">包长度</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">9bytes</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>seq</td>
+      <td style="text-align: center">指令序号</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>axis_x</td>
+      <td style="text-align: center">x轴坐标</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = (1/10)r</code></td>
+    </tr>
+    <tr>
+      <td>axis_y</td>
+      <td style="text-align: center">y轴坐标</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = (1/10)r</code></td>
+    </tr>
+    <tr>
+      <td>ori</td>
+      <td style="text-align: center">朝向</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = 1/10°</code> <code class="highlighter-rouge">-1 = -1/10°</code> (逆时针为正)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>3.3 <strong>切换控制模式</strong> <code class="highlighter-rouge">cmd_type,pkg_length,seq,controll_type</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th style="text-align: center">Describe</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: right">Range</th>
+      <th style="text-align: right">Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cmd_type</td>
+      <td style="text-align: center">指令类型</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>pkg_length</td>
+      <td style="text-align: center">包长度</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">4bytes</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>seq</td>
+      <td style="text-align: center">指令序号</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>controll_type</td>
+      <td style="text-align: center">控制模式</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">0：板控</code> <code class="highlighter-rouge">1：遥控</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">Stm32 -&gt; Android</code></p>
+
+<p>1.1 <strong>状态采集</strong></p>
+
+<p><code class="highlighter-rouge">cmd_type,pkg_length,seq,v_x,v_y,axis_x,axis_y,ori,rfid,magn,infra,ut_f,ut_b,moto_state,mile</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th style="text-align: center">Describe</th>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: right">Range</th>
+      <th style="text-align: right">Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cmd_type</td>
+      <td style="text-align: center">指令类型</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>pkg_length</td>
+      <td style="text-align: center">包长度</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">39bytes</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>seq</td>
+      <td style="text-align: center">指令序号</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>v_x</td>
+      <td style="text-align: center">x轴速度</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right">-500 ~ 500</td>
+      <td style="text-align: right"><code class="highlighter-rouge">(1/10)r/min</code></td>
+    </tr>
+    <tr>
+      <td>v_y</td>
+      <td style="text-align: center">y轴速度</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right">-500 ~ 500</td>
+      <td style="text-align: right"><code class="highlighter-rouge">(1/10)r/min</code></td>
+    </tr>
+    <tr>
+      <td>axis_x</td>
+      <td style="text-align: center">x轴坐标</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = (1/10)r</code></td>
+    </tr>
+    <tr>
+      <td>axis_y</td>
+      <td style="text-align: center">y轴坐标</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = (1/10)r</code></td>
+    </tr>
+    <tr>
+      <td>ori</td>
+      <td style="text-align: center">朝向</td>
+      <td style="text-align: center">int16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">1 = 1/10°</code> <code class="highlighter-rouge">-1 = -1/10°</code> (逆时针为正)</td>
+    </tr>
+    <tr>
+      <td>rfid</td>
+      <td style="text-align: center">rfid序列号</td>
+      <td style="text-align: center">uint32</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>magn</td>
+      <td style="text-align: center">磁条序列号</td>
+      <td style="text-align: center">uint16</td>
+      <td style="text-align: right"><code class="highlighter-rouge">0:missing 1:hit</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>infra</td>
+      <td style="text-align: center">红外</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">0:false 1:true</code></td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>ut_f</td>
+      <td style="text-align: center">前侧超声</td>
+      <td style="text-align: center">uint16 * <code class="highlighter-rouge">4</code></td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">mm</code></td>
+    </tr>
+    <tr>
+      <td>ut_b</td>
+      <td style="text-align: center">后侧超声</td>
+      <td style="text-align: center">uint16 * <code class="highlighter-rouge">4</code></td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">mm</code></td>
+    </tr>
+    <tr>
+      <td>moto_state</td>
+      <td style="text-align: center">电机状态</td>
+      <td style="text-align: center">uint8</td>
+      <td style="text-align: right"><code class="highlighter-rouge">0:stop 1:running</code> 左侧第0位 右侧第一位</td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>mile</td>
+      <td style="text-align: center">总里程</td>
+      <td style="text-align: center">uint16</td>
+      <td style="text-align: right"> </td>
+      <td style="text-align: right"><code class="highlighter-rouge">mm</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="用ros系统控制麦克纳姆车">用ROS系统控制麦克纳姆车</h2>
+
+<p>板载的A33处理器并不能运行ROS操作系统，需要通过外接mini PC来完成。MiniPC直接和板子上的STM32进行通讯，在ros模式下，我们需要禁用板载的寻磁传感器功能，将这个口用来做miniPC和STM32的通讯。这里为了调试方便，我们暂时使用了ascii码的方式来做。</p>
+
+<p>MiniPC-&gt;STM32</p>
+
+<p>命令是变长的，用字母作为命令头开始，紧接着数字，最后用\n结束，例如向前运动一整圈就是</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>X10 \n
+</code></pre>
+</div>
+
+<p>格式如下</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令头</th>
+      <th>数字</th>
+      <th>意义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X</td>
+      <td>-32768～32768</td>
+      <td>前后运动</td>
+    </tr>
+    <tr>
+      <td>Y</td>
+      <td>同上</td>
+      <td>左右平移</td>
+    </tr>
+    <tr>
+      <td>Z</td>
+      <td>同上</td>
+      <td>原地旋转</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>同上</td>
+      <td>左前-右后方向</td>
+    </tr>
+    <tr>
+      <td>B</td>
+      <td>同上</td>
+      <td>右前-左后方向</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>STM32-&gt;MiniPC</p>
+
+<p>命令是变长的，每行含有两个字母S和V，各自接一个数字，最后用\n结束。S后面的数字是当前里程，V后面的数字是当前速度。例如，当前已经以4 centRound/second的速度运行了500 centRound，则输出是</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>V4 S500 \n
+</code></pre>
+</div>
+
+<h2 id="麦克纳姆车硬件接线">麦克纳姆车硬件接线</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">板上电机端口</th>
+      <th style="text-align: center">麦克纳姆功能链接</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">X电机端口</td>
+      <td style="text-align: center">左前</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Y电机端口</td>
+      <td style="text-align: center">右前</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E0电机端口</td>
+      <td style="text-align: center">左后</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E1电机端口</td>
+      <td style="text-align: center">右后</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>电机改成XYZE0</p>
+
+<p>超声接usart2</p>
+
+<p>寻磁接usart3</p>
+
+<p>sv接x_max</p>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/10/30/rayland-dual-on-agv/">用锐蓝dual主板控制AGV小车
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/01/18/rayland-SLA-instructions/">rayland-SLA主板使用说明</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/" data-title="用rayland-dual主板控制麦克纳姆车 控制协议" data-url="http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

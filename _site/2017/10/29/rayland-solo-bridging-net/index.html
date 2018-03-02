@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Solo主板如何接两个网卡</title>
+    <meta name="description" content="SOLO 是我们针对DLP应用出的一款主板，有三个USB口，所以肯定可以接3个USB网卡，目前可以确定的是一定要接两个的。一个是接H3，另一个是接大屏幕。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/10/29/rayland-solo-bridging-net/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>Solo主板如何接两个网卡</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2017-10-29
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#SLA" title="Tag: SLA" rel="tag">SLA</a>&nbsp;
+    
+        <a href="/tag/#DLP" title="Tag: DLP" rel="tag">DLP</a>&nbsp;
+    
+        <a href="/tag/#SOLO" title="Tag: SOLO" rel="tag">SOLO</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <p><code class="highlighter-rouge">SOLO</code> 是我们针对<code class="highlighter-rouge">DLP</code>应用出的一款主板，有<code class="highlighter-rouge">三个USB口</code>，所以肯定可以接<code class="highlighter-rouge">3个USB网卡</code>，目前可以确定的是一定要接两个的。一个是接H3，另一个是接大屏幕。</p>
+
+<p>接好之后，在cmd里面运行</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c">#adb shell</span>
+</code></pre>
+</div>
+<p>能看到如下的输出</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>Z:<span class="se">\下</span>载<span class="se">\a</span>db&gt;adb shell
+root@astar-y3:/ <span class="c"># netcfg</span>
+netcfg
+ip6tnl0  DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
+00:00:00
+tunl0    DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
+00:00:00
+sit0     DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
+00:00:00
+gre0     DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
+00:00:00
+eth0     UP                               192.168.199.4/24  0x00001043 00:e0:4c:
+36:24:cf
+eth1     UP                                192.168.99.4/24  0x00001043 00:e0:4c:
+36:06:20
+lo       UP                                   127.0.0.1/8   0x00000049 00:00:00:
+00:00:00
+root@astar-y3:/ <span class="c">#</span>
+</code></pre>
+</div>
+<p>接着运行 busybox route命令，可以看到很完美的，网络被分成了两个网段分别是192.168.99.0网段和
+192.168.199.0网段，子网掩码都是24个1。</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>Z:<span class="se">\下</span>载<span class="se">\a</span>db&gt;adb shell
+root@astar-y3:/ <span class="c"># busybox route</span>
+busybox route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.99.0    <span class="k">*</span>               255.255.255.0   U     0      0        0 eth1
+192.168.199.0   <span class="k">*</span>               255.255.255.0   U     0      0        0 eth0
+root@astar-y3:/ <span class="c">#</span>
+</code></pre>
+</div>
+<p>如果我们把h3连接到eth0上面，并且把h3自己的地址设置为192.168.199.3。
+如果我们把大平板连接到eth1上面，并且把大平板自己的地址设置为192.168.99.3。
+那么就可以分别访问。可以用ping来验证一下。
+这里会用到一个ping的新参数</p>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c">#ping -I eth0 192.168.199.3</span>
+<span class="c">#ping -I eth1 192.168.99.3</span>
+</code></pre>
+</div>
+<p>用-I参数来指定ping的端口</p>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/09/DLP-instructions/">rayland-DLP主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/10/29/FDM-ACC/">Sailfish 固件的加速度性能分析</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/10/29/on-board-driver/">4988 vs DRV8825</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2017/10/29/rayland-solo-bridging-net/" data-title="Solo主板如何接两个网卡" data-url="http://localhost:4000/2017/10/29/rayland-solo-bridging-net/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

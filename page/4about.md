@@ -10,7 +10,7 @@ icon: heart
 
 ## 关于锐蓝
 
-* 2014.12成立
+* 成立于2014.12
 
 * 主营业务为3D打印的ODM和OEM服务
 
@@ -28,6 +28,9 @@ icon: heart
 * 2016.10.5 完成了这个博客主题的第二版更新。
 
 ## 友情链接
+
+* [Chenjy](https://chenjy1225.github.io/)
+
 
 ## Comments
 

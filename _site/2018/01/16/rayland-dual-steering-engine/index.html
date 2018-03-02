@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>rayland-dual主板控制舵机</title>
+    <meta name="description" content="本文介绍了如何使用RAYLAND-DUAL主板的电机输出接口来控制舵机">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/01/16/rayland-dual-steering-engine/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>rayland-dual主板控制舵机</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-01-16
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#3D打印" title="Tag: 3D打印" rel="tag">3D打印</a>&nbsp;
+    
+        <a href="/tag/#FDM" title="Tag: FDM" rel="tag">FDM</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#舵机基本参数" id="markdown-toc-舵机基本参数">舵机基本参数</a></li>
+  <li><a href="#基本参数" id="markdown-toc-基本参数">基本参数</a></li>
+</ul>
+<p>本文介绍了如何使用<code class="highlighter-rouge">RAYLAND-DUAL</code>主板的电机输出接口来控制舵机</p>
+
+<h2 id="舵机基本参数">舵机基本参数</h2>
+
+<p>RAYLAND-DUAL可以用来控制舵机，目前暂时只支持脉冲宽度调制的舵机。脉冲宽度调制的舵机能接受<code class="highlighter-rouge">1ms&lt;2ms</code>脉宽的。其中<code class="highlighter-rouge">1ms</code>和<code class="highlighter-rouge">2ms</code>分别对应最左和最右位置，<code class="highlighter-rouge">1.5ms</code>对应中间位置。</p>
+
+<div align="center">
+<img src="/images/F384E714-1E01-4CA5-832F-39D6FA36AAA2.png" height="240" width="360" /></div>
+
+<p>这是一款典型舵机的工作参数</p>
+
+<div align="center">
+<img src="/images/DB3D289D-2ABF-4844-9981-C469354DF5E4.png" height="360" width="360" /></div>
+
+<p>综合上面两个图，舵机的控制典型值有下面三个</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>典型值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>脉冲宽度范围</td>
+      <td>1ms～2ms</td>
+    </tr>
+    <tr>
+      <td>脉冲周期</td>
+      <td>20ms</td>
+    </tr>
+    <tr>
+      <td>电压</td>
+      <td>4.8v～6V</td>
+    </tr>
+    <tr>
+      <td>死区</td>
+      <td>5us</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>脉冲宽度范围处以死去就是舵机的角度分辨率
+<script type="math/tex">LSB = \frac{\Delta_{width}}{T}=1ms/5us = 200</script>
+所以控制一个舵机的需要一个byte的数据量。</p>
+
+<h2 id="基本参数">基本参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>尺寸</th>
+      <th>115×93 mm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>重量</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>工作温度</td>
+      <td>-20～65℃</td>
+    </tr>
+    <tr>
+      <td>主处理器主频</td>
+      <td>1.4GHz</td>
+    </tr>
+    <tr>
+      <td>主处理器类型</td>
+      <td>4核 Cortex A7</td>
+    </tr>
+    <tr>
+      <td>协处理器</td>
+      <td>72MHz</td>
+    </tr>
+    <tr>
+      <td>内存容量</td>
+      <td>1Gbytes</td>
+    </tr>
+    <tr>
+      <td>Flash</td>
+      <td>4Gbytes</td>
+    </tr>
+    <tr>
+      <td>最大外接Flash</td>
+      <td>32Gbytes</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/18/rayland-SLA-instructions/">rayland-SLA主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-solo-instructions/">rayland-solo主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-dual-instructions/">rayland-dual主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/09/DLP-instructions/">rayland-DLP主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/07/E5CC-temp-control-manual/">E5CC温控器控制手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/10/29/on-board-driver/">4988 vs DRV8825
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/01/10/rayland-solo-instructions/">rayland-solo主板使用说明</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/01/18/rayland-SLA-instructions/">rayland-SLA主板使用说明</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/01/16/rayland-dual-steering-engine/" data-title="rayland-dual主板控制舵机" data-url="http://localhost:4000/2018/01/16/rayland-dual-steering-engine/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

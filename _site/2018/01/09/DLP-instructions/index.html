@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>rayland-DLP主板使用说明</title>
+    <meta name="description" content="Rayland-DLP是锐蓝科技自主研发的新产品，通过HDMI输出视频到LCD或者DLP显示端，完成树脂材料的光固化，是目前低成本高精度的打印方案。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/01/09/DLP-instructions/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>rayland-DLP主板使用说明</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-01-09
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#DLP" title="Tag: DLP" rel="tag">DLP</a>&nbsp;
+    
+        <a href="/tag/#3D打印" title="Tag: 3D打印" rel="tag">3D打印</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#软件系统" id="markdown-toc-软件系统">软件系统</a>    <ul>
+      <li><a href="#源码和镜像下载" id="markdown-toc-源码和镜像下载">源码和镜像下载</a></li>
+    </ul>
+  </li>
+  <li><a href="#电路连接" id="markdown-toc-电路连接">电路连接</a></li>
+  <li><a href="#烧录镜像" id="markdown-toc-烧录镜像">烧录镜像</a>    <ul>
+      <li><a href="#在rayland-dlp上安装镜像" id="markdown-toc-在rayland-dlp上安装镜像">在Rayland-DLP上安装镜像</a>        <ul>
+          <li><a href="#用win32diskimager烧录镜像" id="markdown-toc-用win32diskimager烧录镜像">用win32DiskImager烧录镜像</a></li>
+          <li><a href="#烧录自检镜像" id="markdown-toc-烧录自检镜像">烧录自检镜像</a></li>
+          <li><a href="#烧录打印镜像" id="markdown-toc-烧录打印镜像">烧录打印镜像</a></li>
+        </ul>
+      </li>
+      <li><a href="#在rayland-solodualpro上安装apk" id="markdown-toc-在rayland-solodualpro上安装apk">在Rayland-solo/dual/pro上安装APK</a>        <ul>
+          <li><a href="#在app中调整曝光屏分辨率" id="markdown-toc-在app中调整曝光屏分辨率">在APP中调整曝光屏分辨率</a></li>
+        </ul>
+      </li>
+      <li><a href="#故障排除" id="markdown-toc-故障排除">故障排除</a>        <ul>
+          <li><a href="#无法获取分辨率" id="markdown-toc-无法获取分辨率">无法获取分辨率</a></li>
+          <li><a href="#色域不正常" id="markdown-toc-色域不正常">色域不正常</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#客户打印样品" id="markdown-toc-客户打印样品">客户打印样品</a></li>
+</ul>
+
+<p><code class="highlighter-rouge">Rayland-DLP</code>是锐蓝科技自主研发的新产品，通过<code class="highlighter-rouge">HDMI</code>输出视频到<code class="highlighter-rouge">LCD</code>或者<code class="highlighter-rouge">DLP</code>显示端，完成树脂材料的光固化，是目前低成本高精度的打印方案。</p>
+
+<p><code class="highlighter-rouge">Rayland-DLP</code>无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括<code class="highlighter-rouge">Rayland-dual</code>，<code class="highlighter-rouge">Rayland-solo</code>，<code class="highlighter-rouge">Rayland-pro</code>。</p>
+
+<h2 id="软件系统">软件系统</h2>
+
+<p>Rayland-DLP是基于著名的开源操作系统Armbian开发的。工作原理很简单，从usb口接收来自电机驱动版的图像，将图像用pygame-python进行渲染之后从hdmi口进行输出。以下是我们依赖的这两个项目的链接。</p>
+
+<p><a href="http://www.pygame.org/news">pygame 主页</a></p>
+
+<p><a href="https://www.armbian.com">armbian 主页</a></p>
+
+<h3 id="源码和镜像下载">源码和镜像下载</h3>
+
+<p>基于GPL协议，我们也开放了我们的img文件和程序源码，请大家到百度网盘下载。</p>
+
+<p><a href="https://pan.baidu.com/s/1c2TXdUK">img和源码下载链接</a></p>
+
+<h2 id="电路连接">电路连接</h2>
+
+<p>目前的Rayland-DLP一共有两个规格，使用方法完全一样，唯一的区别是内存大小导致的支持最大分辨率的差异。</p>
+
+<div align="center">
+<img src="/images/99F8292C-D5C8-467D-9F9A-7566435DCB46.png" height="450" width="600" /></div>
+
+<p>Rayland-DLP主板上共有两个客户用接口，分别为：</p>
+
+<ol>
+  <li>
+    <p>HDMI接口</p>
+  </li>
+  <li>
+    <p>usb接口（接dual/solo/pro板）</p>
+  </li>
+</ol>
+
+<p>这两个接口如下图所示</p>
+
+<div align="center">
+<img src="/images/dlp_interface.jpg" height="300" width="600" /></div>
+
+<p>Rayland-DLP无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括Rayland-dual，Rayland-solo，Rayland-pro。在本章实例中，使用的电机驱动板为Rayland-dual。</p>
+
+<p>本系统由Rayland-DLP+曝光屏，Rayland-dual+控制屏，以及电机系统组成。电路链接方法如下图所示</p>
+
+<div align="center">
+<img src="/images/dlp_in_circuit.jpg" height="450" width="600" /></div>
+
+<p><em>注意</em>如果通过USB口单独给Rayland-DLP供电时，请使用供电电流超过1A的电源，普通的USB2.0电源可能导致Rayland-DLP的主CPU无法启动</p>
+
+<h2 id="烧录镜像">烧录镜像</h2>
+
+<p>镜像是IMG格式的文件，在linux/macOS上用dd进行读写，在windows平台上用win32diskimager烧写</p>
+
+<h3 id="在rayland-dlp上安装镜像">在Rayland-DLP上安装镜像</h3>
+<h4 id="用win32diskimager烧录镜像">用win32DiskImager烧录镜像</h4>
+
+<p>win32diskImager是windows平台上的镜像读取和烧录软件。使用是需要指定三个选项</p>
+
+<ol>
+  <li>镜像文件，在Image File选项框里面</li>
+  <li>TF卡设备在Device下来菜单里面</li>
+  <li>操作动作，是read（从tf拷贝出.img）文件还是 write（将.img文件烧入TF卡）</li>
+</ol>
+
+<div align="center">
+<img src="/images/win32disk.jpg" height="200" width="500" /></div>
+
+<p>注意自检镜像和打印镜像都使用这个工具进行烧录</p>
+
+<p>烧录时的进度如下图所示。</p>
+
+<div align="center">
+<img src="/images/1E3EF4C2-BE6E-48DA-9899-400BBE58E3E6.png" height="200" width="500" /></div>
+
+<h4 id="烧录自检镜像">烧录自检镜像</h4>
+
+<p>自检镜像是用来获取曝光屏的基本参数的，基本参数包括hdmi_timing等参数。</p>
+
+<p>使用步骤如下：</p>
+
+<ol>
+  <li>烧录selftest.img文件,这个tf卡以下简称亮屏卡</li>
+</ol>
+
+<div align="center">
+<img src="/images/selftest_tf.png" height="500" width="500" /></div>
+
+<ol>
+  <li>把亮屏卡插入tf卡槽</li>
+</ol>
+
+<div align="center">
+<img src="/images/to_tf_slot.png" height="500" width="500" /></div>
+
+<ol>
+  <li>
+    <p>把hdmi插入hdmi口 HDMI线另一端 接屏幕</p>
+  </li>
+  <li>
+    <p>供电插入中间的microUSB插口、观察屏幕是否有显示。</p>
+  </li>
+</ol>
+
+<div align="center">
+<img src="/images/cable_on.png" height="500" width="500" /></div>
+
+<ol>
+  <li>屏幕出现这样字样、说明调试成功</li>
+</ol>
+
+<div align="center">
+<img src="/images/FD6337D6-6052-450D-AF8C-FA4009E95941.png" height="500" width="600" /></div>
+
+<p>如需定制分辨率，请将这个屏幕截取发送到客服QQ上，打了红框的这几行是关键参数，请务必拍摄清楚。</p>
+
+<h4 id="烧录打印镜像">烧录打印镜像</h4>
+
+<p>用上面的方法将print.img烧录到tf卡中，以下简称打印卡。打印镜像是用来进行DLP打印的，安装上面的电路进行链接时，在开机状态下曝光屏将出现如下的启动画面。</p>
+
+<p><img src="/images/A210B3C5-E56A-40C2-AA9A-7AD6A1273B20.png" alt="A210B3C5-E56A-40C2-AA9A-7AD6A1273B20" /></p>
+
+<h3 id="在rayland-solodualpro上安装apk">在Rayland-solo/dual/pro上安装APK</h3>
+<p>Rayland-solo/dual/pro上需要专门的APK来处理电机运动和投影图像。打印时UI屏的输入如下图所示。</p>
+
+<p><img src="/images/dlp_on_screen.png" alt="dlp_on_screen" /></p>
+
+<h4 id="在app中调整曝光屏分辨率">在APP中调整曝光屏分辨率</h4>
+
+<p>在这个页面里可以看到曝光屏分辨率和屏幕接口种类</p>
+
+<p><img src="/images/E1DF85AB-F16D-4EF4-9262-AFF589768F0F.png" alt="E1DF85AB-F16D-4EF4-9262-AFF589768F0F" /></p>
+
+<p>这个页面是当前支持的所有分辨率种类，通过点击可以选择</p>
+
+<p><img src="/images/7AB26883-A95F-48AB-9E0E-CE3ADF5EB59C.png" alt="7AB26883-A95F-48AB-9E0E-CE3ADF5EB59C" /></p>
+
+<p>在选择了分辨率之后，系统会自动让你选择接口类型，是HDMI接口屏还是DVI接口屏。</p>
+
+<p><img src="/images/AF52A490-5969-4ACE-80AA-5CAED13D3FF1.png" alt="AF52A490-5969-4ACE-80AA-5CAED13D3FF1" /></p>
+
+<p>选择曝光屏接口类型后，曝光屏系统会自动重启。</p>
+
+<h3 id="故障排除">故障排除</h3>
+
+<h4 id="无法获取分辨率">无法获取分辨率</h4>
+
+<p>app 里无法显示分辨率，一直显示“正在设置”</p>
+
+<div align="center">
+<img src="/images/E9FEFAB4-4F63-4A92-BC81-6B23ECA56CA7.png" height="600" width="450" /></div>
+
+<p>将烧录好的打印卡插入H3板将打印卡插入TF卡槽，然后用mircroUSB连接到电脑上。链接方法如下图所示</p>
+
+<p><img src="/images/contoPC.jpeg" alt="contoPC" /></p>
+
+<p>电脑上会多出一个有线网卡，请将这个网卡的IP地址如下设置为固定值</p>
+
+<p><img src="/images/IPof8152.png" alt="IPof8152" /></p>
+
+<p>如果您使用的是Windows操作系统，那么需要安装RTL8152网卡的驱动，在不安装驱动的情况下你可以在设备管理器里面看到如下的图</p>
+
+<p><img src="/images/4CE930FB-35C5-445B-A522-9BB9AB3DC293.png" alt="4CE930FB-35C5-445B-A522-9BB9AB3DC293" /></p>
+
+<p>之后用ping命令查看192.168.199.3 这一IP是否正常链接，如果不能链接则打印卡没有烧录成功，请重新烧录。</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ping 192.168.199.3
+PING 192.168.199.3 <span class="o">(</span>192.168.199.3<span class="o">)</span>: 56 data bytes
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>0 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.633 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>1 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.409 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>2 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.486 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>3 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.480 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>4 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.482 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>5 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.481 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>6 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.516 ms
+64 bytes from 192.168.199.3: <span class="nv">icmp_seq</span><span class="o">=</span>7 <span class="nv">ttl</span><span class="o">=</span>64 <span class="nb">time</span><span class="o">=</span>0.437 ms
+</code></pre>
+</div>
+
+<p>当链接修复正常后应该显示如下的信息</p>
+
+<p><img src="/images/ABEBC8FC-ED24-410B-9D5E-523627262EA7.png" alt="ABEBC8FC-ED24-410B-9D5E-523627262EA7" /></p>
+
+<h4 id="色域不正常">色域不正常</h4>
+
+<p>启动后色域显示不正常，整个屏幕发红，但是可以显示出打印图像。请参考“在APP中调整曝光屏分辨率”这一章节，切换屏幕接口类型。</p>
+
+<p><img src="/images/0B726BBC-1E25-4DE4-9A0B-8EC84F5B5CC2.png" alt="0B726BBC-1E25-4DE4-9A0B-8EC84F5B5CC2" /></p>
+
+<h2 id="客户打印样品">客户打印样品</h2>
+
+<p>艾菲尔铁塔</p>
+
+<p><img src="/images/838AB13E-5CC9-42B6-B58E-90DF634E9CB1.png" alt="838AB13E-5CC9-42B6-B58E-90DF634E9CB1" /></p>
+
+<p>戒指</p>
+
+<p><img src="/images/6D4F6B36-2CB5-45FE-A514-346ED341A81E.png" alt="6D4F6B36-2CB5-45FE-A514-346ED341A81E" /></p>
+
+<p>鞋底</p>
+
+<p><img src="/images/8AFE6623-5B7B-45B2-9CEC-1B897D1FDA62.png" alt="8AFE6623-5B7B-45B2-9CEC-1B897D1FDA62" /></p>
+
+<p>一堆鞋底</p>
+
+<p><img src="/images/E6F78316-65D9-4CA5-AEB6-914DF7DC394A.png" alt="E6F78316-65D9-4CA5-AEB6-914DF7DC394A" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/18/rayland-SLA-instructions/">rayland-SLA主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/16/rayland-dual-steering-engine/">rayland-dual主板控制舵机
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-solo-instructions/">rayland-solo主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/10/rayland-dual-instructions/">rayland-dual主板使用说明
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/07/E5CC-temp-control-manual/">E5CC温控器控制手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2017/10/29/on-board-driver/">4988 vs DRV8825
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/01/07/E5CC-temp-control-manual/">E5CC温控器控制手册</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/01/10/rayland-dual-instructions/">rayland-dual主板使用说明</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/01/09/DLP-instructions/" data-title="rayland-DLP主板使用说明" data-url="http://localhost:4000/2018/01/09/DLP-instructions/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>
