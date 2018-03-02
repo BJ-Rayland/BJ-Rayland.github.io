@@ -5,18 +5,17 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 02 Mar 2018 16:29:19 +0800</pubDate>
-    <lastBuildDate>Fri, 02 Mar 2018 16:29:19 +0800</lastBuildDate>
+    <pubDate>Fri, 02 Mar 2018 16:49:12 +0800</pubDate>
+    <lastBuildDate>Fri, 02 Mar 2018 16:49:12 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>rayland-SLA主板使用说明</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;content
-[[{:toc}]]&lt;/li&gt;
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;RAYLAND-SLA是乐轩锐蓝推出的集振镜控制和电机控制于一体的控制板。性能可以对标ScanLab的同类型板卡。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-SLA&lt;/code&gt;是乐轩锐蓝推出的&lt;strong&gt;集振镜控制&lt;/strong&gt;和&lt;strong&gt;电机控制&lt;/strong&gt;于一体的控制板。性能可以对标ScanLab的同类型板卡。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/1B9E6A5E-FA15-4CD4-9C86-285A7B57FAF6.png&quot; alt=&quot;1B9E6A5E-FA15-4CD4-9C86-285A7B57FAF6&quot; /&gt;&lt;/p&gt;
 
@@ -71,6 +70,8 @@
         <guid isPermaLink="true">http://localhost:4000/2018/01/18/rayland-SLA_USERMANUAL/</guid>
         
         <category>3D打印</category>
+        
+        <category>FDM</category>
         
         
         <category>FDM</category>
@@ -173,6 +174,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;p&gt;x&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 Jan 2018 07:00:00 +0800</pubDate>
         <link>http://localhost:4000/2018/01/16/rayland-dual_AN_SWEEPER/</link>
