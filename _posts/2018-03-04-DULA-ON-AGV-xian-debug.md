@@ -10,7 +10,7 @@ author: Song Lei
 * content
 {:toc}
 
-与普通的小车不同，杨总的小车主要是使用了usart1和usart2口作为调试口，调试命令从usart1口输入，从usart2输出，并且对电机发生作用。
+与普通的小车不同，杨总的小车主要是使用了`usart1`和`usart2`口作为调试口，调试命令从`usart1`口输入，从`usart2`输出，并且对电机发生作用。
 
 
 
