@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "Solo主板如何接两个网卡"
+title:  "Rayland-SOLO主板如何接两个网卡"
 date:   2017-10-29 07:00:00 +0800
 categories: SLA
-tags: SLA DLP SOLO 
+tags: SLA DLP Rayland-SOLO SongLei
 author: Song Lei
 ---
 
 * content
 {:toc}
-`SOLO` 是我们针对`DLP`应用出的一款主板，有`三个USB口`，所以肯定可以接`3个USB网卡`，目前可以确定的是一定要接两个的。一个是接H3，另一个是接大屏幕。
+`Rayland-SOLO` 是我们针对`DLP`应用出的一款主板，有`三个USB口`，所以肯定可以接`3个USB网卡`，目前可以确定的是一定要接两个的。一个是接H3，另一个是接大屏幕。
 
 
 

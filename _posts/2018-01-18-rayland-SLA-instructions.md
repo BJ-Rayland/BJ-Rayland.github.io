@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "rayland-SLA主板使用说明"
+title:  "Rayland-SLA主板使用说明"
 date:   2018-01-18 07:00:00 +0800
 categories: FDM 
-tags:  3D打印 FDM
+tags:  3D打印 FDM Rayland-SLA SongLei
 author: Song Lei
 
 ---
@@ -11,7 +11,7 @@ author: Song Lei
 * content
 {:toc}
 
-`RAYLAND-SLA`是乐轩锐蓝推出的集振镜控制和电机控制于一体的控制板。性能可以对标ScanLab的同类型板卡。
+`Rayland-SLA`是乐轩锐蓝推出的集振镜控制和电机控制于一体的控制板。性能可以对标`ScanLab`的同类型板卡。
 
 
 

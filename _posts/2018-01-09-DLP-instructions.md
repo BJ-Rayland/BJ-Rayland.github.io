@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "rayland-DLP主板使用说明"
+title:  "Rayland-DLP主板使用说明"
 date:   2018-01-09 07:00:00 +0800
 categories: DLP 
-tags: DLP 3D打印 
+tags: DLP 3D打印 Rayland-DLP SongLei
 author: Song Lei
 
 typora-copy-images-to: ../images
@@ -16,7 +16,7 @@ typora-copy-images-to: ../images
 
 
 
-`Rayland-DLP`无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括`Rayland-dual`，`Rayland-solo`，`Rayland-pro`。
+`Rayland-DLP`无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括`Rayland-DUAL`，`Rayland-SOLO`，`Rayland-PRO`。
 
 ## 软件系统
 

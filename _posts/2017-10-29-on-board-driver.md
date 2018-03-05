@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 4988 vs DRV8825
+title: 步进电机驱动 4988 vs DRV8825
 date: '2017-10-29 21:00:00 +0800'
 categories: FDM
-tags: FDM 3D打印
+tags: FDM 3D打印 SongLei
 author: Song Lei
 published: true
 ---
@@ -11,7 +11,7 @@ published: true
 * content
 {:toc}
 
-`4988` 和`DRV8825`的性能对比
+步进电机驱动 `4988` 和`DRV8825`的性能对比
 
 
 

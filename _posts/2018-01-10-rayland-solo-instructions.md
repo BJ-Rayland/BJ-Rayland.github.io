@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "rayland-solo主板使用说明"
+title:  "Rayland-SOLO主板使用说明"
 date:   2018-01-10 07:00:00 +0800
 categories: FDM 
-tags:  3D打印 
+tags:  3D打印 Rayland-SOLO SongLei
 author: Song Lei
 ---
 
 * content
 {:toc}
 
-`RAYLAND-SOLO`是在`RAYLAND-DUAL`基础上的精简型嵌入式电控主板，能同时支持四路异构电机。主板具有高精度、易开发、通用性强等特点，能够灵活快捷地集成到如3D打印机、机器人等智能设备中，为各类垂直行业应用提供高效的解决方案。
+`Rayland-SOLO`是在`Rayland-DUAL`基础上的精简型嵌入式电控主板，能同时支持四路异构电机。主板具有高精度、易开发、通用性强等特点，能够灵活快捷地集成到如3D打印机、机器人等智能设备中，为各类垂直行业应用提供高效的解决方案。
 
 
 

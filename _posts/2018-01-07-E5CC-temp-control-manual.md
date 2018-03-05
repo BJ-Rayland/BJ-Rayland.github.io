@@ -2,15 +2,15 @@
 layout: post
 title:  "E5CC温控器控制手册"
 date:   2018-01-07 07:00:00 +0800
-categories: SLA
-tags: FDM 3D打印 
+categories: SLA SongLei
+tags: FDM 3D打印 Rayland-DUAL
 author: Song Lei
 ---
 
 * content
 {:toc}
 
-本文介绍了如何用`Rayland-dual`主板连接`modbus`从站来控制温控器
+本文介绍了如何用`Rayland-DUAL`主板连接`modbus`从站来控制温控器
 
 
 
@@ -52,9 +52,10 @@ uint16_t crc16(uint8_t array[],uint8_t len){
 
 ## 命令列表
 
-![e5cc](../images/e5cc.png)
 
-![e5cc_address_tab](../images/e5cc_address_tab.png)
+![e5cc]({{site.baseurl}}/images/e5cc.png)
+
+![e5cc_address_tab]({{site.baseurl}}/images/e5cc_address_tab.png)
 
 ### 读取当前温度
 

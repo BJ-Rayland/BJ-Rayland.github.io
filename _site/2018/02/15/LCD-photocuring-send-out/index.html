@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>LCD光固化发货测试流程</title>
+    <meta name="description" content="LCD光固化发货测试流程">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>LCD光固化发货测试流程</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-02-15
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#FDM" title="Tag: FDM" rel="tag">FDM</a>&nbsp;
+    
+        <a href="/tag/#3D打印" title="Tag: 3D打印" rel="tag">3D打印</a>&nbsp;
+    
+        <a href="/tag/#SongLei" title="Tag: SongLei" rel="tag">SongLei</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#环境搭建" id="markdown-toc-环境搭建">环境搭建</a>    <ul>
+      <li><a href="#准备材料" id="markdown-toc-准备材料">准备材料</a></li>
+      <li><a href="#接线" id="markdown-toc-接线">接线</a></li>
+    </ul>
+  </li>
+  <li><a href="#测试要点" id="markdown-toc-测试要点">测试要点</a>    <ul>
+      <li><a href="#启动过程" id="markdown-toc-启动过程">启动过程</a></li>
+      <li><a href="#h3连接测试" id="markdown-toc-h3连接测试">H3连接测试</a></li>
+      <li><a href="#打印流程测试" id="markdown-toc-打印流程测试">打印流程测试</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>LCD光固化发货测试流程</p>
+
+<h3 id="环境搭建">环境搭建</h3>
+
+<h5 id="准备材料">准备材料</h5>
+
+<ul>
+  <li>
+    <p>已烧录好最新镜像文件的TF卡1张；</p>
+  </li>
+  <li>
+    <p>H3主板1块;</p>
+  </li>
+  <li>
+    <p>可以正常显示的曝光屏一块以及配套电源；</p>
+  </li>
+  <li>
+    <p>已烧录好最新Hex的Solo主板或Dual主板1块;</p>
+  </li>
+  <li>
+    <p>已烧录好最新镜像文件和光固化软件的核心板1块;</p>
+  </li>
+  <li>
+    <p>触摸屏1块，屏幕排线1条;</p>
+  </li>
+  <li>
+    <p>HDMI连接线1条;</p>
+  </li>
+  <li>
+    <p>带Micro USB接口的数据线1条;</p>
+  </li>
+  <li>
+    <p>4988驱动1个，步进电机1个，碰撞开关1个；</p>
+  </li>
+  <li>
+    <p>12V电源1个；</p>
+  </li>
+  <li>
+    <p>带有CWS测试文件的U盘或SD卡；</p>
+
+    <p>​</p>
+  </li>
+</ul>
+
+<h5 id="接线">接线</h5>
+
+<ul>
+  <li>TF卡插H3主板卡槽；</li>
+  <li>核心板插Solo主板或Dual主板插槽；</li>
+  <li>4988模块插Solo主板或Dual主板Z轴插槽，<strong>注意4988模块上箭头指向主板外沿</strong>；</li>
+  <li>步进电机接Solo主板或Dual主板Z轴电机接口；</li>
+  <li>碰撞开关接Solo主板或Dual主板Z Min接口；</li>
+  <li>用排线连接触摸屏与Solo主板或Dual主板；</li>
+  <li>用带Micro USB接口的数据线连接H3主板与Solo主板或Dual主板；</li>
+  <li>用HDMI线连接H3主板与曝光屏，曝光屏用其配套电源供电；</li>
+  <li>确保以上所有步骤后用12V电源给Solo主板或Dual主板供电开始测试；</li>
+</ul>
+
+<p><img src="/images/dlp_in_circuit.jpg" alt="连接图" /></p>
+
+<h3 id="测试要点">测试要点</h3>
+
+<h5 id="启动过程">启动过程</h5>
+
+<ul>
+  <li>
+    <p>H3主板指示灯点亮；</p>
+  </li>
+  <li>
+    <p>曝光屏背光开启；</p>
+  </li>
+  <li>
+    <p>触摸屏显示正常；</p>
+  </li>
+  <li>
+    <p>软件自动启动；</p>
+
+    <p>​</p>
+  </li>
+</ul>
+
+<h5 id="h3连接测试">H3连接测试</h5>
+
+<ul>
+  <li>
+    <p>软件启动后，右上角的连接状态为已连接；</p>
+
+    <p><img src="/images/main_page.png" alt="主界面" /></p>
+  </li>
+  <li>
+    <p>点击“设置–光固化设置”，按照准备的曝光屏设置曝光屏宽(475），高(295)，分辨率(1680*1050)，接口(HDMI)。</p>
+
+    <p><img src="/images/set_resolution.png" alt="设置曝光屏参数" /></p>
+  </li>
+  <li>
+    <p>设置后H3板将会自动重启，右上角状态变为已断开，曝光屏在H3启动过程应有图像显示；</p>
+
+    <p><img src="/images/h3_reboot.jpg" alt="h3重启界面" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>重启完成后“曝光屏分辨率”的值变为设置的值，右上角的连接状态变为已连接，设置成功；</p>
+
+    <p><img src="/images/set_resolution_success.png" alt="设置成功" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+</ul>
+
+<p>#####电控测试</p>
+
+<ul>
+  <li>
+    <p>在主界面连续点击空白处10次进入“机器设置”界面，点击“Z轴设置”，给Z轴设置合适的“驱动电压”，“每毫米步进数”，将“碰撞开关位置”设置为“安装在最小”；</p>
+
+    <p><img src="/images/axis_z_config.png" alt="Z轴设置" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>回到主界面点击“维护 – 回零点 – 平台归位到最低点”，电机开始转动，此时触发碰撞开关，电机停止转动。</p>
+
+    <p><img src="/images/home_axis.png" alt="归位" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>回到主界面电机“维护 – 清理”，弹出设置曝光时间，设置5，点击确定后Solo主板或Dual主板out1接口下方led灯点亮，曝光屏显示一张全屏的纯白色图片，5秒后，led灯熄灭，曝光屏显示的白色图片也消失。</p>
+  </li>
+</ul>
+
+<p><img src="/images/expose_full_screen.png" alt="曝光" /></p>
+
+<h5 id="打印流程测试">打印流程测试</h5>
+
+<ul>
+  <li>
+    <p>将带有测试文件的U盘或SD卡插入主板，在主界面点击“模型”进入“模型列表”界面，按住右侧的列表下拉松手刷新，可以刷出测试文件；</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>点击选中测试文件，如果测试文件是CWS格式，左侧进度条会有变化，进度条加载完成后出现3D渲染界面；</p>
+
+    <p><img src="/images/model_list.png" alt="模型列表" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>点击“开始打印”进入打印界面，电机开始转动，触摸屏和曝光屏不显示图片，out1接口下方led灯熄灭状态；</p>
+
+    <p><img src="/images/ready_expose.png" alt="开始打印" /></p>
+
+    <p><img src="/images/out1_close.jpg" alt="准备曝光" /></p>
+  </li>
+  <li>
+    <p>手动触发一次碰撞开关，电机开始反向转动一段距离然后再按原来的方向以更慢的速度转动，此时再触发一次碰撞开关，电机停止转动，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮；</p>
+
+    <p><img src="/images/expose_layer.png" alt="曝光单层" /></p>
+
+    <p><img src="/images/out1_open.jpg" alt="曝光单层" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>几秒后，触摸屏和曝光屏显示的图片消失，同时out1接口下方的led灯自动熄灭，电机在几秒后开始转动，转动时先往一个方向转动一定距离再往另一个方向转动一定距离。</p>
+
+    <p>​</p>
+  </li>
+  <li>
+    <p>几秒后，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮，点击“停止 – 确定”退出打印界面，此时out1接口下方led灯熄灭，曝光屏不显示图像，打印停止；</p>
+
+    <p><img src="/images/stop_print.png" alt="停止打印" /></p>
+
+    <p>​</p>
+
+    <p>​</p>
+  </li>
+</ul>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/05/h3-img-burn/">H3镜像烧录
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/">DLP H3 与 A33通讯协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/">西安杨总AGV调试手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/">RAYLAND RL-150型 SLA打印机数据手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/tianhe-robot-voice/">天和机器人音量调节说明文档
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/25/SLA-Comm-Protocol/">Rayland-SLA 主板控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/01/20/rayland-dual-on-Mecanum/">用Rayland-DUAL主板控制麦克纳姆车 控制协议</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/02/25/SLA-Comm-Protocol/">Rayland-SLA 主板控制协议</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/" data-title="LCD光固化发货测试流程" data-url="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

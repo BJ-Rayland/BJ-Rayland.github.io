@@ -5,12 +5,1780 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 02 Mar 2018 18:36:31 +0800</pubDate>
-    <lastBuildDate>Fri, 02 Mar 2018 18:36:31 +0800</lastBuildDate>
+    <pubDate>Mon, 05 Mar 2018 17:52:44 +0800</pubDate>
+    <lastBuildDate>Mon, 05 Mar 2018 17:52:44 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>用rayland-dual主板控制麦克纳姆车 控制协议</title>
+        <title>H3镜像烧录</title>
+        <description>
+&lt;p&gt;本文介绍&lt;code class=&quot;highlighter-rouge&quot;&gt;H3&lt;/code&gt;镜像烧录的全过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;启动&lt;code class=&quot;highlighter-rouge&quot;&gt;WIN32 Disk Imagr&lt;/code&gt;，将需要烧录的TF接到所用电脑。选择要烧写的镜像，点击&lt;code class=&quot;highlighter-rouge&quot;&gt;Write&lt;/code&gt;&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-1.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;等待烧写完成后，将TF接到H3板上，并用安卓数据线接到电脑上。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-2.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;打开网络设配器，打开H3的网络属性配置。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-3.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-4.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;完成网络配置后，打开PuTTY。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-5.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt;打开CMD，看网络能否PING通。&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-6.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt;输入指令：ping 192.168.199.3&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-7.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt;打开Putty，输入初始账号：root     密码：1234&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-8.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;9.&lt;/strong&gt;输入初始密码：1234    新密码：yxrl2015  确认新密码：yxrl2015&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-9.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;10.&lt;/strong&gt;创建用户账户：账号：fa  密码：fa&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-10.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;11.&lt;/strong&gt;弹出下述界面，输入 y&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-11.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;12.&lt;/strong&gt;弹出一下界面，为正常工作状态&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-12.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;13.&lt;/strong&gt;输入指令：sudo ifconfig  查看IP地址是否正确&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-13.png&quot; /&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;14.&lt;/strong&gt;输入指令： ps –aux&lt;/td&gt;
+      &lt;td&gt;grep c.py 显示如下图&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-14.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;15.&lt;/strong&gt;输入指令：xrandr –display :0.0  显示当前分辨率&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-15.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;16.&lt;/strong&gt;打开winscp，会话协议选为SCP,输入主机名：192.168.199.3&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-16.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;17.&lt;/strong&gt;输入用户名：root&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-17.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;18.&lt;/strong&gt;输入密码：yxrl2015&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-18.png&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;19.&lt;/strong&gt;进入此界面，打开：usr/bin/c.py ，并且进行替换&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-19.png&quot; /&gt;&lt;/div&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-20.png&quot; /&gt;&lt;/div&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/h3-21.png&quot; /&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 05 Mar 2018 15:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/05/h3-img-burn/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/05/h3-img-burn/</guid>
+        
+        <category>FDM</category>
+        
+        <category>MeiXing</category>
+        
+        
+        <category>FDM</category>
+        
+      </item>
+    
+      <item>
+        <title>DLP H3 与 A33通讯协议</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#h3-与-a33通讯协议&quot; id=&quot;markdown-toc-h3-与-a33通讯协议&quot;&gt;H3 与 A33通讯协议&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#从a33到h3&quot; id=&quot;markdown-toc-从a33到h3&quot;&gt;从A33到H3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#从h3到a33&quot; id=&quot;markdown-toc-从h3到a33&quot;&gt;从H3到A33&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DLP H3 与 A33通讯协议&lt;/p&gt;
+
+&lt;h1 id=&quot;h3-与-a33通讯协议&quot;&gt;H3 与 A33通讯协议&lt;/h1&gt;
+
+&lt;h2 id=&quot;从a33到h3&quot;&gt;从A33到H3&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;包头&lt;/th&gt;
+      &lt;th&gt;包长&lt;/th&gt;
+      &lt;th&gt;类型&lt;/th&gt;
+      &lt;th&gt;数据内容&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;查询当前屏幕分辨率&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6+N&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;字符串&lt;/td&gt;
+      &lt;td&gt;告知图片分辨率&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6+N&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;字符串&lt;/td&gt;
+      &lt;td&gt;设置屏幕分辨率&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6+N&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;图片二进制&lt;/td&gt;
+      &lt;td&gt;发送图片&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;显示图片&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;清空屏幕&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6+N&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;STL二进制&lt;/td&gt;
+      &lt;td&gt;发送待切片模型&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6+N&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;字符串&lt;/td&gt;
+      &lt;td&gt;设置切片层高&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0x3A&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;查询分辨率列表&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;从h3到a33&quot;&gt;从H3到A33&lt;/h2&gt;
+
+&lt;p&gt;H3对类型0和类型8的包会做出反馈，反馈内容为字符串&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;查询包类型&lt;/th&gt;
+      &lt;th&gt;反馈内容&lt;/th&gt;
+      &lt;th&gt;典型值&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;resolution_x*resolution_yP刷新率\nOK\n&lt;/td&gt;
+      &lt;td&gt;1920*1080p60\nOK\n&lt;/td&gt;
+      &lt;td&gt;当前分辨率&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;分辨率列表\nOK\n&lt;/td&gt;
+      &lt;td&gt;480i use “-m 480i” or “-m 0”\nOK\n&lt;/td&gt;
+      &lt;td&gt;所有可选分辨率&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+</description>
+        <pubDate>Mon, 05 Mar 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</guid>
+        
+        <category>FDM</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>FDM</category>
+        
+      </item>
+    
+      <item>
+        <title>西安杨总AGV调试手册</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#注意&quot; id=&quot;markdown-toc-注意&quot;&gt;注意&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#dual板图片&quot; id=&quot;markdown-toc-dual板图片&quot;&gt;dual板图片&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#接线方法&quot; id=&quot;markdown-toc-接线方法&quot;&gt;接线方法&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#原始总体接线图&quot; id=&quot;markdown-toc-原始总体接线图&quot;&gt;原始总体接线图&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#杨总版本接线图&quot; id=&quot;markdown-toc-杨总版本接线图&quot;&gt;杨总版本接线图&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#命令解析程序&quot; id=&quot;markdown-toc-命令解析程序&quot;&gt;命令解析程序&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#串口通信参数&quot; id=&quot;markdown-toc-串口通信参数&quot;&gt;串口通信参数&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#控制指令格式&quot; id=&quot;markdown-toc-控制指令格式&quot;&gt;控制指令格式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#命令例子&quot; id=&quot;markdown-toc-命令例子&quot;&gt;命令例子&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;与普通的小车不同，杨总的小车主要是使用了usart1和usart2口作为调试口，调试命令从usart1口输入，从usart2输出，并且对电机发生作用。&lt;/p&gt;
+
+&lt;h2 id=&quot;注意&quot;&gt;注意&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;为了表示usart1口的指令是正确的，从usart2口输出的数据会将关键字符 X Y F替换成A B C。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dual板图片&quot;&gt;dual板图片&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://leisong03.github.io/images/3C198664-D907-4C72-93F4-150CBF516EBA.png&quot; alt=&quot;3C198664-D907-4C72-93F4-150CBF516EBA&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;接线方法&quot;&gt;接线方法&lt;/h2&gt;
+
+&lt;h3 id=&quot;原始总体接线图&quot;&gt;原始总体接线图&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;板上电机端口&lt;/th&gt;
+      &lt;th&gt;AGV功能链接&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;X电机端口&lt;/td&gt;
+      &lt;td&gt;左轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Y电机端口&lt;/td&gt;
+      &lt;td&gt;右轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Z电机端口&lt;/td&gt;
+      &lt;td&gt;无&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E0电机端口&lt;/td&gt;
+      &lt;td&gt;左右轮SV&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2 SV_左，3 SV_右，4GND 直连板接E0DIR和E0EN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E1电机端口&lt;/td&gt;
+      &lt;td&gt;寻磁&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND。(E1DIR和usart3_RX复用，E1STEP和usart3_tx复用)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usart1&lt;/td&gt;
+      &lt;td&gt;rfid&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usart2&lt;/td&gt;
+      &lt;td&gt;超声&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usb口&lt;/td&gt;
+      &lt;td&gt;摄像头&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;VLC免驱摄像头&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;音频输入&lt;/td&gt;
+      &lt;td&gt;单mic&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;音频输出&lt;/td&gt;
+      &lt;td&gt;运放模块&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;杨总版本接线图&quot;&gt;杨总版本接线图&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;板上电机端口&lt;/th&gt;
+      &lt;th&gt;AGV功能链接&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;X电机端口&lt;/td&gt;
+      &lt;td&gt;左轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;del&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/del&gt; &lt;strong&gt;&lt;em&gt;1GND 2 EN 3, STEP 4 DIR 5 SV&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Y电机端口&lt;/td&gt;
+      &lt;td&gt;右轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;del&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/del&gt; &lt;strong&gt;1GND 2 EN 3, STEP 4 DIR 5 SV&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Z_MIN&lt;/td&gt;
+      &lt;td&gt;左轮PG&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;1 PG, 2 GND, 3 5V&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Z_MAX&lt;/td&gt;
+      &lt;td&gt;右轮PG&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;1 PG, 2 GND, 3 5V&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Z电机端口&lt;/td&gt;
+      &lt;td&gt;无&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E0电机端口&lt;/td&gt;
+      &lt;td&gt;左右轮SV&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;del&gt;1GND，2 SV_左，3 SV_右，4GND 直连板接E0DIR和E0EN&lt;/del&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;E1电机端口&lt;/td&gt;
+      &lt;td&gt;寻磁&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND。(E1DIR和usart3_RX复用，E1STEP和usart3_tx复用)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usart1&lt;/td&gt;
+      &lt;td&gt;&lt;del&gt;rfid&lt;/del&gt; &lt;strong&gt;控制命令输入&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usart2&lt;/td&gt;
+      &lt;td&gt;&lt;del&gt;超声&lt;/del&gt; &lt;strong&gt;控制指令输出&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;usb口&lt;/td&gt;
+      &lt;td&gt;摄像头&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;VLC免驱摄像头&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;音频输入&lt;/td&gt;
+      &lt;td&gt;单mic&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;音频输出&lt;/td&gt;
+      &lt;td&gt;运放模块&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;命令解析程序&quot;&gt;命令解析程序&lt;/h2&gt;
+
+&lt;p&gt;对于串口收到数据的解析用如下程序完成：&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART_GetITStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART_IT_RXNE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RESET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;USART_ReceiveData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usart1Ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;usart1Idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;usart1Ready&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+	&lt;span class=&quot;n&quot;&gt;rx1Data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usart1Idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'\n'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;usart1Ready&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strLen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;usartIdx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;usart1Idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'Y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'F'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strLen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rx1Data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+		    &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strLen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		    &lt;span class=&quot;n&quot;&gt;sscanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rx1Data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]));&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;toReplayOverUsart2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;setAxisDir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;USART_ClearITPendingBit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART_IT_RXNE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;从usart2 输出的包的输出程序&lt;/p&gt;
+
+&lt;p&gt;uint8_t strBuf[30];&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;sprintf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strBuf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;A%d B%d C%d&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strBuf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;USART_SendData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EVAL_COM2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strBuf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USART_GetFlagStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EVAL_COM2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;USART_FLAG_TC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RESET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){};&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;串口通信参数&quot;&gt;串口通信参数&lt;/h2&gt;
+
+&lt;p&gt;波特率：9600  8n1&lt;/p&gt;
+
+&lt;h2 id=&quot;控制指令格式&quot;&gt;控制指令格式&lt;/h2&gt;
+
+&lt;p&gt;底盘车通信格式&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;字段1&lt;/th&gt;
+      &lt;th&gt;字段2&lt;/th&gt;
+      &lt;th&gt;字段3&lt;/th&gt;
+      &lt;th&gt;字段4&lt;/th&gt;
+      &lt;th&gt;字段5&lt;/th&gt;
+      &lt;th&gt;字段6&lt;/th&gt;
+      &lt;th&gt;字段7&lt;/th&gt;
+      &lt;th&gt;字段8&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;X&lt;/td&gt;
+      &lt;td&gt;数字1&lt;/td&gt;
+      &lt;td&gt;空格&lt;/td&gt;
+      &lt;td&gt;Y&lt;/td&gt;
+      &lt;td&gt;数字2&lt;/td&gt;
+      &lt;td&gt;F&lt;/td&gt;
+      &lt;td&gt;数字3&lt;/td&gt;
+      &lt;td&gt;换行符&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;数字1左轮正负分别代表前进后退 大小代表转N个10分之1圈&lt;/p&gt;
+
+&lt;p&gt;数字2右轮正负分别代表前进后退大小代表转N个10分之1圈&lt;/p&gt;
+
+&lt;p&gt;数字3代表运行速度 范围为1-30&lt;/p&gt;
+
+&lt;h2 id=&quot;命令例子&quot;&gt;命令例子&lt;/h2&gt;
+
+&lt;p&gt;X10 Y10 F20↵&lt;/p&gt;
+
+&lt;p&gt;车前进1圈，运行速度为20&lt;/p&gt;
+</description>
+        <pubDate>Sun, 04 Mar 2018 15:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/</guid>
+        
+        <category>AGV</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>AGV</category>
+        
+      </item>
+    
+      <item>
+        <title>RAYLAND RL-150型 SLA打印机数据手册</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rayland-rl-150型-sla打印机数据手册&quot; id=&quot;markdown-toc-rayland-rl-150型-sla打印机数据手册&quot;&gt;RAYLAND RL-150型 SLA打印机数据手册&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#概述&quot; id=&quot;markdown-toc-概述&quot;&gt;概述&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#关键参数&quot; id=&quot;markdown-toc-关键参数&quot;&gt;关键参数&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#实物图&quot; id=&quot;markdown-toc-实物图&quot;&gt;实物图&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RAYLAND RL-150型 SLA打印机数据手册&lt;/p&gt;
+
+&lt;h1 id=&quot;rayland-rl-150型-sla打印机数据手册&quot;&gt;RAYLAND RL-150型 SLA打印机数据手册&lt;/h1&gt;
+
+&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+
+&lt;p&gt;RL-150型SLA打印机是锐蓝推出的工业级下沉式SLA打印机。采用了锐蓝自研的Rayland-SLA-001主板，采用一体式的电机和振镜控制系统。具备体积小，打印面积占比大，操作便捷，维修简单的优点。适用于商用打印服务和企业研发。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/06AED3DD-EEDF-4C14-8342-A20B46D53543.png&quot; alt=&quot;06AED3DD-EEDF-4C14-8342-A20B46D53543&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;关键参数&quot;&gt;关键参数&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th&gt;参数&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;激光波长&lt;/td&gt;
+      &lt;td&gt;405nm&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;成型截面积&lt;/td&gt;
+      &lt;td&gt;150mm x 150mm&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;成型高度&lt;/td&gt;
+      &lt;td&gt;140mm&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;整机尺寸&lt;/td&gt;
+      &lt;td&gt;540mm x 550mm x 980mm&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;干重量&lt;/td&gt;
+      &lt;td&gt;150kg&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;料槽容积&lt;/td&gt;
+      &lt;td&gt;9L&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;打印精度&lt;/td&gt;
+      &lt;td&gt;0.05mm&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;最高扫描速度&lt;/td&gt;
+      &lt;td&gt;6m/s&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;电压&lt;/td&gt;
+      &lt;td&gt;220V&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;功率&lt;/td&gt;
+      &lt;td&gt;&amp;lt;100瓦&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;屏幕尺寸&lt;/td&gt;
+      &lt;td&gt;9寸&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;操作系统&lt;/td&gt;
+      &lt;td&gt;安卓4.4&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;支持联网方式&lt;/td&gt;
+      &lt;td&gt;WiFi，4G（可选）以太网（可选）&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;实物图&quot;&gt;实物图&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/B4A7B735-FF3F-4E21-855E-EB1D6A76A097.png&quot; alt=&quot;B4A7B735-FF3F-4E21-855E-EB1D6A76A097&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/B27722CB-AC6E-4EE3-A2EE-E4A44D2C90D7.png&quot; alt=&quot;B27722CB-AC6E-4EE3-A2EE-E4A44D2C90D7&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/1E22F7F0-D04C-48AA-83DE-E4E52CFD486C.png&quot; alt=&quot;1E22F7F0-D04C-48AA-83DE-E4E52CFD486C&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/DBF2BEC0-6D51-44C2-86C2-55AEA93BBE15.png&quot; alt=&quot;DBF2BEC0-6D51-44C2-86C2-55AEA93BBE15&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 02 Mar 2018 12:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/</guid>
+        
+        <category>3D打印</category>
+        
+        <category>FDM</category>
+        
+        <category>Rayland-SLA</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>FDM</category>
+        
+      </item>
+    
+      <item>
+        <title>天和机器人音量调节说明文档</title>
+        <description>
+&lt;p&gt;天和机器人音量调节说明文档。&lt;/p&gt;
+
+&lt;p&gt;音量调节的宏&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;#define VOLUME_CHANGE(x){\
+    X9C102_CS_GPIO_PORT-&amp;gt;ODR &amp;amp;= ~X9C102_CS_PIN;\
+    if(x)\
+	X9C102_UD_GPIO_PORT-&amp;gt;ODR &amp;amp;= ~X9C102_UD_PIN;\
+    else\
+	X9C102_UD_GPIO_PORT-&amp;gt;ODR |= X9C102_UD_PIN;\
+    DELAY_US(100);\
+    for(int i=0;i&amp;lt;10;i++){\
+	X9C102_INC_GPIO_PORT-&amp;gt;ODR |= X9C102_INC_PIN;\
+	DELAY_US(10);\
+	X9C102_INC_GPIO_PORT-&amp;gt;ODR &amp;amp;= ~X9C102_INC_PIN;\
+	DELAY_US(10);\
+    }\
+    X9C102_CS_GPIO_PORT-&amp;gt;ODR |= X9C102_CS_PIN;\
+}
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define VOLUME_UP() VOLUME_CHANGE(1);
+#define VOLUME_DOWN() VOLUME_CHANGE(0);
+&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;主函数就是一个死循环&lt;/p&gt;
+
+&lt;p&gt;while(1)//主程序循环，反复执行循环体里的语句&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;VOLUME_UP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;VOLUME_DOWN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这里全局变量Volume表示采集到的旋钮的动作，这个变量的更新是在timer的中断响应函数里面做的&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;#define CYCLE 10
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint16_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgReady&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**
+  * @brief Timer1 Update/Overflow/Trigger/Break Interrupt routine.
+  * @param  None
+  * @retval None
+  */&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;INTERRUPT_HANDLER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TIM1_UPD_OVF_TRG_BRK_IRQHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/* In order to detect unexpected events during development,
+     it is recommended to set a breakpoint on the following instruction.
+  */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;TIM1_ClearITPendingBit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TIM1_IT_UPDATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgbPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgbPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;outB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;outB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CYCLE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;pgReady&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CYCLE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgReady&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pgbPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IDR&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pgbPin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; 
+	    &lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;pgReady&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 02 Mar 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/02/tianhe-robot-voice/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/02/tianhe-robot-voice/</guid>
+        
+        <category>TianHe</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>TianHe</category>
+        
+      </item>
+    
+      <item>
+        <title>用Rayland-DUAL主板控制鸵鸟机器人 控制协议</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#鸵鸟机器人&quot; id=&quot;markdown-toc-鸵鸟机器人&quot;&gt;鸵鸟机器人&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#鸵鸟机器人接线方法&quot; id=&quot;markdown-toc-鸵鸟机器人接线方法&quot;&gt;鸵鸟机器人接线方法&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#总体接线图&quot; id=&quot;markdown-toc-总体接线图&quot;&gt;总体接线图&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#主板&quot; id=&quot;markdown-toc-主板&quot;&gt;主板&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#从板&quot; id=&quot;markdown-toc-从板&quot;&gt;从板&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#远程控制鸵鸟机器人的网络配置&quot; id=&quot;markdown-toc-远程控制鸵鸟机器人的网络配置&quot;&gt;远程控制鸵鸟机器人的网络配置&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文简单介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DUAL&lt;/code&gt;主板控制鸵鸟机器人的接线方法和控制协议。&lt;/p&gt;
+
+&lt;h1 id=&quot;鸵鸟机器人&quot;&gt;鸵鸟机器人&lt;/h1&gt;
+
+&lt;h3 id=&quot;鸵鸟机器人接线方法&quot;&gt;鸵鸟机器人接线方法&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;设备&lt;/code&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;个数&lt;/code&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;RFID&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16通道寻磁&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;rayland-dual主板&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;摄像云台舵机&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;总体接线图&quot;&gt;总体接线图&lt;/h3&gt;
+
+&lt;h3 id=&quot;主板&quot;&gt;主板&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;板上电机端口&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;鸵鸟功能链接&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;X电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;左轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Y电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;右轮驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Z电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;旋转轴驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;E0电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;空&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;空&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;E1电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16通道寻磁&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1GND2TX(STEP)3RX(DIR)4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;USART1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;RFID&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1GND,2TX,3RX,4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;USART2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;与从板桥接&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1GND,2TX,3RX,4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;USB口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;USB转网口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;从板&quot;&gt;从板&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;板上电机端口&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;鸵鸟功能链接&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;X电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;滑台前后驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Y电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;滑台左右驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Z电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;升降轴驱动&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;E0电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;空&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;空&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;E1电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;摄像云台舵机&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1GND2TX（EN）3RX（MS1）4GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;USART2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;与主板&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1GND,2TX,3RX,4GND&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;远程控制鸵鸟机器人的网络配置&quot;&gt;远程控制鸵鸟机器人的网络配置&lt;/h3&gt;
+
+&lt;p&gt;测试时将电脑连接到机器上配备的路由器网络。&lt;/p&gt;
+
+&lt;p&gt;1.配置路由器ip地址，将LAN口ip设置改成为10.120.17.1，如下图所示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2B6A3FAF-5C5E-42D1-AB16-5AC453C8913A.png&quot; alt=&quot;2B6A3FAF-5C5E-42D1-AB16-5AC453C8913A&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.打开控制软件ostrich，输入相应的IP地址：10.120.17.100。能正常收发数据后，开始进行遥控测试。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/EC843173-5A40-4EB4-A0AF-7E439F271036.png&quot; alt=&quot;EC843173-5A40-4EB4-A0AF-7E439F271036&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 01 Mar 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/01/ostrich-robot/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/01/ostrich-robot/</guid>
+        
+        <category>AGV</category>
+        
+        <category>Rayland-DUAL</category>
+        
+        <category>MeiXing</category>
+        
+        
+        <category>AGV</category>
+        
+      </item>
+    
+      <item>
+        <title>帮团售货柜控制协议</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#帮团售货柜控制协议&quot; id=&quot;markdown-toc-帮团售货柜控制协议&quot;&gt;帮团售货柜控制协议&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#概述&quot; id=&quot;markdown-toc-概述&quot;&gt;概述&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#硬件接线&quot; id=&quot;markdown-toc-硬件接线&quot;&gt;硬件接线&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#dual板接线&quot; id=&quot;markdown-toc-dual板接线&quot;&gt;Dual板接线&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#分线器板接线&quot; id=&quot;markdown-toc-分线器板接线&quot;&gt;分线器板接线&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#称板12版本接线&quot; id=&quot;markdown-toc-称板12版本接线&quot;&gt;称板（1、2版本）接线&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#通讯协议&quot; id=&quot;markdown-toc-通讯协议&quot;&gt;通讯协议&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#控制包-a33-stm32&quot; id=&quot;markdown-toc-控制包-a33-stm32&quot;&gt;控制包 A33-&amp;gt;STM32&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#状态包-stm32-a33&quot; id=&quot;markdown-toc-状态包-stm32-a33&quot;&gt;状态包 STM32-&amp;gt;A33&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#控制界面&quot; id=&quot;markdown-toc-控制界面&quot;&gt;控制界面&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;帮团售货柜控制协议。&lt;/p&gt;
+
+&lt;h1 id=&quot;帮团售货柜控制协议&quot;&gt;帮团售货柜控制协议&lt;/h1&gt;
+
+&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
+
+&lt;p&gt;控制器共包括如下套件&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;部件&lt;/th&gt;
+      &lt;th&gt;数量&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;舵机&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;均为180度舵机&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;光学碰撞开关&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;磁性碰撞开关&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;USB摄像头&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;UVC摄像头&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;USB网卡&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;RTL8152&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;热敏电阻&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;继电器板&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;控制压缩机&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;喇叭&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;通过运放&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;麦克风&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;单mic&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7寸屏幕&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;调试用（一批发货只配一个）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LED输出&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;硬件接线&quot;&gt;硬件接线&lt;/h2&gt;
+
+&lt;h3 id=&quot;dual板接线&quot;&gt;Dual板接线&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;板上端口&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;售货机功能链接&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;X\Y\Z\EO电机端口&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;舵机*4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1信号线(EN)2VCC(5V)3GND(GND)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;I2C口*1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;接I2C板（分线器）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 VCC   2 SCL(stem32 pin47)                3SDA（stem32 pin48） 4 GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;限位开关口*6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;光电开关&lt;em&gt;3                                    霍尔开关&lt;/em&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1信号线2GND3VCC（5V）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OUT口*6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;LED灯&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1信号线2VCC&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;分线器板接线&quot;&gt;分线器板接线&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;板上端口&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;接线&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;I2C口*8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 VCC   2 SCL   3 SDA  4 GND&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;称板12版本接线&quot;&gt;称板（1、2版本）接线&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;板上端口&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;接线&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;I2C口*1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 VCC   2 SCL   3 SDA  4 GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;称重传感器接口*8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1 VCC   2 TX   3 RX   4GND&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;通讯协议&quot;&gt;通讯协议&lt;/h2&gt;
+
+&lt;p&gt;从I2C总线走，所以无需包头包尾和校验位&lt;/p&gt;
+
+&lt;h3 id=&quot;控制包-a33-stm32&quot;&gt;控制包 A33-&amp;gt;STM32&lt;/h3&gt;
+
+&lt;p&gt;总包长 13&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;编号&lt;/th&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte0&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td&gt;序列号：0～255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte1&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;Type&lt;/td&gt;
+      &lt;td&gt;包类型：0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte2～Byte5&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;sweeperPos[4]&lt;/td&gt;
+      &lt;td&gt;舵机值：0～255&lt;br /&gt;对应1～2ms输出&lt;br /&gt;对应0～180角度&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte6~Byte11&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;outVal[6]&lt;/td&gt;
+      &lt;td&gt;out1到out6的输出值：0～255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte12&lt;/td&gt;
+      &lt;td&gt;int16&lt;/td&gt;
+      &lt;td&gt;ExtTargetTemp&lt;/td&gt;
+      &lt;td&gt;外置温控器目标温度：-300～300&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;状态包-stm32-a33&quot;&gt;状态包 STM32-&amp;gt;A33&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;编号&lt;/th&gt;
+      &lt;th&gt;数据类型&lt;/th&gt;
+      &lt;th&gt;项目&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte0&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td&gt;序列号：0～255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte1&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;Type&lt;/td&gt;
+      &lt;td&gt;包类型：1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte2~Byte9&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;ADCValue[4]&lt;/td&gt;
+      &lt;td&gt;传感器值: 0~4095&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte10～Byte11&lt;/td&gt;
+      &lt;td&gt;int16_t&lt;/td&gt;
+      &lt;td&gt;ThermalCouple&lt;/td&gt;
+      &lt;td&gt;热电偶温度值：-300～300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte12～Byte13&lt;/td&gt;
+      &lt;td&gt;int16_t&lt;/td&gt;
+      &lt;td&gt;ExtCurTemp&lt;/td&gt;
+      &lt;td&gt;外置温控器当前温度：-300～300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte14～Byte17&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;sweeperPos[4]&lt;/td&gt;
+      &lt;td&gt;舵机当前值：0～255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte18~Byte21&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;outVal[4]&lt;/td&gt;
+      &lt;td&gt;out1到out6的当前值：0～255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte22&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;hitWall&lt;/td&gt;
+      &lt;td&gt;碰撞开关状态&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte23～Byte38&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer1[8]&lt;/td&gt;
+      &lt;td&gt;第一层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte39～Byte54&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer2[8]&lt;/td&gt;
+      &lt;td&gt;第二层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte55～Byte70&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer3[8]&lt;/td&gt;
+      &lt;td&gt;第三层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte71～Byte86&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer4[8]&lt;/td&gt;
+      &lt;td&gt;第四层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte87～Byte102&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer5[8]&lt;/td&gt;
+      &lt;td&gt;第五层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte103~Byte118&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer6[8]&lt;/td&gt;
+      &lt;td&gt;第六层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte119~Byte134&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer7[8]&lt;/td&gt;
+      &lt;td&gt;第七层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte135~Byte150&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;weightOfLayer8[8]&lt;/td&gt;
+      &lt;td&gt;第八层的重量&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;byte 22的bit格式
+| 7        | 6        | 5    | 4    | 3    | 2    | 1    | 0    |
+| ——– | ——– | —- | —- | —- | —- | —- | —- |
+| reserved | reserved | Zmax | Zmin | Ymax | Ymin | XMAX | XMin |&lt;/p&gt;
+
+&lt;p&gt;重量包 STM32-&amp;gt;A33&lt;/p&gt;
+
+&lt;h2 id=&quot;控制界面&quot;&gt;控制界面&lt;/h2&gt;
+</description>
+        <pubDate>Thu, 01 Mar 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/</guid>
+        
+        <category>BangTuan</category>
+        
+        <category>MeiXing</category>
+        
+        
+        <category>BangTuan</category>
+        
+      </item>
+    
+      <item>
+        <title>Rayland-SLA 主板控制协议</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#sla控制协议&quot; id=&quot;markdown-toc-sla控制协议&quot;&gt;SLA控制协议&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#a33-stm32的配置包&quot; id=&quot;markdown-toc-a33-stm32的配置包&quot;&gt;A33-&amp;gt;STM32的配置包&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#a33-stm32的数据包&quot; id=&quot;markdown-toc-a33-stm32的数据包&quot;&gt;A33-&amp;gt;STM32的数据包&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-SLA&lt;/code&gt;主板控制协议。&lt;/p&gt;
+
+&lt;h1 id=&quot;sla控制协议&quot;&gt;SLA控制协议&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-SLA&lt;/code&gt;主板在使用&lt;code class=&quot;highlighter-rouge&quot;&gt;TTL&lt;/code&gt;激光器控制的时候遇到一个问题就是激光器无法精准控制延迟。目前的激光控制是伴随振镜步进进行的。&lt;/p&gt;
+
+&lt;p&gt;也就是说每进行一次脉冲步进才能进行一次激光的开关。按照目前TIM5的频率是40khz计算。激光延迟的最小单位是插点时间间距。
+&lt;script type=&quot;math/tex&quot;&gt;\Delta = \frac{1}{f} = \frac{1}{40k} = 25\mu s&lt;/script&gt;
+所以需要在这个延迟的基础上将将激光的延迟开关周期增加到1us这个单位，也就是说需要将现在的控制精度提高100倍左右，目前的激光延迟是用一个&lt;code class=&quot;highlighter-rouge&quot;&gt;uint16_t&lt;/code&gt;的变量存储的，我们需要将这个变量的长度修改为&lt;code class=&quot;highlighter-rouge&quot;&gt;uint32_t&lt;/code&gt;。然后在TIM5的中断响应函数里面对额外加入的这些精度进行利用。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/0A02105D-9CE3-4C1A-B35D-DD67206748C6.png&quot; alt=&quot;0A02105D-9CE3-4C1A-B35D-DD67206748C6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;T1:开激光延迟&lt;/p&gt;
+
+&lt;p&gt;T2:关激光延迟&lt;/p&gt;
+
+&lt;h2 id=&quot;a33-stm32的配置包&quot;&gt;A33-&amp;gt;STM32的配置包&lt;/h2&gt;
+
+&lt;p&gt;总包长 20bytes&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;编号&lt;/th&gt;
+      &lt;th&gt;类型&lt;/th&gt;
+      &lt;th&gt;名称&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte0&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;head&lt;/td&gt;
+      &lt;td&gt;0x68&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte1&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td&gt;自增序列号&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte2&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;pktType&lt;/td&gt;
+      &lt;td&gt;包类型&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte3&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;开激光电平&lt;/td&gt;
+      &lt;td&gt;0:低电压开，1:高电压开&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte4~Byte5&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;onDelay&lt;/td&gt;
+      &lt;td&gt;开激光延迟（单位us）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte6~Byte7&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;offDelay&lt;/td&gt;
+      &lt;td&gt;关激光延迟（单位us）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte8~Byte9&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;beforeJump&lt;/td&gt;
+      &lt;td&gt;快跳延迟（单位us）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte10～Byte17&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;reserve[8]&lt;/td&gt;
+      &lt;td&gt;备用&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte18&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;tail&lt;/td&gt;
+      &lt;td&gt;0xFF&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte19&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;checksum&lt;/td&gt;
+      &lt;td&gt;校验和&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;a33-stm32的数据包&quot;&gt;A33-&amp;gt;STM32的数据包&lt;/h2&gt;
+
+&lt;p&gt;总包长 20bytes&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;编号&lt;/th&gt;
+      &lt;th&gt;类型&lt;/th&gt;
+      &lt;th&gt;名称&lt;/th&gt;
+      &lt;th&gt;备注&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte0&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;head&lt;/td&gt;
+      &lt;td&gt;0x68&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte1&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td&gt;自增序列号&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte2&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;pktType&lt;/td&gt;
+      &lt;td&gt;包类型&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte3&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;ctrl&lt;/td&gt;
+      &lt;td&gt;控制位&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte4~Byte7&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;posXY[2]&lt;/td&gt;
+      &lt;td&gt;目标位置&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte8~Byte11&lt;/td&gt;
+      &lt;td&gt;uint16_t&lt;/td&gt;
+      &lt;td&gt;stepCnt[2]&lt;/td&gt;
+      &lt;td&gt;插点数量&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte12~Byte15&lt;/td&gt;
+      &lt;td&gt;int16_t&lt;/td&gt;
+      &lt;td&gt;stepXY[2]&lt;/td&gt;
+      &lt;td&gt;插点空间间距&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte16&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;stepPeriod&lt;/td&gt;
+      &lt;td&gt;插点时间间距&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte17&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;reserve&lt;/td&gt;
+      &lt;td&gt;备用&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte18&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;tail&lt;/td&gt;
+      &lt;td&gt;0xFF&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte19&lt;/td&gt;
+      &lt;td&gt;uint8_t&lt;/td&gt;
+      &lt;td&gt;checksum&lt;/td&gt;
+      &lt;td&gt;校验和&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;ctrl内容&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;reserved&lt;/td&gt;
+      &lt;td&gt;reserved&lt;/td&gt;
+      &lt;td&gt;reserved&lt;/td&gt;
+      &lt;td&gt;reserved&lt;/td&gt;
+      &lt;td&gt;reserved&lt;/td&gt;
+      &lt;td&gt;AutoOff&lt;/td&gt;
+      &lt;td&gt;onOff&lt;/td&gt;
+      &lt;td&gt;isReset&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Sun, 25 Feb 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/02/25/SLA-Comm-Protocol/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/02/25/SLA-Comm-Protocol/</guid>
+        
+        <category>3D打印</category>
+        
+        <category>FDM</category>
+        
+        <category>Rayland-SLA</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>FDM</category>
+        
+      </item>
+    
+      <item>
+        <title>LCD光固化发货测试流程</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#环境搭建&quot; id=&quot;markdown-toc-环境搭建&quot;&gt;环境搭建&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#准备材料&quot; id=&quot;markdown-toc-准备材料&quot;&gt;准备材料&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#接线&quot; id=&quot;markdown-toc-接线&quot;&gt;接线&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#测试要点&quot; id=&quot;markdown-toc-测试要点&quot;&gt;测试要点&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#启动过程&quot; id=&quot;markdown-toc-启动过程&quot;&gt;启动过程&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#h3连接测试&quot; id=&quot;markdown-toc-h3连接测试&quot;&gt;H3连接测试&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#打印流程测试&quot; id=&quot;markdown-toc-打印流程测试&quot;&gt;打印流程测试&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LCD光固化发货测试流程&lt;/p&gt;
+
+&lt;h3 id=&quot;环境搭建&quot;&gt;环境搭建&lt;/h3&gt;
+
+&lt;h5 id=&quot;准备材料&quot;&gt;准备材料&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;已烧录好最新镜像文件的TF卡1张；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;H3主板1块;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;可以正常显示的曝光屏一块以及配套电源；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;已烧录好最新Hex的Solo主板或Dual主板1块;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;已烧录好最新镜像文件和光固化软件的核心板1块;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;触摸屏1块，屏幕排线1条;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HDMI连接线1条;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;带Micro USB接口的数据线1条;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4988驱动1个，步进电机1个，碰撞开关1个；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;12V电源1个；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;带有CWS测试文件的U盘或SD卡；&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;接线&quot;&gt;接线&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TF卡插H3主板卡槽；&lt;/li&gt;
+  &lt;li&gt;核心板插Solo主板或Dual主板插槽；&lt;/li&gt;
+  &lt;li&gt;4988模块插Solo主板或Dual主板Z轴插槽，&lt;strong&gt;注意4988模块上箭头指向主板外沿&lt;/strong&gt;；&lt;/li&gt;
+  &lt;li&gt;步进电机接Solo主板或Dual主板Z轴电机接口；&lt;/li&gt;
+  &lt;li&gt;碰撞开关接Solo主板或Dual主板Z Min接口；&lt;/li&gt;
+  &lt;li&gt;用排线连接触摸屏与Solo主板或Dual主板；&lt;/li&gt;
+  &lt;li&gt;用带Micro USB接口的数据线连接H3主板与Solo主板或Dual主板；&lt;/li&gt;
+  &lt;li&gt;用HDMI线连接H3主板与曝光屏，曝光屏用其配套电源供电；&lt;/li&gt;
+  &lt;li&gt;确保以上所有步骤后用12V电源给Solo主板或Dual主板供电开始测试；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/dlp_in_circuit.jpg&quot; alt=&quot;连接图&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;测试要点&quot;&gt;测试要点&lt;/h3&gt;
+
+&lt;h5 id=&quot;启动过程&quot;&gt;启动过程&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;H3主板指示灯点亮；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;曝光屏背光开启；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;触摸屏显示正常；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;软件自动启动；&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;h3连接测试&quot;&gt;H3连接测试&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;软件启动后，右上角的连接状态为已连接；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/main_page.png&quot; alt=&quot;主界面&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击“设置–光固化设置”，按照准备的曝光屏设置曝光屏宽(475），高(295)，分辨率(1680*1050)，接口(HDMI)。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/set_resolution.png&quot; alt=&quot;设置曝光屏参数&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置后H3板将会自动重启，右上角状态变为已断开，曝光屏在H3启动过程应有图像显示；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/h3_reboot.jpg&quot; alt=&quot;h3重启界面&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重启完成后“曝光屏分辨率”的值变为设置的值，右上角的连接状态变为已连接，设置成功；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/set_resolution_success.png&quot; alt=&quot;设置成功&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;#####电控测试&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在主界面连续点击空白处10次进入“机器设置”界面，点击“Z轴设置”，给Z轴设置合适的“驱动电压”，“每毫米步进数”，将“碰撞开关位置”设置为“安装在最小”；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/axis_z_config.png&quot; alt=&quot;Z轴设置&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回到主界面点击“维护 – 回零点 – 平台归位到最低点”，电机开始转动，此时触发碰撞开关，电机停止转动。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/home_axis.png&quot; alt=&quot;归位&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回到主界面电机“维护 – 清理”，弹出设置曝光时间，设置5，点击确定后Solo主板或Dual主板out1接口下方led灯点亮，曝光屏显示一张全屏的纯白色图片，5秒后，led灯熄灭，曝光屏显示的白色图片也消失。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/expose_full_screen.png&quot; alt=&quot;曝光&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;打印流程测试&quot;&gt;打印流程测试&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;将带有测试文件的U盘或SD卡插入主板，在主界面点击“模型”进入“模型列表”界面，按住右侧的列表下拉松手刷新，可以刷出测试文件；&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击选中测试文件，如果测试文件是CWS格式，左侧进度条会有变化，进度条加载完成后出现3D渲染界面；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/model_list.png&quot; alt=&quot;模型列表&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击“开始打印”进入打印界面，电机开始转动，触摸屏和曝光屏不显示图片，out1接口下方led灯熄灭状态；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/ready_expose.png&quot; alt=&quot;开始打印&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/out1_close.jpg&quot; alt=&quot;准备曝光&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;手动触发一次碰撞开关，电机开始反向转动一段距离然后再按原来的方向以更慢的速度转动，此时再触发一次碰撞开关，电机停止转动，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/expose_layer.png&quot; alt=&quot;曝光单层&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/out1_open.jpg&quot; alt=&quot;曝光单层&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;几秒后，触摸屏和曝光屏显示的图片消失，同时out1接口下方的led灯自动熄灭，电机在几秒后开始转动，转动时先往一个方向转动一定距离再往另一个方向转动一定距离。&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;几秒后，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮，点击“停止 – 确定”退出打印界面，此时out1接口下方led灯熄灭，曝光屏不显示图像，打印停止；&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/stop_print.png&quot; alt=&quot;停止打印&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 15 Feb 2018 07:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/02/15/LCD-photocuring-send-out/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/02/15/LCD-photocuring-send-out/</guid>
+        
+        <category>FDM</category>
+        
+        <category>3D打印</category>
+        
+        <category>SongLei</category>
+        
+        
+        <category>FDM</category>
+        
+      </item>
+    
+      <item>
+        <title>用Rayland-DUAL主板控制麦克纳姆车 控制协议</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#概述&quot; id=&quot;markdown-toc-概述&quot;&gt;概述&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#用板载安卓系统控制麦克纳姆车&quot; id=&quot;markdown-toc-用板载安卓系统控制麦克纳姆车&quot;&gt;用板载安卓系统控制麦克纳姆车&lt;/a&gt;&lt;/li&gt;
@@ -18,7 +1786,7 @@
   &lt;li&gt;&lt;a href=&quot;#麦克纳姆车硬件接线&quot; id=&quot;markdown-toc-麦克纳姆车硬件接线&quot;&gt;麦克纳姆车硬件接线&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;本文简单介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;rayland-dual&lt;/code&gt;主板控制麦克纳姆车的接线方法和控制协议。&lt;/p&gt;
+&lt;p&gt;本文简单介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DUAL&lt;/code&gt;主板控制麦克纳姆车的接线方法和控制协议。&lt;/p&gt;
 
 &lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
 
@@ -440,1622 +2208,12 @@
         
         <category>AGV</category>
         
+        <category>Rayland-DUAL</category>
         
-        <category>AGV</category>
-        
-      </item>
-    
-      <item>
-        <title>rayland-SLA主板使用说明</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-SLA&lt;/code&gt;是乐轩锐蓝推出的集振镜控制和电机控制于一体的控制板。性能可以对标ScanLab的同类型板卡。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/1B9E6A5E-FA15-4CD4-9C86-285A7B57FAF6.png&quot; height=&quot;600&quot; width=&quot;450&quot; style=&quot;transform: rotate(90deg);&quot; /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;基本参数&quot;&gt;基本参数&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;尺寸&lt;/th&gt;
-      &lt;th&gt;115×93 mm&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;重量&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;工作温度&lt;/td&gt;
-      &lt;td&gt;-20～65℃&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器主频&lt;/td&gt;
-      &lt;td&gt;1.4GHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器类型&lt;/td&gt;
-      &lt;td&gt;4核 Cortex A7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;协处理器&lt;/td&gt;
-      &lt;td&gt;72MHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;内存容量&lt;/td&gt;
-      &lt;td&gt;1Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;4Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;最大外接Flash&lt;/td&gt;
-      &lt;td&gt;32Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Thu, 18 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/18/rayland-SLA-instructions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/18/rayland-SLA-instructions/</guid>
-        
-        <category>3D打印</category>
-        
-        <category>FDM</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>rayland-dual主板控制舵机</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#舵机基本参数&quot; id=&quot;markdown-toc-舵机基本参数&quot;&gt;舵机基本参数&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;本文介绍了如何使用&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-DUAL&lt;/code&gt;主板的电机输出接口来控制舵机&lt;/p&gt;
-
-&lt;h2 id=&quot;舵机基本参数&quot;&gt;舵机基本参数&lt;/h2&gt;
-
-&lt;p&gt;RAYLAND-DUAL可以用来控制舵机，目前暂时只支持脉冲宽度调制的舵机。脉冲宽度调制的舵机能接受&lt;code class=&quot;highlighter-rouge&quot;&gt;1ms&amp;lt;2ms&lt;/code&gt;脉宽的。其中&lt;code class=&quot;highlighter-rouge&quot;&gt;1ms&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;2ms&lt;/code&gt;分别对应最左和最右位置，&lt;code class=&quot;highlighter-rouge&quot;&gt;1.5ms&lt;/code&gt;对应中间位置。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/F384E714-1E01-4CA5-832F-39D6FA36AAA2.png&quot; height=&quot;240&quot; width=&quot;360&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;这是一款典型舵机的工作参数&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/DB3D289D-2ABF-4844-9981-C469354DF5E4.png&quot; height=&quot;360&quot; width=&quot;360&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;综合上面两个图，舵机的控制典型值有下面三个&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;名称&lt;/th&gt;
-      &lt;th&gt;典型值&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;脉冲宽度范围&lt;/td&gt;
-      &lt;td&gt;1ms～2ms&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;脉冲周期&lt;/td&gt;
-      &lt;td&gt;20ms&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;电压&lt;/td&gt;
-      &lt;td&gt;4.8v～6V&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;死区&lt;/td&gt;
-      &lt;td&gt;5us&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;脉冲宽度范围处以死去就是舵机的角度分辨率
-&lt;script type=&quot;math/tex&quot;&gt;LSB = \frac{\Delta_{width}}{T}=1ms/5us = 200&lt;/script&gt;
-所以控制一个舵机的需要一个byte的数据量。&lt;/p&gt;
-
-&lt;h2 id=&quot;基本参数&quot;&gt;基本参数&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;尺寸&lt;/th&gt;
-      &lt;th&gt;115×93 mm&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;重量&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;工作温度&lt;/td&gt;
-      &lt;td&gt;-20～65℃&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器主频&lt;/td&gt;
-      &lt;td&gt;1.4GHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器类型&lt;/td&gt;
-      &lt;td&gt;4核 Cortex A7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;协处理器&lt;/td&gt;
-      &lt;td&gt;72MHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;内存容量&lt;/td&gt;
-      &lt;td&gt;1Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;4Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;最大外接Flash&lt;/td&gt;
-      &lt;td&gt;32Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Tue, 16 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/16/rayland-dual-steering-engine/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/16/rayland-dual-steering-engine/</guid>
-        
-        <category>3D打印</category>
-        
-        <category>FDM</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>rayland-solo主板使用说明</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-SOLO&lt;/code&gt;是在&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-DUAL&lt;/code&gt;基础上的精简型嵌入式电控主板，能同时支持四路异构电机。主板具有高精度、易开发、通用性强等特点，能够灵活快捷地集成到如3D打印机、机器人等智能设备中，为各类垂直行业应用提供高效的解决方案。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/0C8EB7CF-6FD9-466D-9D5F-9A248F1B4D00.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;基本参数&quot;&gt;基本参数&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;尺寸&lt;/th&gt;
-      &lt;th&gt;115×93 mm&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;重量&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;工作温度&lt;/td&gt;
-      &lt;td&gt;-20～65℃&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器主频&lt;/td&gt;
-      &lt;td&gt;1.4GHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器类型&lt;/td&gt;
-      &lt;td&gt;4核 Cortex A7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;协处理器&lt;/td&gt;
-      &lt;td&gt;72MHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;内存容量&lt;/td&gt;
-      &lt;td&gt;1Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;4Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;最大外接Flash&lt;/td&gt;
-      &lt;td&gt;32Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Wed, 10 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/10/rayland-solo-instructions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/10/rayland-solo-instructions/</guid>
-        
-        <category>3D打印</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>rayland-dual主板使用说明</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#常见问题&quot; id=&quot;markdown-toc-常见问题&quot;&gt;常见问题&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RAYLAND-DUAL&lt;/code&gt;是乐轩锐蓝推出的国内首款基于Android的嵌入式电控主板，集核心板和控制板于一体，可同时连接&lt;code class=&quot;highlighter-rouge&quot;&gt;5个异构电机接口&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;6个风扇/加热棒&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;6个碰撞开关&lt;/code&gt;，并提供&lt;code class=&quot;highlighter-rouge&quot;&gt;WiFi&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;SD卡扩展存储&lt;/code&gt;能力。主板具有高精度、易开发、通用性强等特点，能够灵活快捷地集成到如3D打印机、机器人等智能设备中，为各类垂直行业应用提供高效的解决方案。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/3C198664-D907-4C72-93F4-150CBF516EBA.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;基本参数&quot;&gt;基本参数&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;尺寸&lt;/th&gt;
-      &lt;th&gt;115×93 mm&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;重量&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;工作温度&lt;/td&gt;
-      &lt;td&gt;-20～65℃&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器主频&lt;/td&gt;
-      &lt;td&gt;1.4GHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;主处理器类型&lt;/td&gt;
-      &lt;td&gt;4核 Cortex A7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;协处理器&lt;/td&gt;
-      &lt;td&gt;72MHz&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;内存容量&lt;/td&gt;
-      &lt;td&gt;1Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;4Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;最大外接Flash&lt;/td&gt;
-      &lt;td&gt;32Gbytes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;常见问题&quot;&gt;常见问题&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; 使用外置驱动器的时候，发出控制指令电机不运动&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/8CDD926B-1CFF-4B8D-8B2C-EC1165CB20AF.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;参见上面的图，外置驱动器的脉冲建立时间一般是100us这个量级的，4988需要的脉冲宽度一般是1us这个量级。我们可以在系统里设置这个宽度为100us。设置页面如下。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/4FCA863C-C853-4E19-B60F-63380E6321B1.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;设置后的效果如下，下图中蓝色的部分就是一个脉冲，他的宽度刚好为100us。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/62E1E999-0CB2-4E38-9693-5D5D51F46DB4.png&quot; height=&quot;450&quot; width=&quot;450&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;2&lt;/strong&gt; 使用外置驱动器的时候，打印向一个方向偏，例如下图&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/CB759281-BE2E-4278-812C-FA434E662B72.png&quot; height=&quot;360&quot; width=&quot;360&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;我们需要更改脉冲建立时间设置。&lt;/p&gt;
-
-&lt;p&gt;在APP的设置页面里面可以看到这个参数，下图中红圈的部分，将它修改到50us。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/2FD88660-7988-421B-84C0-30E587D3E19D.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;在这个页面里，可以看到黄色部分是脉冲方向切换的波形，蓝色部分是脉冲波形，红圈所示的时间差就是脉冲建立时间。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/63262B8C-C1EF-485F-8C2B-0780B1B2F993.png&quot; height=&quot;450&quot; width=&quot;450&quot; /&gt;&lt;/div&gt;
-</description>
-        <pubDate>Wed, 10 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/10/rayland-dual-instructions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/10/rayland-dual-instructions/</guid>
-        
-        <category>3D打印</category>
-        
-        <category>FDM</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>rayland-DLP主板使用说明</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#软件系统&quot; id=&quot;markdown-toc-软件系统&quot;&gt;软件系统&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#源码和镜像下载&quot; id=&quot;markdown-toc-源码和镜像下载&quot;&gt;源码和镜像下载&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#电路连接&quot; id=&quot;markdown-toc-电路连接&quot;&gt;电路连接&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#烧录镜像&quot; id=&quot;markdown-toc-烧录镜像&quot;&gt;烧录镜像&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#在rayland-dlp上安装镜像&quot; id=&quot;markdown-toc-在rayland-dlp上安装镜像&quot;&gt;在Rayland-DLP上安装镜像&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#用win32diskimager烧录镜像&quot; id=&quot;markdown-toc-用win32diskimager烧录镜像&quot;&gt;用win32DiskImager烧录镜像&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#烧录自检镜像&quot; id=&quot;markdown-toc-烧录自检镜像&quot;&gt;烧录自检镜像&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#烧录打印镜像&quot; id=&quot;markdown-toc-烧录打印镜像&quot;&gt;烧录打印镜像&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#在rayland-solodualpro上安装apk&quot; id=&quot;markdown-toc-在rayland-solodualpro上安装apk&quot;&gt;在Rayland-solo/dual/pro上安装APK&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#在app中调整曝光屏分辨率&quot; id=&quot;markdown-toc-在app中调整曝光屏分辨率&quot;&gt;在APP中调整曝光屏分辨率&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#故障排除&quot; id=&quot;markdown-toc-故障排除&quot;&gt;故障排除&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#无法获取分辨率&quot; id=&quot;markdown-toc-无法获取分辨率&quot;&gt;无法获取分辨率&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#色域不正常&quot; id=&quot;markdown-toc-色域不正常&quot;&gt;色域不正常&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#客户打印样品&quot; id=&quot;markdown-toc-客户打印样品&quot;&gt;客户打印样品&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DLP&lt;/code&gt;是锐蓝科技自主研发的新产品，通过&lt;code class=&quot;highlighter-rouge&quot;&gt;HDMI&lt;/code&gt;输出视频到&lt;code class=&quot;highlighter-rouge&quot;&gt;LCD&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;DLP&lt;/code&gt;显示端，完成树脂材料的光固化，是目前低成本高精度的打印方案。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DLP&lt;/code&gt;无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-dual&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-solo&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-pro&lt;/code&gt;。&lt;/p&gt;
-
-&lt;h2 id=&quot;软件系统&quot;&gt;软件系统&lt;/h2&gt;
-
-&lt;p&gt;Rayland-DLP是基于著名的开源操作系统Armbian开发的。工作原理很简单，从usb口接收来自电机驱动版的图像，将图像用pygame-python进行渲染之后从hdmi口进行输出。以下是我们依赖的这两个项目的链接。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.pygame.org/news&quot;&gt;pygame 主页&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.armbian.com&quot;&gt;armbian 主页&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;源码和镜像下载&quot;&gt;源码和镜像下载&lt;/h3&gt;
-
-&lt;p&gt;基于GPL协议，我们也开放了我们的img文件和程序源码，请大家到百度网盘下载。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1c2TXdUK&quot;&gt;img和源码下载链接&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;电路连接&quot;&gt;电路连接&lt;/h2&gt;
-
-&lt;p&gt;目前的Rayland-DLP一共有两个规格，使用方法完全一样，唯一的区别是内存大小导致的支持最大分辨率的差异。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/99F8292C-D5C8-467D-9F9A-7566435DCB46.png&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;Rayland-DLP主板上共有两个客户用接口，分别为：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;HDMI接口&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;usb接口（接dual/solo/pro板）&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;这两个接口如下图所示&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/dlp_interface.jpg&quot; height=&quot;300&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;Rayland-DLP无法单独使用，需要与电机驱动板协同工作。目前支持的电机驱动板包括Rayland-dual，Rayland-solo，Rayland-pro。在本章实例中，使用的电机驱动板为Rayland-dual。&lt;/p&gt;
-
-&lt;p&gt;本系统由Rayland-DLP+曝光屏，Rayland-dual+控制屏，以及电机系统组成。电路链接方法如下图所示&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/dlp_in_circuit.jpg&quot; height=&quot;450&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;注意&lt;/em&gt;如果通过USB口单独给Rayland-DLP供电时，请使用供电电流超过1A的电源，普通的USB2.0电源可能导致Rayland-DLP的主CPU无法启动&lt;/p&gt;
-
-&lt;h2 id=&quot;烧录镜像&quot;&gt;烧录镜像&lt;/h2&gt;
-
-&lt;p&gt;镜像是IMG格式的文件，在linux/macOS上用dd进行读写，在windows平台上用win32diskimager烧写&lt;/p&gt;
-
-&lt;h3 id=&quot;在rayland-dlp上安装镜像&quot;&gt;在Rayland-DLP上安装镜像&lt;/h3&gt;
-&lt;h4 id=&quot;用win32diskimager烧录镜像&quot;&gt;用win32DiskImager烧录镜像&lt;/h4&gt;
-
-&lt;p&gt;win32diskImager是windows平台上的镜像读取和烧录软件。使用是需要指定三个选项&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;镜像文件，在Image File选项框里面&lt;/li&gt;
-  &lt;li&gt;TF卡设备在Device下来菜单里面&lt;/li&gt;
-  &lt;li&gt;操作动作，是read（从tf拷贝出.img）文件还是 write（将.img文件烧入TF卡）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/win32disk.jpg&quot; height=&quot;200&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;注意自检镜像和打印镜像都使用这个工具进行烧录&lt;/p&gt;
-
-&lt;p&gt;烧录时的进度如下图所示。&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/1E3EF4C2-BE6E-48DA-9899-400BBE58E3E6.png&quot; height=&quot;200&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;烧录自检镜像&quot;&gt;烧录自检镜像&lt;/h4&gt;
-
-&lt;p&gt;自检镜像是用来获取曝光屏的基本参数的，基本参数包括hdmi_timing等参数。&lt;/p&gt;
-
-&lt;p&gt;使用步骤如下：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;烧录selftest.img文件,这个tf卡以下简称亮屏卡&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/selftest_tf.png&quot; height=&quot;500&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;把亮屏卡插入tf卡槽&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/to_tf_slot.png&quot; height=&quot;500&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;把hdmi插入hdmi口 HDMI线另一端 接屏幕&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;供电插入中间的microUSB插口、观察屏幕是否有显示。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/cable_on.png&quot; height=&quot;500&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;屏幕出现这样字样、说明调试成功&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/FD6337D6-6052-450D-AF8C-FA4009E95941.png&quot; height=&quot;500&quot; width=&quot;600&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;如需定制分辨率，请将这个屏幕截取发送到客服QQ上，打了红框的这几行是关键参数，请务必拍摄清楚。&lt;/p&gt;
-
-&lt;h4 id=&quot;烧录打印镜像&quot;&gt;烧录打印镜像&lt;/h4&gt;
-
-&lt;p&gt;用上面的方法将print.img烧录到tf卡中，以下简称打印卡。打印镜像是用来进行DLP打印的，安装上面的电路进行链接时，在开机状态下曝光屏将出现如下的启动画面。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/A210B3C5-E56A-40C2-AA9A-7AD6A1273B20.png&quot; alt=&quot;A210B3C5-E56A-40C2-AA9A-7AD6A1273B20&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;在rayland-solodualpro上安装apk&quot;&gt;在Rayland-solo/dual/pro上安装APK&lt;/h3&gt;
-&lt;p&gt;Rayland-solo/dual/pro上需要专门的APK来处理电机运动和投影图像。打印时UI屏的输入如下图所示。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/dlp_on_screen.png&quot; alt=&quot;dlp_on_screen&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;在app中调整曝光屏分辨率&quot;&gt;在APP中调整曝光屏分辨率&lt;/h4&gt;
-
-&lt;p&gt;在这个页面里可以看到曝光屏分辨率和屏幕接口种类&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/E1DF85AB-F16D-4EF4-9262-AFF589768F0F.png&quot; alt=&quot;E1DF85AB-F16D-4EF4-9262-AFF589768F0F&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这个页面是当前支持的所有分辨率种类，通过点击可以选择&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/7AB26883-A95F-48AB-9E0E-CE3ADF5EB59C.png&quot; alt=&quot;7AB26883-A95F-48AB-9E0E-CE3ADF5EB59C&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在选择了分辨率之后，系统会自动让你选择接口类型，是HDMI接口屏还是DVI接口屏。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/AF52A490-5969-4ACE-80AA-5CAED13D3FF1.png&quot; alt=&quot;AF52A490-5969-4ACE-80AA-5CAED13D3FF1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;选择曝光屏接口类型后，曝光屏系统会自动重启。&lt;/p&gt;
-
-&lt;h3 id=&quot;故障排除&quot;&gt;故障排除&lt;/h3&gt;
-
-&lt;h4 id=&quot;无法获取分辨率&quot;&gt;无法获取分辨率&lt;/h4&gt;
-
-&lt;p&gt;app 里无法显示分辨率，一直显示“正在设置”&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/E9FEFAB4-4F63-4A92-BC81-6B23ECA56CA7.png&quot; height=&quot;600&quot; width=&quot;450&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;将烧录好的打印卡插入H3板将打印卡插入TF卡槽，然后用mircroUSB连接到电脑上。链接方法如下图所示&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/contoPC.jpeg&quot; alt=&quot;contoPC&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;电脑上会多出一个有线网卡，请将这个网卡的IP地址如下设置为固定值&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IPof8152.png&quot; alt=&quot;IPof8152&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果您使用的是Windows操作系统，那么需要安装RTL8152网卡的驱动，在不安装驱动的情况下你可以在设备管理器里面看到如下的图&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/4CE930FB-35C5-445B-A522-9BB9AB3DC293.png&quot; alt=&quot;4CE930FB-35C5-445B-A522-9BB9AB3DC293&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;之后用ping命令查看192.168.199.3 这一IP是否正常链接，如果不能链接则打印卡没有烧录成功，请重新烧录。&lt;/p&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ping 192.168.199.3
-PING 192.168.199.3 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;192.168.199.3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 56 data bytes
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.633 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.409 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.486 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.480 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.482 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.481 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.516 ms
-64 bytes from 192.168.199.3: &lt;span class=&quot;nv&quot;&gt;icmp_seq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;7 &lt;span class=&quot;nv&quot;&gt;ttl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64 &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.437 ms
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;当链接修复正常后应该显示如下的信息&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/ABEBC8FC-ED24-410B-9D5E-523627262EA7.png&quot; alt=&quot;ABEBC8FC-ED24-410B-9D5E-523627262EA7&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;色域不正常&quot;&gt;色域不正常&lt;/h4&gt;
-
-&lt;p&gt;启动后色域显示不正常，整个屏幕发红，但是可以显示出打印图像。请参考“在APP中调整曝光屏分辨率”这一章节，切换屏幕接口类型。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/0B726BBC-1E25-4DE4-9A0B-8EC84F5B5CC2.png&quot; alt=&quot;0B726BBC-1E25-4DE4-9A0B-8EC84F5B5CC2&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;客户打印样品&quot;&gt;客户打印样品&lt;/h2&gt;
-
-&lt;p&gt;艾菲尔铁塔&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/838AB13E-5CC9-42B6-B58E-90DF634E9CB1.png&quot; alt=&quot;838AB13E-5CC9-42B6-B58E-90DF634E9CB1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;戒指&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/6D4F6B36-2CB5-45FE-A514-346ED341A81E.png&quot; alt=&quot;6D4F6B36-2CB5-45FE-A514-346ED341A81E&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;鞋底&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/8AFE6623-5B7B-45B2-9CEC-1B897D1FDA62.png&quot; alt=&quot;8AFE6623-5B7B-45B2-9CEC-1B897D1FDA62&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;一堆鞋底&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/E6F78316-65D9-4CA5-AEB6-914DF7DC394A.png&quot; alt=&quot;E6F78316-65D9-4CA5-AEB6-914DF7DC394A&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 09 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/09/DLP-instructions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/09/DLP-instructions/</guid>
-        
-        <category>DLP</category>
-        
-        <category>3D打印</category>
-        
-        
-        <category>DLP</category>
-        
-      </item>
-    
-      <item>
-        <title>E5CC温控器控制手册</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#crc16&quot; id=&quot;markdown-toc-crc16&quot;&gt;CRC16&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#连续写间隔&quot; id=&quot;markdown-toc-连续写间隔&quot;&gt;连续写间隔&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#命令列表&quot; id=&quot;markdown-toc-命令列表&quot;&gt;命令列表&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#读取当前温度&quot; id=&quot;markdown-toc-读取当前温度&quot;&gt;读取当前温度&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#读取设定温度&quot; id=&quot;markdown-toc-读取设定温度&quot;&gt;读取设定温度&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;本文介绍了如何用&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-dual&lt;/code&gt;主板连接&lt;code class=&quot;highlighter-rouge&quot;&gt;modbus&lt;/code&gt;从站来控制温控器&lt;/p&gt;
-
-&lt;h2 id=&quot;crc16&quot;&gt;CRC16&lt;/h2&gt;
-
-&lt;p&gt;每条命令后面都有CRC格式的计算，这里用的算法是ModBus的算法&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;uint16_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crc16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;uint16_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xFFFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;uint16_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x00FF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0x0001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;//for LSB == 1
-&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xA001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;c1&quot;&gt;//for LSB == 0
-&lt;/span&gt;		&lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	    &lt;span class=&quot;c1&quot;&gt;//retVal &amp;amp;= ~0x8000;
-&lt;/span&gt;	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;连续写间隔&quot;&gt;连续写间隔&lt;/h2&gt;
-
-&lt;p&gt;连续写间隔必须大于一定时间，不然写没有反应&lt;/p&gt;
-
-&lt;h2 id=&quot;命令列表&quot;&gt;命令列表&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/e5cc.png&quot; alt=&quot;e5cc&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../images/e5cc_address_tab.png&quot; alt=&quot;e5cc_address_tab&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;读取当前温度&quot;&gt;读取当前温度&lt;/h3&gt;
-
-&lt;p&gt;当前温度的内部地址是是0x0000&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x01&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmdId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x03&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addrH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addrL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cntH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;thisE5CCConverter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cntL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x02&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;编号&lt;/th&gt;
-      &lt;th&gt;典型值&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte0&lt;/td&gt;
-      &lt;td&gt;0x01&lt;/td&gt;
-      &lt;td&gt;从站地址&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte1&lt;/td&gt;
-      &lt;td&gt;0x03&lt;/td&gt;
-      &lt;td&gt;指令 编号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte2&lt;/td&gt;
-      &lt;td&gt;0x00&lt;/td&gt;
-      &lt;td&gt;地址高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte3&lt;/td&gt;
-      &lt;td&gt;0x00&lt;/td&gt;
-      &lt;td&gt;地址低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte4&lt;/td&gt;
-      &lt;td&gt;0x00&lt;/td&gt;
-      &lt;td&gt;数据长度高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte5&lt;/td&gt;
-      &lt;td&gt;0x02&lt;/td&gt;
-      &lt;td&gt;数据长度低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte6&lt;/td&gt;
-      &lt;td&gt;0xC4&lt;/td&gt;
-      &lt;td&gt;crc16高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte7&lt;/td&gt;
-      &lt;td&gt;0x0B&lt;/td&gt;
-      &lt;td&gt;crc16低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;读取设定温度&quot;&gt;读取设定温度&lt;/h3&gt;
-
-&lt;p&gt;设定温度的内部地址是0x0106&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;编号&lt;/th&gt;
-      &lt;th&gt;典型值&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte0&lt;/td&gt;
-      &lt;td&gt;0x01&lt;/td&gt;
-      &lt;td&gt;从站地址&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte1&lt;/td&gt;
-      &lt;td&gt;0x03&lt;/td&gt;
-      &lt;td&gt;指令 编号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte2&lt;/td&gt;
-      &lt;td&gt;0x01&lt;/td&gt;
-      &lt;td&gt;地址高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte3&lt;/td&gt;
-      &lt;td&gt;0x06&lt;/td&gt;
-      &lt;td&gt;地址低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte4&lt;/td&gt;
-      &lt;td&gt;0x00&lt;/td&gt;
-      &lt;td&gt;数据长度高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte5&lt;/td&gt;
-      &lt;td&gt;0x02&lt;/td&gt;
-      &lt;td&gt;数据长度低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte6&lt;/td&gt;
-      &lt;td&gt;0xC4&lt;/td&gt;
-      &lt;td&gt;crc16高8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte7&lt;/td&gt;
-      &lt;td&gt;0x0B&lt;/td&gt;
-      &lt;td&gt;crc16低8位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Sun, 07 Jan 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/07/E5CC-temp-control-manual/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/07/E5CC-temp-control-manual/</guid>
-        
-        <category>FDM</category>
-        
-        <category>3D打印</category>
-        
-        
-        <category>SLA</category>
-        
-      </item>
-    
-      <item>
-        <title>用锐蓝dual主板控制AGV小车</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#agv小车接线方法&quot; id=&quot;markdown-toc-agv小车接线方法&quot;&gt;AGV小车接线方法&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#安卓系统下的agv-小车控制协议&quot; id=&quot;markdown-toc-安卓系统下的agv-小车控制协议&quot;&gt;安卓系统下的AGV 小车控制协议&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#安卓运行界面&quot; id=&quot;markdown-toc-安卓运行界面&quot;&gt;安卓运行界面&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#agv&quot; id=&quot;markdown-toc-agv&quot;&gt;AGV&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#ros系统下的agv-小车控制协议&quot; id=&quot;markdown-toc-ros系统下的agv-小车控制协议&quot;&gt;ros系统下的AGV 小车控制协议&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;本文档介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;rayland-dual&lt;/code&gt;主板控制小车的控制协议。协议共分两种 &lt;strong&gt;1.&lt;/strong&gt;用内置的安卓系统。&lt;strong&gt;2.&lt;/strong&gt;用外置的ROS系统。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/1851AC83-793D-4179-870E-669D8F8F48C7.png&quot; alt=&quot;1851AC83-793D-4179-870E-669D8F8F48C7&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;agv小车接线方法&quot;&gt;AGV小车接线方法&lt;/h2&gt;
-
-&lt;p&gt;上图所示AGV小车的外设默认配置&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;设备&lt;/th&gt;
-      &lt;th&gt;个数&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;7寸高清触摸屏&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;超声测距&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;RFID&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;16通道寻磁&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;麦克风&lt;/td&gt;
-      &lt;td&gt;1（可选4通道）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2w扬声器&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;UVC摄像头&lt;/td&gt;
-      &lt;td&gt;1（可选扫码摄像头）&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;总体接线图&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;板上电机端口&lt;/th&gt;
-      &lt;th&gt;AGV功能链接&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;X电机端口&lt;/td&gt;
-      &lt;td&gt;左轮驱动&lt;/td&gt;
-      &lt;td&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Y电机端口&lt;/td&gt;
-      &lt;td&gt;右轮驱动&lt;/td&gt;
-      &lt;td&gt;1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Z电机端口&lt;/td&gt;
-      &lt;td&gt;无&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;E0电机端口&lt;/td&gt;
-      &lt;td&gt;左右轮SV&lt;/td&gt;
-      &lt;td&gt;1GND，2 SV_左，3 SV_右，4GND 直连板接E0DIR和E0EN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;E1电机端口&lt;/td&gt;
-      &lt;td&gt;寻磁&lt;/td&gt;
-      &lt;td&gt;1GND，2TX，3RX，4GND。(E1DIR和usart3_RX复用，E1STEP和usart3_tx复用)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;usart1&lt;/td&gt;
-      &lt;td&gt;rfid&lt;/td&gt;
-      &lt;td&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;usart2&lt;/td&gt;
-      &lt;td&gt;超声&lt;/td&gt;
-      &lt;td&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;usart3&lt;/td&gt;
-      &lt;td&gt;寻磁&lt;/td&gt;
-      &lt;td&gt;1GND，2TX，3RX，4GND&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;usb口&lt;/td&gt;
-      &lt;td&gt;摄像头&lt;/td&gt;
-      &lt;td&gt;VLC免驱摄像头&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;音频输入&lt;/td&gt;
-      &lt;td&gt;单mic&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;音频输出&lt;/td&gt;
-      &lt;td&gt;运放模块&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;安卓系统下的agv-小车控制协议&quot;&gt;安卓系统下的AGV 小车控制协议&lt;/h2&gt;
-
-&lt;h3 id=&quot;安卓运行界面&quot;&gt;安卓运行界面&lt;/h3&gt;
-
-&lt;p&gt;状态显示界面&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/F3CEE232-B2C5-4A18-B012-0EC6A13835F6.png&quot; alt=&quot;F3CEE232-B2C5-4A18-B012-0EC6A13835F6&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;控制界面&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/8C0CE1AB-597B-4DAD-A555-B3A73E50AFF8.png&quot; alt=&quot;8C0CE1AB-597B-4DAD-A555-B3A73E50AFF8&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;看听说界面&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/AAACD147-6D27-47FC-84DE-6B86AC0F1F5D.png&quot; alt=&quot;AAACD147-6D27-47FC-84DE-6B86AC0F1F5D&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;agv&quot;&gt;AGV&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Android -&amp;gt; Stm32&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;1.1 &lt;strong&gt;控制指令&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,v_x,v_y,s_x,s_y&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;12bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;is_reset&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;是否抢占&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轮速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轮速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;s_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轮里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;s_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轮里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;2.2 &lt;strong&gt;定义当前坐标&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,axis_x,axis_y,ori&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;9bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ori&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;朝向&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = 1/10°&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 = -1/10°&lt;/code&gt; (逆时针为正)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;3.3 &lt;strong&gt;切换控制模式&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,controll_type&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;controll_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;控制模式&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0：板控&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1：遥控&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;2：ROS控制&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stm32 -&amp;gt; Android&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;1.1 &lt;strong&gt;状态采集&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,v_x,v_y,axis_x,axis_y,ori,rfid,magn,infra,ut_f,ut_b,moto_state,mile&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;39bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;controlType&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;控制类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0：板控&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1：遥控&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;2：ROS控制&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ori&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;朝向&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = 1/10°&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 = -1/10°&lt;/code&gt; (逆时针为正)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;rfid&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;rfid序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint32&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;magn&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;磁条序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:missing 1:hit&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;infra&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;红外&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_f&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_b&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;后侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;moto_state&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;电机状态&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:stop 1:running&lt;/code&gt; 左侧第0位 右侧第一位&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;mile&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;总里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;ros系统下的agv-小车控制协议&quot;&gt;ros系统下的AGV 小车控制协议&lt;/h2&gt;
-
-&lt;p&gt;板载的A33处理器并不能运行ROS操作系统，需要通过外接mini PC来完成。MiniPC直接和板子上的STM32进行通讯，在ros模式下，我们需要禁用板载的寻磁传感器功能，将这个口用来做miniPC和STM32的通讯。&lt;/p&gt;
-
-&lt;p&gt;MiniPC -&amp;gt; Stm32&lt;/p&gt;
-
-&lt;p&gt;1.1 &lt;strong&gt;控制指令&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,v_x,v_y,s_x,s_y&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;prefix&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包头&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0x68&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;12bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;is_reset&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;是否抢占&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轮速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轮速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;s_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轮里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;s_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轮里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;checksum&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;校验和（不含包头包尾）&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8_t&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0~255&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;subfix&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包尾巴&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8_t&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0xff&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Stm32-&amp;gt; MiniPC&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;prefix&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包头&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0x68&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;39bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ori&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;朝向&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = 1/10°&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 = -1/10°&lt;/code&gt; (逆时针为正)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;rfid&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;rfid序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint32&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;magn&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;磁条序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:missing 1:hit&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;infra&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;红外&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_f&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_b&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;后侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;moto_state&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;电机状态&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:stop 1:running&lt;/code&gt; 左侧第0位 右侧第一位&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;mile&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;总里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;checksum&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;校验和（不含包头包尾）&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8_t&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0~255&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;subfix&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包尾巴&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8_t&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0xff&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-</description>
-        <pubDate>Mon, 30 Oct 2017 14:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/10/30/rayland-dual-on-agv/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/10/30/rayland-dual-on-agv/</guid>
-        
-        <category>AGV</category>
+        <category>MeiXing</category>
         
         
         <category>AGV</category>
-        
-      </item>
-    
-      <item>
-        <title>4988 vs DRV8825</title>
-        <description>
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4988&lt;/code&gt; 和&lt;code class=&quot;highlighter-rouge&quot;&gt;DRV8825&lt;/code&gt;的性能对比&lt;/p&gt;
-
-&lt;p&gt;4988 是这个样子的&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/4988.png&quot; height=&quot;500&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;DRV8825是这个样子的&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/8825.png&quot; height=&quot;500&quot; width=&quot;700&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;DRV8729是这个样子的&lt;/p&gt;
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/LV8729.png&quot; height=&quot;500&quot; width=&quot;700&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;这两个驱动器的管脚分布和现在dual板子不兼容&lt;/p&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/dual_socket.png&quot; height=&quot;500&quot; width=&quot;500&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;如果想要将公版的4988和8825以及8729插入dual中，我们需要对参考电压vref的输出进行改变，让他恒定输出3.3V&lt;/p&gt;
-
-&lt;p&gt;这个可以通过修改HEX来实现,下午需要做一下测试&lt;/p&gt;
-</description>
-        <pubDate>Sun, 29 Oct 2017 21:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/10/29/on-board-driver/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/10/29/on-board-driver/</guid>
-        
-        <category>FDM</category>
-        
-        <category>3D打印</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>Solo主板如何接两个网卡</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SOLO&lt;/code&gt; 是我们针对&lt;code class=&quot;highlighter-rouge&quot;&gt;DLP&lt;/code&gt;应用出的一款主板，有&lt;code class=&quot;highlighter-rouge&quot;&gt;三个USB口&lt;/code&gt;，所以肯定可以接&lt;code class=&quot;highlighter-rouge&quot;&gt;3个USB网卡&lt;/code&gt;，目前可以确定的是一定要接两个的。一个是接H3，另一个是接大屏幕。&lt;/p&gt;
-
-&lt;p&gt;接好之后，在cmd里面运行&lt;/p&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#adb shell&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;能看到如下的输出&lt;/p&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Z:&lt;span class=&quot;se&quot;&gt;\下&lt;/span&gt;载&lt;span class=&quot;se&quot;&gt;\a&lt;/span&gt;db&amp;gt;adb shell
-root@astar-y3:/ &lt;span class=&quot;c&quot;&gt;# netcfg&lt;/span&gt;
-netcfg
-ip6tnl0  DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
-00:00:00
-tunl0    DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
-00:00:00
-sit0     DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
-00:00:00
-gre0     DOWN                                   0.0.0.0/0   0x00000080 00:00:00:
-00:00:00
-eth0     UP                               192.168.199.4/24  0x00001043 00:e0:4c:
-36:24:cf
-eth1     UP                                192.168.99.4/24  0x00001043 00:e0:4c:
-36:06:20
-lo       UP                                   127.0.0.1/8   0x00000049 00:00:00:
-00:00:00
-root@astar-y3:/ &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;接着运行 busybox route命令，可以看到很完美的，网络被分成了两个网段分别是192.168.99.0网段和
-192.168.199.0网段，子网掩码都是24个1。&lt;/p&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Z:&lt;span class=&quot;se&quot;&gt;\下&lt;/span&gt;载&lt;span class=&quot;se&quot;&gt;\a&lt;/span&gt;db&amp;gt;adb shell
-root@astar-y3:/ &lt;span class=&quot;c&quot;&gt;# busybox route&lt;/span&gt;
-busybox route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-192.168.99.0    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.255.0   U     0      0        0 eth1
-192.168.199.0   &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;               255.255.255.0   U     0      0        0 eth0
-root@astar-y3:/ &lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;如果我们把h3连接到eth0上面，并且把h3自己的地址设置为192.168.199.3。
-如果我们把大平板连接到eth1上面，并且把大平板自己的地址设置为192.168.99.3。
-那么就可以分别访问。可以用ping来验证一下。
-这里会用到一个ping的新参数&lt;/p&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#ping -I eth0 192.168.199.3&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#ping -I eth1 192.168.99.3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;用-I参数来指定ping的端口&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 29 Oct 2017 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/10/29/rayland-solo-bridging-net/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/10/29/rayland-solo-bridging-net/</guid>
-        
-        <category>SLA</category>
-        
-        <category>DLP</category>
-        
-        <category>SOLO</category>
-        
-        
-        <category>SLA</category>
         
       </item>
     

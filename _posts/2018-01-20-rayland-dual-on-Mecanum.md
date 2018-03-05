@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "用rayland-dual主板控制麦克纳姆车 控制协议"
+title:  "用Rayland-DUAL主板控制麦克纳姆车 控制协议"
 date:   2018-01-20 10:00:00 +0800
 categories: AGV 
-tags: AGV 
-author: JiuYang Chen
+tags: AGV Rayland-DUAL MeiXing
+author: Mei Xing
 typora-copy-images-to: ../_images
 ---
 
 * content
 {:toc}
 
-本文简单介绍了用`rayland-dual`主板控制麦克纳姆车的接线方法和控制协议。
+本文简单介绍了用`Rayland-DUAL`主板控制麦克纳姆车的接线方法和控制协议。
 
 
 

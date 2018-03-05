@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>用Rayland-DUAL主板控制鸵鸟机器人 控制协议</title>
+    <meta name="description" content="本文简单介绍了用Rayland-DUAL主板控制鸵鸟机器人的接线方法和控制协议。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/03/01/ostrich-robot/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>用Rayland-DUAL主板控制鸵鸟机器人 控制协议</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-03-01
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Mei Xing
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#AGV" title="Tag: AGV" rel="tag">AGV</a>&nbsp;
+    
+        <a href="/tag/#Rayland-DUAL" title="Tag: Rayland-DUAL" rel="tag">Rayland-DUAL</a>&nbsp;
+    
+        <a href="/tag/#MeiXing" title="Tag: MeiXing" rel="tag">MeiXing</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#鸵鸟机器人" id="markdown-toc-鸵鸟机器人">鸵鸟机器人</a>    <ul>
+      <li><a href="#鸵鸟机器人接线方法" id="markdown-toc-鸵鸟机器人接线方法">鸵鸟机器人接线方法</a></li>
+      <li><a href="#总体接线图" id="markdown-toc-总体接线图">总体接线图</a></li>
+      <li><a href="#主板" id="markdown-toc-主板">主板</a></li>
+      <li><a href="#从板" id="markdown-toc-从板">从板</a></li>
+      <li><a href="#远程控制鸵鸟机器人的网络配置" id="markdown-toc-远程控制鸵鸟机器人的网络配置">远程控制鸵鸟机器人的网络配置</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>本文简单介绍了用<code class="highlighter-rouge">Rayland-DUAL</code>主板控制鸵鸟机器人的接线方法和控制协议。</p>
+
+<h1 id="鸵鸟机器人">鸵鸟机器人</h1>
+
+<h3 id="鸵鸟机器人接线方法">鸵鸟机器人接线方法</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><code class="highlighter-rouge">设备</code></th>
+      <th style="text-align: center"><code class="highlighter-rouge">个数</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">RFID</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16通道寻磁</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">rayland-dual主板</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">摄像云台舵机</td>
+      <td style="text-align: center">2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="总体接线图">总体接线图</h3>
+
+<h3 id="主板">主板</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">板上电机端口</th>
+      <th style="text-align: center">鸵鸟功能链接</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">X电机端口</td>
+      <td style="text-align: center">左轮驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Y电机端口</td>
+      <td style="text-align: center">右轮驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Z电机端口</td>
+      <td style="text-align: center">旋转轴驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E0电机端口</td>
+      <td style="text-align: center">空</td>
+      <td style="text-align: center">空</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E1电机端口</td>
+      <td style="text-align: center">16通道寻磁</td>
+      <td style="text-align: center">1GND2TX(STEP)3RX(DIR)4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">USART1</td>
+      <td style="text-align: center">RFID</td>
+      <td style="text-align: center">1GND,2TX,3RX,4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">USART2</td>
+      <td style="text-align: center">与从板桥接</td>
+      <td style="text-align: center">1GND,2TX,3RX,4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">USB口</td>
+      <td style="text-align: center">USB转网口</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="从板">从板</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">板上电机端口</th>
+      <th style="text-align: center">鸵鸟功能链接</th>
+      <th style="text-align: center">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">X电机端口</td>
+      <td style="text-align: center">滑台前后驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Y电机端口</td>
+      <td style="text-align: center">滑台左右驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Z电机端口</td>
+      <td style="text-align: center">升降轴驱动</td>
+      <td style="text-align: center">1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E0电机端口</td>
+      <td style="text-align: center">空</td>
+      <td style="text-align: center">空</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E1电机端口</td>
+      <td style="text-align: center">摄像云台舵机</td>
+      <td style="text-align: center">1GND2TX（EN）3RX（MS1）4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">USART2</td>
+      <td style="text-align: center">与主板</td>
+      <td style="text-align: center">1GND,2TX,3RX,4GND</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="远程控制鸵鸟机器人的网络配置">远程控制鸵鸟机器人的网络配置</h3>
+
+<p>测试时将电脑连接到机器上配备的路由器网络。</p>
+
+<p>1.配置路由器ip地址，将LAN口ip设置改成为10.120.17.1，如下图所示。</p>
+
+<p><img src="/images/2B6A3FAF-5C5E-42D1-AB16-5AC453C8913A.png" alt="2B6A3FAF-5C5E-42D1-AB16-5AC453C8913A" /></p>
+
+<p>2.打开控制软件ostrich，输入相应的IP地址：10.120.17.100。能正常收发数据后，开始进行遥控测试。</p>
+
+<p><img src="/images/EC843173-5A40-4EB4-A0AF-7E439F271036.png" alt="EC843173-5A40-4EB4-A0AF-7E439F271036" /></p>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/05/h3-img-burn/">H3镜像烧录
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/">西安杨总AGV调试手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/">帮团售货柜控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/">用Rayland-DUAL主板控制麦克纳姆车 控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/03/01/bangtuan-shop-windows-Protocol/">帮团售货柜控制协议</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/03/02/tianhe-robot-voice/">天和机器人音量调节说明文档</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/03/01/ostrich-robot/" data-title="用Rayland-DUAL主板控制鸵鸟机器人 控制协议" data-url="http://localhost:4000/2018/03/01/ostrich-robot/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

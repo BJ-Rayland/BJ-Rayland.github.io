@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "rayland-dual主板控制舵机"
+title:  "Rayland-DUAL主板控制舵机"
 date:   2018-01-16 07:00:00 +0800
-categories: FDM 
-tags:  3D打印 FDM
+categories: FDM SongLei
+tags:  3D打印 FDM Rayland-DUAL
 author: Song Lei
 ---
 
 * content
 {:toc}
- 本文介绍了如何使用`RAYLAND-DUAL`主板的电机输出接口来控制舵机
+ 本文介绍了如何使用`Rayland-DUAL`主板的电机输出接口来控制舵机
 
 
 

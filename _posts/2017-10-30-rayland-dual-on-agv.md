@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "用锐蓝dual主板控制AGV小车"
+title:  "用Rayland-DUAL主板控制AGV小车"
 date:   2017-10-30 14:00:00 +0800
 categories: AGV 
-tags: AGV 
+tags: AGV Rayland-DUAL Chenjy
 author: JiuYang Chen
 typora-copy-images-to: ../images
 ---
@@ -11,7 +11,7 @@ typora-copy-images-to: ../images
 * content
 {:toc}
 
-本文档介绍了用`rayland-dual`主板控制小车的控制协议。协议共分两种 **1.**用内置的安卓系统。**2.**用外置的ROS系统。
+本文档介绍了用`Rayland-DUAL`主板控制小车的控制协议。协议共分两种 **1.**用内置的安卓系统。**2.**用外置的ROS系统。
 
 
 

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>西安杨总AGV调试手册</title>
+    <meta name="description" content="与普通的小车不同，杨总的小车主要是使用了usart1和usart2口作为调试口，调试命令从usart1口输入，从usart2输出，并且对电机发生作用。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>西安杨总AGV调试手册</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-03-04
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Song Lei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#AGV" title="Tag: AGV" rel="tag">AGV</a>&nbsp;
+    
+        <a href="/tag/#SongLei" title="Tag: SongLei" rel="tag">SongLei</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#注意" id="markdown-toc-注意">注意</a></li>
+  <li><a href="#dual板图片" id="markdown-toc-dual板图片">dual板图片</a></li>
+  <li><a href="#接线方法" id="markdown-toc-接线方法">接线方法</a>    <ul>
+      <li><a href="#原始总体接线图" id="markdown-toc-原始总体接线图">原始总体接线图</a></li>
+      <li><a href="#杨总版本接线图" id="markdown-toc-杨总版本接线图">杨总版本接线图</a></li>
+    </ul>
+  </li>
+  <li><a href="#命令解析程序" id="markdown-toc-命令解析程序">命令解析程序</a></li>
+  <li><a href="#串口通信参数" id="markdown-toc-串口通信参数">串口通信参数</a></li>
+  <li><a href="#控制指令格式" id="markdown-toc-控制指令格式">控制指令格式</a></li>
+  <li><a href="#命令例子" id="markdown-toc-命令例子">命令例子</a></li>
+</ul>
+
+<p>与普通的小车不同，杨总的小车主要是使用了usart1和usart2口作为调试口，调试命令从usart1口输入，从usart2输出，并且对电机发生作用。</p>
+
+<h2 id="注意">注意</h2>
+
+<p><strong>为了表示usart1口的指令是正确的，从usart2口输出的数据会将关键字符 X Y F替换成A B C。</strong></p>
+
+<h2 id="dual板图片">dual板图片</h2>
+
+<p><img src="http://leisong03.github.io/images/3C198664-D907-4C72-93F4-150CBF516EBA.png" alt="3C198664-D907-4C72-93F4-150CBF516EBA" /></p>
+
+<h2 id="接线方法">接线方法</h2>
+
+<h3 id="原始总体接线图">原始总体接线图</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">板上电机端口</th>
+      <th>AGV功能链接</th>
+      <th style="text-align: left">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">X电机端口</td>
+      <td>左轮驱动</td>
+      <td style="text-align: left">1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y电机端口</td>
+      <td>右轮驱动</td>
+      <td style="text-align: left">1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Z电机端口</td>
+      <td>无</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E0电机端口</td>
+      <td>左右轮SV</td>
+      <td style="text-align: left">1GND，2 SV_左，3 SV_右，4GND 直连板接E0DIR和E0EN</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E1电机端口</td>
+      <td>寻磁</td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND。(E1DIR和usart3_RX复用，E1STEP和usart3_tx复用)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usart1</td>
+      <td>rfid</td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usart2</td>
+      <td>超声</td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usb口</td>
+      <td>摄像头</td>
+      <td style="text-align: left">VLC免驱摄像头</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">音频输入</td>
+      <td>单mic</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">音频输出</td>
+      <td>运放模块</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="杨总版本接线图">杨总版本接线图</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">板上电机端口</th>
+      <th>AGV功能链接</th>
+      <th style="text-align: left">备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">X电机端口</td>
+      <td>左轮驱动</td>
+      <td style="text-align: left"><del>1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)</del> <strong><em>1GND 2 EN 3, STEP 4 DIR 5 SV</em></strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y电机端口</td>
+      <td>右轮驱动</td>
+      <td style="text-align: left"><del>1EN(EN)，2FR(MS1)，3PG(MS2)，4BK(ST)</del> <strong>1GND 2 EN 3, STEP 4 DIR 5 SV</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Z_MIN</td>
+      <td>左轮PG</td>
+      <td style="text-align: left"><strong>1 PG, 2 GND, 3 5V</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Z_MAX</td>
+      <td>右轮PG</td>
+      <td style="text-align: left"><strong>1 PG, 2 GND, 3 5V</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Z电机端口</td>
+      <td>无</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E0电机端口</td>
+      <td>左右轮SV</td>
+      <td style="text-align: left"><del>1GND，2 SV_左，3 SV_右，4GND 直连板接E0DIR和E0EN</del></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E1电机端口</td>
+      <td>寻磁</td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND。(E1DIR和usart3_RX复用，E1STEP和usart3_tx复用)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usart1</td>
+      <td><del>rfid</del> <strong>控制命令输入</strong></td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usart2</td>
+      <td><del>超声</del> <strong>控制指令输出</strong></td>
+      <td style="text-align: left">1GND，2TX，3RX，4GND</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">usb口</td>
+      <td>摄像头</td>
+      <td style="text-align: left">VLC免驱摄像头</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">音频输入</td>
+      <td>单mic</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">音频输出</td>
+      <td>运放模块</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="命令解析程序">命令解析程序</h2>
+
+<p>对于串口收到数据的解析用如下程序完成：</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">USART_GetITStatus</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_IT_RXNE</span><span class="p">)</span><span class="o">!=</span><span class="n">RESET</span><span class="p">){</span>
+	<span class="kt">uint8_t</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">USART_ReceiveData</span><span class="p">(</span><span class="n">USART1</span><span class="p">);</span>
+	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">usart1Ready</span><span class="p">){</span>
+	    <span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="o">!=</span><span class="sc">'X'</span><span class="p">){</span>
+		<span class="n">usart1Idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="k">return</span><span class="p">;</span>
+	    <span class="p">}</span>
+	    <span class="k">else</span>
+		<span class="n">usart1Ready</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span> 
+	<span class="n">rx1Data</span><span class="p">[</span><span class="n">usart1Idx</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">'\n'</span><span class="p">){</span>
+	    <span class="n">usart1Ready</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	    <span class="kt">uint8_t</span> <span class="n">strLen</span> <span class="o">=</span> <span class="n">usartIdx</span><span class="p">;</span>
+	    <span class="n">usart1Idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	    <span class="k">const</span> <span class="kt">char</span> <span class="n">keyword</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'X'</span><span class="p">,</span><span class="sc">'Y'</span><span class="p">,</span><span class="sc">'F'</span><span class="p">};</span>
+	    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="k">while</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span><span class="n">strLen</span> <span class="o">&amp;&amp;</span> <span class="n">rx1Data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">!=</span><span class="n">keyword</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+		    <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">&lt;</span><span class="n">strLen</span><span class="p">){</span>
+		    <span class="n">sscanf</span><span class="p">((</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">)(</span><span class="n">rx1Data</span><span class="o">+</span><span class="n">j</span><span class="p">),</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="p">(</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+		<span class="p">}</span>
+		<span class="n">toReplayOverUsart2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	    <span class="p">}</span>
+	    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="n">setAxisDir</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+	    <span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">USART_ClearITPendingBit</span><span class="p">(</span><span class="n">USART1</span><span class="p">,</span><span class="n">USART_IT_RXNE</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>从usart2 输出的包的输出程序</p>
+
+<p>uint8_t strBuf[30];</p>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code>    <span class="n">sprintf</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">strBuf</span><span class="p">,</span><span class="s">"A%d B%d C%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">strlen</span><span class="p">((</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">strBuf</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+	<span class="n">USART_SendData</span><span class="p">(</span><span class="n">EVAL_COM2</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span> <span class="n">strBuf</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">USART_GetFlagStatus</span><span class="p">(</span><span class="n">EVAL_COM2</span><span class="p">,</span> <span class="n">USART_FLAG_TC</span><span class="p">)</span> <span class="o">==</span> <span class="n">RESET</span><span class="p">){};</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="串口通信参数">串口通信参数</h2>
+
+<p>波特率：9600  8n1</p>
+
+<h2 id="控制指令格式">控制指令格式</h2>
+
+<p>底盘车通信格式</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>字段1</th>
+      <th>字段2</th>
+      <th>字段3</th>
+      <th>字段4</th>
+      <th>字段5</th>
+      <th>字段6</th>
+      <th>字段7</th>
+      <th>字段8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>X</td>
+      <td>数字1</td>
+      <td>空格</td>
+      <td>Y</td>
+      <td>数字2</td>
+      <td>F</td>
+      <td>数字3</td>
+      <td>换行符</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>数字1左轮正负分别代表前进后退 大小代表转N个10分之1圈</p>
+
+<p>数字2右轮正负分别代表前进后退大小代表转N个10分之1圈</p>
+
+<p>数字3代表运行速度 范围为1-30</p>
+
+<h2 id="命令例子">命令例子</h2>
+
+<p>X10 Y10 F20↵</p>
+
+<p>车前进1圈，运行速度为20</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/">DLP H3 与 A33通讯协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/">RAYLAND RL-150型 SLA打印机数据手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/tianhe-robot-voice/">天和机器人音量调节说明文档
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/01/ostrich-robot/">用Rayland-DUAL主板控制鸵鸟机器人 控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/25/SLA-Comm-Protocol/">Rayland-SLA 主板控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/">LCD光固化发货测试流程
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/03/02/RAYLAND-RL-150-SLA-instructions/">RAYLAND RL-150型 SLA打印机数据手册</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/">DLP H3 与 A33通讯协议</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/" data-title="西安杨总AGV调试手册" data-url="http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>

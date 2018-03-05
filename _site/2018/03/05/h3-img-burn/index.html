@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>H3镜像烧录</title>
+    <meta name="description" content="本文介绍H3镜像烧录的全过程。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/03/05/h3-img-burn/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>H3镜像烧录</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-03-05
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Mei Xing
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#FDM" title="Tag: FDM" rel="tag">FDM</a>&nbsp;
+    
+        <a href="/tag/#MeiXing" title="Tag: MeiXing" rel="tag">MeiXing</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        
+<p>本文介绍<code class="highlighter-rouge">H3</code>镜像烧录的全过程。</p>
+
+<p><strong>1.</strong>启动<code class="highlighter-rouge">WIN32 Disk Imagr</code>，将需要烧录的TF接到所用电脑。选择要烧写的镜像，点击<code class="highlighter-rouge">Write</code></p>
+
+<div align="center">
+<img src="/images/h3-1.png" /></div>
+
+<p><strong>2.</strong>等待烧写完成后，将TF接到H3板上，并用安卓数据线接到电脑上。</p>
+
+<div align="center">
+<img src="/images/h3-2.png" /></div>
+
+<p><strong>3.</strong>打开网络设配器，打开H3的网络属性配置。</p>
+
+<div align="center">
+<img src="/images/h3-3.png" /></div>
+
+<p><strong>4.</strong></p>
+
+<div align="center">
+<img src="/images/h3-4.png" /></div>
+
+<p><strong>5.</strong>完成网络配置后，打开PuTTY。</p>
+
+<div align="center">
+<img src="/images/h3-5.png" /></div>
+
+<p><strong>6.</strong>打开CMD，看网络能否PING通。</p>
+
+<div align="center">
+<img src="/images/h3-6.png" /></div>
+
+<p><strong>7.</strong>输入指令：ping 192.168.199.3</p>
+
+<div align="center">
+<img src="/images/h3-7.png" /></div>
+
+<p><strong>8.</strong>打开Putty，输入初始账号：root     密码：1234</p>
+
+<div align="center">
+<img src="/images/h3-8.png" /></div>
+
+<p><strong>9.</strong>输入初始密码：1234    新密码：yxrl2015  确认新密码：yxrl2015</p>
+
+<div align="center">
+<img src="/images/h3-9.png" /></div>
+
+<p><strong>10.</strong>创建用户账户：账号：fa  密码：fa</p>
+
+<div align="center">
+<img src="/images/h3-10.png" /></div>
+
+<p><strong>11.</strong>弹出下述界面，输入 y</p>
+
+<div align="center">
+<img src="/images/h3-11.png" /></div>
+
+<p><strong>12.</strong>弹出一下界面，为正常工作状态</p>
+
+<div align="center">
+<img src="/images/h3-12.png" /></div>
+
+<p><strong>13.</strong>输入指令：sudo ifconfig  查看IP地址是否正确</p>
+
+<div align="center">
+<img src="/images/h3-13.png" /></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>14.</strong>输入指令： ps –aux</td>
+      <td>grep c.py 显示如下图</td>
+    </tr>
+  </tbody>
+</table>
+
+<div align="center">
+<img src="/images/h3-14.png" /></div>
+
+<p><strong>15.</strong>输入指令：xrandr –display :0.0  显示当前分辨率</p>
+
+<div align="center">
+<img src="/images/h3-15.png" /></div>
+
+<p><strong>16.</strong>打开winscp，会话协议选为SCP,输入主机名：192.168.199.3</p>
+
+<div align="center">
+<img src="/images/h3-16.png" /></div>
+
+<p><strong>17.</strong>输入用户名：root</p>
+
+<div align="center">
+<img src="/images/h3-17.png" /></div>
+
+<p><strong>18.</strong>输入密码：yxrl2015</p>
+
+<div align="center">
+<img src="/images/h3-18.png" /></div>
+
+<p><strong>19.</strong>进入此界面，打开：usr/bin/c.py ，并且进行替换</p>
+
+<div align="center">
+<img src="/images/h3-19.png" /></div>
+
+<div align="center">
+<img src="/images/h3-20.png" /></div>
+
+<div align="center">
+<img src="/images/h3-21.png" /></div>
+
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/">DLP H3 与 A33通讯协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/">RAYLAND RL-150型 SLA打印机数据手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/01/ostrich-robot/">用Rayland-DUAL主板控制鸵鸟机器人 控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/">帮团售货柜控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/25/SLA-Comm-Protocol/">Rayland-SLA 主板控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/">LCD光固化发货测试流程
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/">DLP H3 与 A33通讯协议</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/03/05/h3-img-burn/" data-title="H3镜像烧录" data-url="http://localhost:4000/2018/03/05/h3-img-burn/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>
