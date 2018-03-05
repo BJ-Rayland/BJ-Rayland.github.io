@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Mar 2018 18:00:34 +0800</pubDate>
-    <lastBuildDate>Mon, 05 Mar 2018 18:00:34 +0800</lastBuildDate>
+    <pubDate>Mon, 05 Mar 2018 18:07:53 +0800</pubDate>
+    <lastBuildDate>Mon, 05 Mar 2018 18:07:53 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -1556,13 +1556,16 @@
         <title>LCD光固化发货测试流程</title>
         <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#环境搭建&quot; id=&quot;markdown-toc-环境搭建&quot;&gt;环境搭建&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#准备材料&quot; id=&quot;markdown-toc-准备材料&quot;&gt;准备材料&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#接线&quot; id=&quot;markdown-toc-接线&quot;&gt;接线&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#准备材料&quot; id=&quot;markdown-toc-准备材料&quot;&gt;准备材料&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#接线&quot; id=&quot;markdown-toc-接线&quot;&gt;接线&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#测试要点&quot; id=&quot;markdown-toc-测试要点&quot;&gt;测试要点&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#启动过程&quot; id=&quot;markdown-toc-启动过程&quot;&gt;启动过程&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#h3连接测试&quot; id=&quot;markdown-toc-h3连接测试&quot;&gt;H3连接测试&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#电控测试&quot; id=&quot;markdown-toc-电控测试&quot;&gt;电控测试&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#打印流程测试&quot; id=&quot;markdown-toc-打印流程测试&quot;&gt;打印流程测试&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -1570,9 +1573,9 @@
 
 &lt;p&gt;LCD光固化发货测试流程&lt;/p&gt;
 
-&lt;h3 id=&quot;环境搭建&quot;&gt;环境搭建&lt;/h3&gt;
+&lt;h2 id=&quot;环境搭建&quot;&gt;环境搭建&lt;/h2&gt;
 
-&lt;h5 id=&quot;准备材料&quot;&gt;准备材料&lt;/h5&gt;
+&lt;h3 id=&quot;准备材料&quot;&gt;准备材料&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1612,7 +1615,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;接线&quot;&gt;接线&lt;/h5&gt;
+&lt;h4 id=&quot;接线&quot;&gt;接线&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;TF卡插H3主板卡槽；&lt;/li&gt;
@@ -1628,9 +1631,9 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/dlp_in_circuit.jpg&quot; alt=&quot;连接图&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;测试要点&quot;&gt;测试要点&lt;/h3&gt;
+&lt;h2 id=&quot;测试要点&quot;&gt;测试要点&lt;/h2&gt;
 
-&lt;h5 id=&quot;启动过程&quot;&gt;启动过程&lt;/h5&gt;
+&lt;h3 id=&quot;启动过程&quot;&gt;启动过程&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1649,7 +1652,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;h3连接测试&quot;&gt;H3连接测试&lt;/h5&gt;
+&lt;h3 id=&quot;h3连接测试&quot;&gt;H3连接测试&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1682,7 +1685,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;#####电控测试&lt;/p&gt;
+&lt;h3 id=&quot;电控测试&quot;&gt;电控测试&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1710,7 +1713,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/expose_full_screen.png&quot; alt=&quot;曝光&quot; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;打印流程测试&quot;&gt;打印流程测试&lt;/h5&gt;
+&lt;h3 id=&quot;打印流程测试&quot;&gt;打印流程测试&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
