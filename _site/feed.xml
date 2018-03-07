@@ -5,9 +5,507 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Mar 2018 18:07:53 +0800</pubDate>
-    <lastBuildDate>Mon, 05 Mar 2018 18:07:53 +0800</lastBuildDate>
+    <pubDate>Wed, 07 Mar 2018 18:53:57 +0800</pubDate>
+    <lastBuildDate>Wed, 07 Mar 2018 18:53:57 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>用rayland-SLA主板控制SLA打印机</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#基本参数&quot; id=&quot;markdown-toc-基本参数&quot;&gt;基本参数&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#接线&quot; id=&quot;markdown-toc-接线&quot;&gt;接线&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#软件使用&quot; id=&quot;markdown-toc-软件使用&quot;&gt;软件使用&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#主页&quot; id=&quot;markdown-toc-主页&quot;&gt;主页&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#硬件控制&quot; id=&quot;markdown-toc-硬件控制&quot;&gt;硬件控制&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#参数设置&quot; id=&quot;markdown-toc-参数设置&quot;&gt;参数设置&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#硬件设置&quot; id=&quot;markdown-toc-硬件设置&quot;&gt;硬件设置&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#刮刀&quot; id=&quot;markdown-toc-刮刀&quot;&gt;刮刀&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#刮刀打印时速度&quot; id=&quot;markdown-toc-刮刀打印时速度&quot;&gt;刮刀打印时速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#刮刀控制时速度&quot; id=&quot;markdown-toc-刮刀控制时速度&quot;&gt;刮刀控制时速度&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#平台&quot; id=&quot;markdown-toc-平台&quot;&gt;平台&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#平台打印时速度&quot; id=&quot;markdown-toc-平台打印时速度&quot;&gt;平台打印时速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#平台控制时速度&quot; id=&quot;markdown-toc-平台控制时速度&quot;&gt;平台控制时速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#距液面高度&quot; id=&quot;markdown-toc-距液面高度&quot;&gt;距液面高度&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#浮块&quot; id=&quot;markdown-toc-浮块&quot;&gt;浮块&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#浮块打印时速度&quot; id=&quot;markdown-toc-浮块打印时速度&quot;&gt;浮块打印时速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#浮块控制时速度&quot; id=&quot;markdown-toc-浮块控制时速度&quot;&gt;浮块控制时速度&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#激光&quot; id=&quot;markdown-toc-激光&quot;&gt;激光&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#激光极性&quot; id=&quot;markdown-toc-激光极性&quot;&gt;激光极性&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#光路长度&quot; id=&quot;markdown-toc-光路长度&quot;&gt;光路长度&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#制作设置&quot; id=&quot;markdown-toc-制作设置&quot;&gt;制作设置&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#刮刀-1&quot; id=&quot;markdown-toc-刮刀-1&quot;&gt;刮刀&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#起刮高度&quot; id=&quot;markdown-toc-起刮高度&quot;&gt;起刮高度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#刮平次数&quot; id=&quot;markdown-toc-刮平次数&quot;&gt;刮平次数&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#激光-1&quot; id=&quot;markdown-toc-激光-1&quot;&gt;激光&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#激光开延时&quot; id=&quot;markdown-toc-激光开延时&quot;&gt;激光开延时&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#激光关延时&quot; id=&quot;markdown-toc-激光关延时&quot;&gt;激光关延时&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#等待时间&quot; id=&quot;markdown-toc-等待时间&quot;&gt;等待时间&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#流平时间&quot; id=&quot;markdown-toc-流平时间&quot;&gt;流平时间&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#固化时间&quot; id=&quot;markdown-toc-固化时间&quot;&gt;固化时间&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#浸泡时间&quot; id=&quot;markdown-toc-浸泡时间&quot;&gt;浸泡时间&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#液位设置&quot; id=&quot;markdown-toc-液位设置&quot;&gt;液位设置&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#目标高度&quot; id=&quot;markdown-toc-目标高度&quot;&gt;目标高度&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#当前高度&quot; id=&quot;markdown-toc-当前高度&quot;&gt;当前高度&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#允许偏差&quot; id=&quot;markdown-toc-允许偏差&quot;&gt;允许偏差&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#最大高度&quot; id=&quot;markdown-toc-最大高度&quot;&gt;最大高度&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#最小高度&quot; id=&quot;markdown-toc-最小高度&quot;&gt;最小高度&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#扫描设置&quot; id=&quot;markdown-toc-扫描设置&quot;&gt;扫描设置&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#扫描间距&quot; id=&quot;markdown-toc-扫描间距&quot;&gt;扫描间距&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#坐标轴&quot; id=&quot;markdown-toc-坐标轴&quot;&gt;坐标轴&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#x比例&quot; id=&quot;markdown-toc-x比例&quot;&gt;X比例&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#y比例&quot; id=&quot;markdown-toc-y比例&quot;&gt;Y比例&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#xy方向&quot; id=&quot;markdown-toc-xy方向&quot;&gt;XY方向&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#扫描速度&quot; id=&quot;markdown-toc-扫描速度&quot;&gt;扫描速度&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#支撑扫描速度&quot; id=&quot;markdown-toc-支撑扫描速度&quot;&gt;支撑扫描速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#轮廓扫描速度&quot; id=&quot;markdown-toc-轮廓扫描速度&quot;&gt;轮廓扫描速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#填充扫描速度&quot; id=&quot;markdown-toc-填充扫描速度&quot;&gt;填充扫描速度&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#空走扫描速度&quot; id=&quot;markdown-toc-空走扫描速度&quot;&gt;空走扫描速度&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#机器设置&quot; id=&quot;markdown-toc-机器设置&quot;&gt;机器设置&lt;/a&gt;            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;#浮块x轴刮刀y轴平台z轴设置&quot; id=&quot;markdown-toc-浮块x轴刮刀y轴平台z轴设置&quot;&gt;(浮块)X轴，(刮刀)Y轴，(平台)Z轴设置&lt;/a&gt;                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;#驱动电压&quot; id=&quot;markdown-toc-驱动电压&quot;&gt;驱动电压&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#最大脉冲频率&quot; id=&quot;markdown-toc-最大脉冲频率&quot;&gt;最大脉冲频率&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#归零脉冲频率&quot; id=&quot;markdown-toc-归零脉冲频率&quot;&gt;归零脉冲频率&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#每毫米步进数&quot; id=&quot;markdown-toc-每毫米步进数&quot;&gt;每毫米步进数&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#轴长&quot; id=&quot;markdown-toc-轴长&quot;&gt;轴长&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#碰撞开关安装位置&quot; id=&quot;markdown-toc-碰撞开关安装位置&quot;&gt;碰撞开关安装位置&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#碰撞开关极性&quot; id=&quot;markdown-toc-碰撞开关极性&quot;&gt;碰撞开关极性&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;#是否反向&quot; id=&quot;markdown-toc-是否反向&quot;&gt;是否反向&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#软件更新&quot; id=&quot;markdown-toc-软件更新&quot;&gt;软件更新&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#打印前的检测&quot; id=&quot;markdown-toc-打印前的检测&quot;&gt;打印前的检测&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#碰撞开关检测&quot; id=&quot;markdown-toc-碰撞开关检测&quot;&gt;碰撞开关检测&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#电机运动检测&quot; id=&quot;markdown-toc-电机运动检测&quot;&gt;电机运动检测&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#激光开关检测&quot; id=&quot;markdown-toc-激光开关检测&quot;&gt;激光开关检测&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#振镜运动检测&quot; id=&quot;markdown-toc-振镜运动检测&quot;&gt;振镜运动检测&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#运动方向检测&quot; id=&quot;markdown-toc-运动方向检测&quot;&gt;运动方向检测&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#扫描测试&quot; id=&quot;markdown-toc-扫描测试&quot;&gt;扫描测试&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#液位仪数据检测&quot; id=&quot;markdown-toc-液位仪数据检测&quot;&gt;液位仪数据检测&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#真空泵开关检测&quot; id=&quot;markdown-toc-真空泵开关检测&quot;&gt;真空泵开关检测&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#常见问题&quot; id=&quot;markdown-toc-常见问题&quot;&gt;常见问题&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#附fpga烧录方法&quot; id=&quot;markdown-toc-附fpga烧录方法&quot;&gt;附FPGA烧录方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文介绍&lt;code class=&quot;highlighter-rouge&quot;&gt;rayland-SLA&lt;/code&gt;主板的接线以及&lt;code class=&quot;highlighter-rouge&quot;&gt;rayland-SLA&lt;/code&gt;打印机软件的使用。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/sla_board.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;基本参数&quot;&gt;基本参数&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;尺寸&lt;/th&gt;
+      &lt;th&gt;115×93 mm&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;重量&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;工作温度&lt;/td&gt;
+      &lt;td&gt;-20～65℃&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;主处理器主频&lt;/td&gt;
+      &lt;td&gt;1.4GHz&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;主处理器类型&lt;/td&gt;
+      &lt;td&gt;4核 Cortex A7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;协处理器&lt;/td&gt;
+      &lt;td&gt;72MHz&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;内存容量&lt;/td&gt;
+      &lt;td&gt;1Gbytes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Flash&lt;/td&gt;
+      &lt;td&gt;4Gbytes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;最大外接Flash&lt;/td&gt;
+      &lt;td&gt;32Gbytes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;接线&quot;&gt;接线&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/board_interface.png&quot; /&gt;
+电源：电源接口供12V-24V电；
+电机X：接控制浮块的电机；
+电机Y：接控制刮刀的电机；
+电机Z：接控制平台的电机；
+XMIN,XMAX：分别接安装于X轴（浮块）上方和下方的碰撞开关；
+YMIN,YMAX：分别接安装于Y轴（刮刀）前方和后方的碰撞开关；
+ZMIN,ZMAX：分别接安装于Z轴（平台）上方和下方的碰撞开关；
+振镜1：接振镜db25连接线；
+激光器1GATA：接激光GATA口；
+OUT1：接真空泵；
+OUT2：接打印指示灯；
+OUT3：接Z轴抱闸；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意事项：&lt;/strong&gt;
+	振镜需要单独供正负15V电;
+	液位仪默认支持松下HG-C1050，线序从上到下依次为屏蔽，灰，粉，黑，褐，蓝。如使用其他型号需要单独做适配;&lt;/p&gt;
+
+&lt;h2 id=&quot;软件使用&quot;&gt;软件使用&lt;/h2&gt;
+
+&lt;h3 id=&quot;主页&quot;&gt;主页&lt;/h3&gt;
+
+&lt;p&gt;​	主页主要包含一些常用操作及状态显示，具体如下图所示&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/index.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击坐下角的文件图标，弹出待打印文件界面，点击添加按钮可添加待打印文件，点击完成则关闭此界面，如下图所示；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/model_selector.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击添加按钮，弹出文件选择界面，选择需要打印的文件，文件的数据来源可以是SD卡或U盘的任意目录中的SLC文件，选择时可以选择多个文件，点击确定关闭此界面，如下图所示；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/select_models.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选好文件后回到待打印界面，会自动显示之前选择的文件，并且会在主页自动加载待打印文件在当前层高的横切图。待打印界面还可点击文件左边的减号图标将文件从待打印目录中删除，拖动下方的进度条可以修改打印的起始层高，如下图所示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ready_print.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择好文件和起始层高后，点击首页的开始图标即可开始打印，开始打印后可以看到总高度发生变化，并且开始图标变成了暂停图标，如下图所示。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/is_printing.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击右下角的三点图标，可以打开更多菜单，其中包含5向操作，如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/more_menu.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;硬件控制&quot;&gt;硬件控制&lt;/h3&gt;
+
+&lt;p&gt;如下图，硬件控制界面主要用于手动控制设备和设备状态显示，有电机运动、碰撞开关状态、当前坐标、激光开关、真空泵开关、振镜运动；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/hardware_control.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击各轴的坐标，可弹出对应轴的运动控制界面，如下图。&lt;/p&gt;
+
+&lt;p&gt;在此界面输入该轴坐标值，即可控制该轴运动到指定位置。&lt;/p&gt;
+
+&lt;p&gt;也可点击各轴左右两边的减号和加号图标，执行回最小处和最大处的运动；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/axis_control.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 激光标定 按钮，弹出激光标定界面，此功能用于调整激光扫描的准确度。如图所示，标定点横竖方向各11个，将事前做好的标定板放在平台上，如果此时激光在标定板上的位置 和 软件界面中的位置不符，则控制软件中的上下左右四个方向键移动光斑，每次移动的距离可在编辑栏中修改，当光斑在标定板上的位置和软件界面中位置一致时，点击 下一个 将光斑移动到下一个标定点 ，继续观察位置是否一致，如不一致再和之前一样修改，以此类推将所有标定点都过一次即可完成标定操作；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/laser_calibration.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;参数设置&quot;&gt;参数设置&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/paramer_setting.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;硬件设置&quot;&gt;硬件设置&lt;/h4&gt;
+&lt;h5 id=&quot;刮刀&quot;&gt;刮刀&lt;/h5&gt;
+
+&lt;h6 id=&quot;刮刀打印时速度&quot;&gt;刮刀打印时速度&lt;/h6&gt;
+
+&lt;p&gt;​	设置刮刀在打印模型时的运动速度，单位mm/s；&lt;/p&gt;
+
+&lt;h6 id=&quot;刮刀控制时速度&quot;&gt;刮刀控制时速度&lt;/h6&gt;
+
+&lt;p&gt;​	设置刮刀在手动控制时的运动速度，如在硬件控制界面控制刮刀运动时的速度，单位mm/s；&lt;/p&gt;
+
+&lt;h5 id=&quot;平台&quot;&gt;平台&lt;/h5&gt;
+&lt;h6 id=&quot;平台打印时速度&quot;&gt;平台打印时速度&lt;/h6&gt;
+&lt;p&gt;​	设置平台在打印模型时的运动速度，单位mm/s；&lt;/p&gt;
+&lt;h6 id=&quot;平台控制时速度&quot;&gt;平台控制时速度&lt;/h6&gt;
+&lt;p&gt;​	设置平台在手动控制时的运动速度，如在硬件控制界面控制平台运动时的速度，单位mm/s；&lt;/p&gt;
+&lt;h6 id=&quot;距液面高度&quot;&gt;距液面高度&lt;/h6&gt;
+&lt;p&gt;​	设置平台在打印时的起始位置，指平台从最高点下降到起始位置所需的距离，单位mm；&lt;/p&gt;
+
+&lt;h5 id=&quot;浮块&quot;&gt;浮块&lt;/h5&gt;
+&lt;h6 id=&quot;浮块打印时速度&quot;&gt;浮块打印时速度&lt;/h6&gt;
+&lt;p&gt;​	设置浮块在打印模型时的运动速度，单位mm/s；&lt;/p&gt;
+&lt;h6 id=&quot;浮块控制时速度&quot;&gt;浮块控制时速度&lt;/h6&gt;
+&lt;p&gt;​	设置浮块在手动控制时的运动速度，如在硬件控制界面控制浮块运动时的速度，单位mm/s；&lt;/p&gt;
+
+&lt;h5 id=&quot;激光&quot;&gt;激光&lt;/h5&gt;
+&lt;h6 id=&quot;激光极性&quot;&gt;激光极性&lt;/h6&gt;
+&lt;p&gt;​	设置激光的开关极性，即激光打开时电压高还是低，分为高有效和低有效两种；&lt;/p&gt;
+&lt;h6 id=&quot;光路长度&quot;&gt;光路长度&lt;/h6&gt;
+&lt;p&gt;​	设置振镜距离平台起始位置的距离值，该值影响到打印时扫描速度的准确性，单位mm；&lt;/p&gt;
+
+&lt;h4 id=&quot;制作设置&quot;&gt;制作设置&lt;/h4&gt;
+&lt;h5 id=&quot;刮刀-1&quot;&gt;刮刀&lt;/h5&gt;
+&lt;h6 id=&quot;起刮高度&quot;&gt;起刮高度&lt;/h6&gt;
+&lt;p&gt;​	设置刮刀的运动条件，当层高大于等于该值且扫描路径包含模型实体部分时，刮刀开始运动，单位mm(若层高大于等于该值，但当前层高仍只是打印支撑部分，则刮刀不运动)；&lt;/p&gt;
+
+&lt;h6 id=&quot;刮平次数&quot;&gt;刮平次数&lt;/h6&gt;
+&lt;p&gt;​	设置刮刀开始运动后，每层的刮平次数；&lt;/p&gt;
+&lt;h5 id=&quot;激光-1&quot;&gt;激光&lt;/h5&gt;
+&lt;h6 id=&quot;激光开延时&quot;&gt;激光开延时&lt;/h6&gt;
+&lt;p&gt;​	设置激光在打开时的延迟值，单位us(所有激光在打开和关闭时的均有一定的延迟，不同品牌的激光延迟值可能不一样);&lt;/p&gt;
+&lt;h6 id=&quot;激光关延时&quot;&gt;激光关延时&lt;/h6&gt;
+&lt;p&gt;​	设置激光在关闭时的延迟值，单位us(所有激光在打开和关闭时的均有一定的延迟，不同品牌的激光延迟值可能不一样);&lt;/p&gt;
+&lt;h5 id=&quot;等待时间&quot;&gt;等待时间&lt;/h5&gt;
+&lt;h6 id=&quot;流平时间&quot;&gt;流平时间&lt;/h6&gt;
+&lt;p&gt;​	设置每一层电机运动完后，开始扫描前的等待时间，单位s;&lt;/p&gt;
+&lt;h6 id=&quot;固化时间&quot;&gt;固化时间&lt;/h6&gt;
+&lt;p&gt;​	设置每一层扫描完后，电机运动前的等待时间，单位s;&lt;/p&gt;
+&lt;h6 id=&quot;浸泡时间&quot;&gt;浸泡时间&lt;/h6&gt;
+&lt;p&gt;​	设置模型打印完后，平台上升前的等待时间，单位s;&lt;/p&gt;
+&lt;h4 id=&quot;液位设置&quot;&gt;液位设置&lt;/h4&gt;
+&lt;h5 id=&quot;目标高度&quot;&gt;目标高度&lt;/h5&gt;
+&lt;p&gt;​	设置打印时的理想液位高度，打印时自动维持这个高度，单位mm;&lt;/p&gt;
+&lt;h5 id=&quot;当前高度&quot;&gt;当前高度&lt;/h5&gt;
+&lt;p&gt;​	当前反馈的液位高度，用于参考，自动显示，无需设置，单位mm;&lt;/p&gt;
+&lt;h5 id=&quot;允许偏差&quot;&gt;允许偏差&lt;/h5&gt;
+&lt;p&gt;​	设置在自动维持目标液位高度时，允许的误差值，单位mm;&lt;/p&gt;
+&lt;h5 id=&quot;最大高度&quot;&gt;最大高度&lt;/h5&gt;
+&lt;p&gt;​	设置液位仪支持的最大高度值，单位mm;&lt;/p&gt;
+&lt;h5 id=&quot;最小高度&quot;&gt;最小高度&lt;/h5&gt;
+&lt;p&gt;​	设置液位仪支持的最小高度值，单位mm;&lt;/p&gt;
+&lt;h4 id=&quot;扫描设置&quot;&gt;扫描设置&lt;/h4&gt;
+&lt;h5 id=&quot;扫描间距&quot;&gt;扫描间距&lt;/h5&gt;
+&lt;p&gt;​	设置扫描填充部分时的扫描间距，和光斑大小一样最为合适，单位mm;&lt;/p&gt;
+&lt;h5 id=&quot;坐标轴&quot;&gt;坐标轴&lt;/h5&gt;
+&lt;h6 id=&quot;x比例&quot;&gt;X比例&lt;/h6&gt;
+&lt;p&gt;​	设置打印时X轴模型缩放比例;&lt;/p&gt;
+&lt;h6 id=&quot;y比例&quot;&gt;Y比例&lt;/h6&gt;
+&lt;p&gt;​	设置打印时Y轴模型缩放比例;&lt;/p&gt;
+&lt;h6 id=&quot;xy方向&quot;&gt;XY方向&lt;/h6&gt;
+&lt;p&gt;​	设置扫描时XY轴的方向，由于激光和振镜的安装方位不同，可能会出现XY轴方向混乱的问题，改设置共有8种选项，分别为：XY不反向、X反向、Y反向、XY反向、XY对调、XY对调，X反向、XY对调，Y反向、XY对调，XY反向;&lt;/p&gt;
+&lt;h5 id=&quot;扫描速度&quot;&gt;扫描速度&lt;/h5&gt;
+&lt;h6 id=&quot;支撑扫描速度&quot;&gt;支撑扫描速度&lt;/h6&gt;
+&lt;p&gt;​	设置打印模型支撑部分时的激光扫描速度;&lt;/p&gt;
+&lt;h6 id=&quot;轮廓扫描速度&quot;&gt;轮廓扫描速度&lt;/h6&gt;
+&lt;p&gt;​	设置打印模型轮廓部分时的激光扫描速度;&lt;/p&gt;
+&lt;h6 id=&quot;填充扫描速度&quot;&gt;填充扫描速度&lt;/h6&gt;
+&lt;p&gt;​	设置打印模型填充部分时的激光扫描速度;&lt;/p&gt;
+&lt;h6 id=&quot;空走扫描速度&quot;&gt;空走扫描速度&lt;/h6&gt;
+&lt;p&gt;​	设置激光空走(即不开激光移动)时的速度;&lt;/p&gt;
+
+&lt;h4 id=&quot;机器设置&quot;&gt;机器设置&lt;/h4&gt;
+&lt;h5 id=&quot;浮块x轴刮刀y轴平台z轴设置&quot;&gt;(浮块)X轴，(刮刀)Y轴，(平台)Z轴设置&lt;/h5&gt;
+&lt;h6 id=&quot;驱动电压&quot;&gt;驱动电压&lt;/h6&gt;
+&lt;p&gt;​	设置当前轴的电机驱动电压，只对使用4988驱动模块的场景下生效，可套用公式 &lt;br /&gt;
+				127 x 电机标准电流 / 2
+计算，使用外置驱动时无需设置;&lt;/p&gt;
+&lt;h6 id=&quot;最大脉冲频率&quot;&gt;最大脉冲频率&lt;/h6&gt;
+&lt;p&gt;​	设置该轴的电机运动时的最大脉冲频率，用于限制电机最大速度；&lt;/p&gt;
+&lt;h6 id=&quot;归零脉冲频率&quot;&gt;归零脉冲频率&lt;/h6&gt;
+&lt;p&gt;​	设置该轴电机做复位运动时的默认脉冲频率；&lt;/p&gt;
+&lt;h6 id=&quot;每毫米步进数&quot;&gt;每毫米步进数&lt;/h6&gt;
+&lt;p&gt;​	设置该轴每运动1mm电机所需的步进数，可套用公式
+				细分数 x 200 / 丝杆间距(或传动轮周长)；&lt;/p&gt;
+&lt;h6 id=&quot;轴长&quot;&gt;轴长&lt;/h6&gt;
+&lt;p&gt;​	设置该轴的长度，单位mm；&lt;/p&gt;
+&lt;h6 id=&quot;碰撞开关安装位置&quot;&gt;碰撞开关安装位置&lt;/h6&gt;
+&lt;p&gt;​	设置该轴的碰撞开关安装的位置，选项有“安装在最小”，“安装在最大”，“均安装“三种；&lt;/p&gt;
+&lt;h6 id=&quot;碰撞开关极性&quot;&gt;碰撞开关极性&lt;/h6&gt;
+&lt;p&gt;​	设置该轴碰撞开关的极性，即平常状态下和触发状态下电压的高低，选项有”常低碰高“，”常高碰低“两种；&lt;/p&gt;
+&lt;h6 id=&quot;是否反向&quot;&gt;是否反向&lt;/h6&gt;
+&lt;p&gt;​	设置该轴运动方向是否相反；&lt;/p&gt;
+&lt;h3 id=&quot;软件更新&quot;&gt;软件更新&lt;/h3&gt;
+
+&lt;p&gt;本软件更新方式为离线更新，在产品交流群中可获取最新软件包，将软件包拷贝到U盘后插上主板USB接口，软件将自动检测更新包，并弹出更新提示，电机安装即可自动更新。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/version_update.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;打印前的检测&quot;&gt;打印前的检测&lt;/h2&gt;
+&lt;h3 id=&quot;碰撞开关检测&quot;&gt;碰撞开关检测&lt;/h3&gt;
+
+&lt;p&gt;​	打开软件的 硬件控制 界面，分别触发浮块、刮刀、平台的两个碰撞开关，触发时观察界面上对应轴两侧的碰撞开关显示状态，正常情况下未触发时为灰色，触发时为绿色。如果颜色相反说明碰撞开关极性设置不对，可去 参数设置–机器设置–对应轴设置–碰撞开关极性 处修改极性；&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;/images/check_endstop.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;电机运动检测&quot;&gt;电机运动检测&lt;/h3&gt;
+
+&lt;p&gt;​	1. 打开软件的 硬件控制 界面，分别触发浮块，刮刀，平台往最大和最小方向处复位的操作，浮块和平台最大方向为上方，最小方向为下方，刮刀最大方向为后方，最小方向为前方，看电机是否正常运动，点击两侧的 加号 和减号 图标即可发送 最大和最小方向的复位命令。&lt;/p&gt;
+
+&lt;p&gt;​	如果电机运动方向相反，可在软件中 参数设置–机器设置–对应轴设置–是否反向 处修改，也可直接修改电机接线改变方向；&lt;/p&gt;
+
+&lt;p&gt;​	2. 分别控制浮块，刮刀，平台移动指定距离，看实际移动的距离是否一致。电机对应轴的坐标值即可弹出控制界面，输入坐标值，电机确定即可开始运动；&lt;/p&gt;
+
+&lt;p&gt;​	如果电机运动距离与实际不符，说明该电机的每毫米步进数设置错误，可在软件中去 参数设置–机器设置–对应轴设置–每毫米步进数 处修改，该值的设定可套用公式  细分数 x 200 / 丝杆间距(或传动轮周长)；&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;/images/check_sport.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;激光开关检测&quot;&gt;激光开关检测&lt;/h3&gt;
+
+&lt;p&gt;​	打开软件的 硬件控制 界面，点击如下图所示的开关按钮，观察激光是否能开关，正常情况下点击关闭图标后激光处于关闭状态，点击打开图标后激光处于打开状态，如果相反则说明激光极性设置错误，可以在软件的&lt;/p&gt;
+
+&lt;p&gt;参数设置–激光极性 处修改；&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;/images/check_laser.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;振镜运动检测&quot;&gt;振镜运动检测&lt;/h3&gt;
+&lt;h4 id=&quot;运动方向检测&quot;&gt;运动方向检测&lt;/h4&gt;
+
+&lt;p&gt;​	打开软件的 硬件控制 界面，点击如下图所示的激光标定按钮；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/start_calibrating.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​	弹出激光标定界面，分别选择上下左右四个方向的标定点，观察激光是否也是向这四个方向移动，如果激光点一直不移动则检查振镜接线和供电，如果移动方向不对可参考  XY方向 设置项 设置XY方向；&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/check_scan_direction.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;扫描测试&quot;&gt;扫描测试&lt;/h4&gt;
+
+&lt;p&gt;​	打开软件首页，点击下图所示按钮，振镜开始以每次间隔1秒的时间扫描一个三角形，再次点击按钮则停止扫描。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/scan_test.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;液位仪数据检测&quot;&gt;液位仪数据检测&lt;/h3&gt;
+
+&lt;p&gt;​	打开软件首页，可用一张纸放到液位仪下方上下移动，观察软件上液位值变化，如下图所示。&lt;/p&gt;
+
+&lt;p&gt;如移动时数值不变化则检查液位仪接线是否正确。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/check_liquid_height.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;真空泵开关检测&quot;&gt;真空泵开关检测&lt;/h3&gt;
+
+&lt;p&gt;​	打开软件 硬件控制 界面，如下图所示，点击真空泵开关按钮，观察真空泵是否能开关。&lt;/p&gt;
+
+&lt;p&gt;​	&lt;img src=&quot;/images/check_pump.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;常见问题&quot;&gt;常见问题&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 电机运动距离与命令不符&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;检查该电机的每毫米步进数设置是否错误，在 参数设置--机器设置--对应轴(X为浮块，Y为刮刀，Z为平台)设置--每毫米步进数 处修改，该值可套用公式设置：
+
+		细分数 x 200 / 丝杆间距(或传动轮周长)；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 电机只能往一个方向运动&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;检查该轴的&quot;碰撞开关安装位置&quot;和&quot;碰撞开关极性&quot;这两个设置，在 参数设置--机器设置--对应轴(X为浮块，Y为刮刀，Z为平台)设置 下。这种情况一般是由于&quot;碰撞开关安装位置&quot;设为&quot;安装在最大&quot;或&quot;安装在最小&quot;，且碰撞开关极性设置错误导致的。只需将&quot;碰撞开关极性&quot;设对就没问题了，&quot;碰撞开关安装位置&quot;建议设为&quot;均安装&quot;;	
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 激光的打开和关闭操作相反&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一般是&quot;激光极性&quot;没有设置对，在 参数设置--硬件设置--激光极性 处修改，选择另一种设置项即可;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 激光扫描速度与设置不符&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一般是&quot;光路长度&quot;没有设置对，在 参数设置--硬件设置--光路长度 处修改，该值取振镜到平台打印位置的距离即可，单位mm;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 激光扫描方向错乱&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;由于激光和振镜的安装方位不同，可能会出现XY轴方向混乱的问题，可以在 参数设置--扫描设置--XY方向 处修改&quot;XY方向&quot;设置，判别方式可以通过在 硬件控制--激光标定 处打开标定界面，先点击中心处的标定点将激光光斑移到平台中心，然后分别点击上下左右的标定点，看激光是否向对应方向移动。如：点击上方标定点发现光斑实际向下移动，点击下方标定点光斑实际向上运动，则表明Y轴反向；点击左方标定点发现光斑实际向右移动，点击右方标定点光斑实际向左运动，则表明X轴反向；点击上方标定点发现光斑实际向右移动，点击下方标定点光斑实际向左运动，则表明XY轴对调；点击上方标定点发现光斑实际向左移动，点击下方标定点光斑实际向右运动，则表明XY轴对调且XY反向；	
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;6. 打印时模型无法固定在平台上，或模型被刮刀刮离平台&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;一般出现这种情况有3个可能的原因：
+	平台打印起始位置设置不合适，可在 参数设置--硬件设置--距液面高度 设置；
+	目标液值位设置不合适，可在 参数设置--液位设置--目标高度 设置；
+	平台不平整，没有调平，可通过调节平台上的螺丝旋钮调节；
+打印时，树脂液位应和平台、刮刀相持平为最佳。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;附fpga烧录方法&quot;&gt;附FPGA烧录方法&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;工具准备：&lt;/p&gt;
+
+    &lt;p&gt;​	USB-Blaster&lt;/p&gt;
+
+    &lt;p&gt;​	Mini-Usb数据线&lt;/p&gt;
+
+    &lt;p&gt;​	烧录软件Quartus II&lt;/p&gt;
+
+    &lt;p&gt;​&lt;img src=&quot;/images/fpga_write_tools.jpg&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;给SLA主板供12V电，主板CPLD-JTAG口接USB-Blaster，如下图所示&lt;/p&gt;
+
+    &lt;p&gt;​	&lt;img src=&quot;/images/usb_blaster_in_board.jpg&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;在PC端打开Quartus软件，按CTRL+J打开要烧录的工程目录，选择.qpf文件，如下图所示&lt;/p&gt;
+
+        &lt;p&gt;&lt;img src=&quot;/images/open_fpga_project.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;如下图所示，双击 Program Device选项，打开烧录对话框，选择USB-Blaster [USB-0]&lt;/p&gt;
+
+        &lt;p&gt;​		&lt;img src=&quot;/images/open_programmer.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;点击 start 按钮，开始烧录，烧录成功则progress显示100%，重启主板即可生效。如下图所示，&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/writing.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/write_success.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 07 Mar 2018 16:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/</guid>
+        
+        <category>3D打印</category>
+        
+        <category>SLA</category>
+        
+        
+        <category>SLA</category>
+        
+      </item>
     
       <item>
         <title>H3镜像烧录</title>
@@ -1777,446 +2275,6 @@
         
         
         <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>用Rayland-DUAL主板控制麦克纳姆车 控制协议</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#概述&quot; id=&quot;markdown-toc-概述&quot;&gt;概述&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#用板载安卓系统控制麦克纳姆车&quot; id=&quot;markdown-toc-用板载安卓系统控制麦克纳姆车&quot;&gt;用板载安卓系统控制麦克纳姆车&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#用ros系统控制麦克纳姆车&quot; id=&quot;markdown-toc-用ros系统控制麦克纳姆车&quot;&gt;用ROS系统控制麦克纳姆车&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#麦克纳姆车硬件接线&quot; id=&quot;markdown-toc-麦克纳姆车硬件接线&quot;&gt;麦克纳姆车硬件接线&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;本文简单介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DUAL&lt;/code&gt;主板控制麦克纳姆车的接线方法和控制协议。&lt;/p&gt;
-
-&lt;h2 id=&quot;概述&quot;&gt;概述&lt;/h2&gt;
-
-&lt;div align=&quot;center&quot;&gt;
-&lt;img src=&quot;/images/CBF15C15-F3E4-407B-939B-F6D3D3DA6776.png&quot; height=&quot;450&quot; width=&quot;450&quot; /&gt;&lt;/div&gt;
-
-&lt;p&gt;麦克纳姆车是一种很奇特的小车，它搭载了一种全向轮子。由于轮子构造的独特性，这种车可以做出各种奇怪的动作，比如左右平移，斜向运动。以下是这种车能进行的10个运动方向和每个轮子的转动方向之间的关系。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/F32A5FE1-6698-4134-96F0-BB5C4BAC61A1.png&quot; alt=&quot;F32A5FE1-6698-4134-96F0-BB5C4BAC61A1&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;与控制AGV类似，控制麦克纳姆车也有两种控制方式。一个是板载的安卓控制，另一个是用ROS系统控制，利用安卓控制的控制协议如下。&lt;/p&gt;
-
-&lt;h2 id=&quot;用板载安卓系统控制麦克纳姆车&quot;&gt;用板载安卓系统控制麦克纳姆车&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Android -&amp;gt; Stm32&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;1.1 &lt;strong&gt;控制指令&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,is_reset,X,Y,Z,A,B,s,v&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;9bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;is_reset&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;是否抢占&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;moving_idx&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前后&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0: 前后   1: 旋转 2:平移 3:左上和右下 4: 右上和左下&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;s&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;行驶里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;行驶速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;2.2 &lt;strong&gt;定义当前坐标&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,axis_x,axis_y,ori&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;9bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ori&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;朝向&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = 1/10°&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 = -1/10°&lt;/code&gt; (逆时针为正)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;3.3 &lt;strong&gt;切换控制模式&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,controll_type&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;controll_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;控制模式&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0：板控&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1：遥控&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stm32 -&amp;gt; Android&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;1.1 &lt;strong&gt;状态采集&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,v_x,v_y,axis_x,axis_y,ori,rfid,magn,infra,ut_f,ut_b,moto_state,mile&lt;/code&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Param&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cmd_type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pkg_length&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;39bytes&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;v_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;-500 ~ 500&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(1/10)r/min&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_x&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;x轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;axis_y&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;y轴坐标&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = (1/10)r&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ori&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;朝向&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = 1/10°&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 = -1/10°&lt;/code&gt; (逆时针为正)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;rfid&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;rfid序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint32&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;magn&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;磁条序列号&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:missing 1:hit&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;infra&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;红外&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:false 1:true&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_f&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ut_b&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;后侧超声&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16 * &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;moto_state&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;电机状态&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0:stop 1:running&lt;/code&gt; 左侧第0位 右侧第一位&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;mile&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;总里程&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;uint16&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mm&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;用ros系统控制麦克纳姆车&quot;&gt;用ROS系统控制麦克纳姆车&lt;/h2&gt;
-
-&lt;p&gt;板载的A33处理器并不能运行ROS操作系统，需要通过外接mini PC来完成。MiniPC直接和板子上的STM32进行通讯，在ros模式下，我们需要禁用板载的寻磁传感器功能，将这个口用来做miniPC和STM32的通讯。这里为了调试方便，我们暂时使用了ascii码的方式来做。&lt;/p&gt;
-
-&lt;p&gt;MiniPC-&amp;gt;STM32&lt;/p&gt;
-
-&lt;p&gt;命令是变长的，用字母作为命令头开始，紧接着数字，最后用\n结束，例如向前运动一整圈就是&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;X10 \n
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;格式如下&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;命令头&lt;/th&gt;
-      &lt;th&gt;数字&lt;/th&gt;
-      &lt;th&gt;意义&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;X&lt;/td&gt;
-      &lt;td&gt;-32768～32768&lt;/td&gt;
-      &lt;td&gt;前后运动&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Y&lt;/td&gt;
-      &lt;td&gt;同上&lt;/td&gt;
-      &lt;td&gt;左右平移&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Z&lt;/td&gt;
-      &lt;td&gt;同上&lt;/td&gt;
-      &lt;td&gt;原地旋转&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;同上&lt;/td&gt;
-      &lt;td&gt;左前-右后方向&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;B&lt;/td&gt;
-      &lt;td&gt;同上&lt;/td&gt;
-      &lt;td&gt;右前-左后方向&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;STM32-&amp;gt;MiniPC&lt;/p&gt;
-
-&lt;p&gt;命令是变长的，每行含有两个字母S和V，各自接一个数字，最后用\n结束。S后面的数字是当前里程，V后面的数字是当前速度。例如，当前已经以4 centRound/second的速度运行了500 centRound，则输出是&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;V4 S500 \n
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;麦克纳姆车硬件接线&quot;&gt;麦克纳姆车硬件接线&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;板上电机端口&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;麦克纳姆功能链接&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;X电机端口&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;左前&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Y电机端口&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;右前&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;E0电机端口&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;左后&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;E1电机端口&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;右后&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1FR(EN)2BK(MS1)3PG(MS2)4GND(GND)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;电机改成XYZE0&lt;/p&gt;
-
-&lt;p&gt;超声接usart2&lt;/p&gt;
-
-&lt;p&gt;寻磁接usart3&lt;/p&gt;
-
-&lt;p&gt;sv接x_max&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 20 Jan 2018 10:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/01/20/rayland-dual-on-Mecanum/</guid>
-        
-        <category>AGV</category>
-        
-        <category>Rayland-DUAL</category>
-        
-        <category>MeiXing</category>
-        
-        
-        <category>AGV</category>
         
       </item>
     

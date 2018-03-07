@@ -125,7 +125,7 @@ typora-copy-images-to: ../images
 | axis_y      |   y轴坐标   |    int16     |                                |                     `1 = (1/10)r` |
 | ori         |    朝向    |    int16     |                                | `1 = 1/10°` `-1 = -1/10°` (逆时针为正) |
 | rfid        | rfid序列号  |    uint32    |                                |                                   |
-| magn        |  磁条序列号   |    uint16    |              `0:missing 1:hit` |                                   |
+| magn        |  磁条序列号   |    uint16    |             `0:hit 1:missing ` |                                   |
 | infra       |    红外    |    uint8     |               `0:false 1:true` |                                   |
 | ut_f        |   前侧超声   | uint16 * `4` |                                |                              `mm` |
 | ut_b        |   后侧超声   | uint16 * `4` |                                |                              `mm` |

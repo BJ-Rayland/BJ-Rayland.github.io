@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>用rayland-SLA主板控制SLA打印机</title>
+    <meta name="description" content="本文介绍rayland-SLA主板的接线以及rayland-SLA打印机软件的使用。">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
+    <link rel="stylesheet" href=" /css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/">
+    <link rel="alternate" type="application/rss+xml" title="锐蓝3D打印wiki" href="http://localhost:4000 /feed.xml ">
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4550978924d3d4a6fe21f516ac37f0b3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+</head>
+
+
+  <!--<script src="../js/main.js"></script>-->
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">锐蓝3D打印wiki</a>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/collection/">
+                        
+                            Collections
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/demo/">
+                        
+                            Demo
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/about/">
+                        
+                            About
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>用rayland-SLA主板控制SLA打印机</h1>
+        <div class="label">
+
+            <div class="label-card">
+                2018-03-07
+            </div>
+            
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+                    
+            <div class="label-card">
+                Gong Wei
+                
+            </div>
+
+            <div class="label-card" style="color: #f1e05a;">
+                       /
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+
+            <div class="label-card">
+            
+<span class="pageTag">
+  
+  
+    
+        <a href="/tag/#3D打印" title="Tag: 3D打印" rel="tag">3D打印</a>&nbsp;
+    
+        <a href="/tag/#SLA" title="Tag: SLA" rel="tag">SLA</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#基本参数" id="markdown-toc-基本参数">基本参数</a></li>
+  <li><a href="#接线" id="markdown-toc-接线">接线</a></li>
+  <li><a href="#软件使用" id="markdown-toc-软件使用">软件使用</a>    <ul>
+      <li><a href="#主页" id="markdown-toc-主页">主页</a></li>
+      <li><a href="#硬件控制" id="markdown-toc-硬件控制">硬件控制</a></li>
+      <li><a href="#参数设置" id="markdown-toc-参数设置">参数设置</a>        <ul>
+          <li><a href="#硬件设置" id="markdown-toc-硬件设置">硬件设置</a>            <ul>
+              <li><a href="#刮刀" id="markdown-toc-刮刀">刮刀</a>                <ul>
+                  <li><a href="#刮刀打印时速度" id="markdown-toc-刮刀打印时速度">刮刀打印时速度</a></li>
+                  <li><a href="#刮刀控制时速度" id="markdown-toc-刮刀控制时速度">刮刀控制时速度</a></li>
+                </ul>
+              </li>
+              <li><a href="#平台" id="markdown-toc-平台">平台</a>                <ul>
+                  <li><a href="#平台打印时速度" id="markdown-toc-平台打印时速度">平台打印时速度</a></li>
+                  <li><a href="#平台控制时速度" id="markdown-toc-平台控制时速度">平台控制时速度</a></li>
+                  <li><a href="#距液面高度" id="markdown-toc-距液面高度">距液面高度</a></li>
+                </ul>
+              </li>
+              <li><a href="#浮块" id="markdown-toc-浮块">浮块</a>                <ul>
+                  <li><a href="#浮块打印时速度" id="markdown-toc-浮块打印时速度">浮块打印时速度</a></li>
+                  <li><a href="#浮块控制时速度" id="markdown-toc-浮块控制时速度">浮块控制时速度</a></li>
+                </ul>
+              </li>
+              <li><a href="#激光" id="markdown-toc-激光">激光</a>                <ul>
+                  <li><a href="#激光极性" id="markdown-toc-激光极性">激光极性</a></li>
+                  <li><a href="#光路长度" id="markdown-toc-光路长度">光路长度</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#制作设置" id="markdown-toc-制作设置">制作设置</a>            <ul>
+              <li><a href="#刮刀-1" id="markdown-toc-刮刀-1">刮刀</a>                <ul>
+                  <li><a href="#起刮高度" id="markdown-toc-起刮高度">起刮高度</a></li>
+                  <li><a href="#刮平次数" id="markdown-toc-刮平次数">刮平次数</a></li>
+                </ul>
+              </li>
+              <li><a href="#激光-1" id="markdown-toc-激光-1">激光</a>                <ul>
+                  <li><a href="#激光开延时" id="markdown-toc-激光开延时">激光开延时</a></li>
+                  <li><a href="#激光关延时" id="markdown-toc-激光关延时">激光关延时</a></li>
+                </ul>
+              </li>
+              <li><a href="#等待时间" id="markdown-toc-等待时间">等待时间</a>                <ul>
+                  <li><a href="#流平时间" id="markdown-toc-流平时间">流平时间</a></li>
+                  <li><a href="#固化时间" id="markdown-toc-固化时间">固化时间</a></li>
+                  <li><a href="#浸泡时间" id="markdown-toc-浸泡时间">浸泡时间</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#液位设置" id="markdown-toc-液位设置">液位设置</a>            <ul>
+              <li><a href="#目标高度" id="markdown-toc-目标高度">目标高度</a></li>
+              <li><a href="#当前高度" id="markdown-toc-当前高度">当前高度</a></li>
+              <li><a href="#允许偏差" id="markdown-toc-允许偏差">允许偏差</a></li>
+              <li><a href="#最大高度" id="markdown-toc-最大高度">最大高度</a></li>
+              <li><a href="#最小高度" id="markdown-toc-最小高度">最小高度</a></li>
+            </ul>
+          </li>
+          <li><a href="#扫描设置" id="markdown-toc-扫描设置">扫描设置</a>            <ul>
+              <li><a href="#扫描间距" id="markdown-toc-扫描间距">扫描间距</a></li>
+              <li><a href="#坐标轴" id="markdown-toc-坐标轴">坐标轴</a>                <ul>
+                  <li><a href="#x比例" id="markdown-toc-x比例">X比例</a></li>
+                  <li><a href="#y比例" id="markdown-toc-y比例">Y比例</a></li>
+                  <li><a href="#xy方向" id="markdown-toc-xy方向">XY方向</a></li>
+                </ul>
+              </li>
+              <li><a href="#扫描速度" id="markdown-toc-扫描速度">扫描速度</a>                <ul>
+                  <li><a href="#支撑扫描速度" id="markdown-toc-支撑扫描速度">支撑扫描速度</a></li>
+                  <li><a href="#轮廓扫描速度" id="markdown-toc-轮廓扫描速度">轮廓扫描速度</a></li>
+                  <li><a href="#填充扫描速度" id="markdown-toc-填充扫描速度">填充扫描速度</a></li>
+                  <li><a href="#空走扫描速度" id="markdown-toc-空走扫描速度">空走扫描速度</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#机器设置" id="markdown-toc-机器设置">机器设置</a>            <ul>
+              <li><a href="#浮块x轴刮刀y轴平台z轴设置" id="markdown-toc-浮块x轴刮刀y轴平台z轴设置">(浮块)X轴，(刮刀)Y轴，(平台)Z轴设置</a>                <ul>
+                  <li><a href="#驱动电压" id="markdown-toc-驱动电压">驱动电压</a></li>
+                  <li><a href="#最大脉冲频率" id="markdown-toc-最大脉冲频率">最大脉冲频率</a></li>
+                  <li><a href="#归零脉冲频率" id="markdown-toc-归零脉冲频率">归零脉冲频率</a></li>
+                  <li><a href="#每毫米步进数" id="markdown-toc-每毫米步进数">每毫米步进数</a></li>
+                  <li><a href="#轴长" id="markdown-toc-轴长">轴长</a></li>
+                  <li><a href="#碰撞开关安装位置" id="markdown-toc-碰撞开关安装位置">碰撞开关安装位置</a></li>
+                  <li><a href="#碰撞开关极性" id="markdown-toc-碰撞开关极性">碰撞开关极性</a></li>
+                  <li><a href="#是否反向" id="markdown-toc-是否反向">是否反向</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#软件更新" id="markdown-toc-软件更新">软件更新</a></li>
+    </ul>
+  </li>
+  <li><a href="#打印前的检测" id="markdown-toc-打印前的检测">打印前的检测</a>    <ul>
+      <li><a href="#碰撞开关检测" id="markdown-toc-碰撞开关检测">碰撞开关检测</a></li>
+      <li><a href="#电机运动检测" id="markdown-toc-电机运动检测">电机运动检测</a></li>
+      <li><a href="#激光开关检测" id="markdown-toc-激光开关检测">激光开关检测</a></li>
+      <li><a href="#振镜运动检测" id="markdown-toc-振镜运动检测">振镜运动检测</a>        <ul>
+          <li><a href="#运动方向检测" id="markdown-toc-运动方向检测">运动方向检测</a></li>
+          <li><a href="#扫描测试" id="markdown-toc-扫描测试">扫描测试</a></li>
+        </ul>
+      </li>
+      <li><a href="#液位仪数据检测" id="markdown-toc-液位仪数据检测">液位仪数据检测</a></li>
+      <li><a href="#真空泵开关检测" id="markdown-toc-真空泵开关检测">真空泵开关检测</a></li>
+    </ul>
+  </li>
+  <li><a href="#常见问题" id="markdown-toc-常见问题">常见问题</a></li>
+  <li><a href="#附fpga烧录方法" id="markdown-toc-附fpga烧录方法">附FPGA烧录方法</a></li>
+</ul>
+
+<p>本文介绍<code class="highlighter-rouge">rayland-SLA</code>主板的接线以及<code class="highlighter-rouge">rayland-SLA</code>打印机软件的使用。</p>
+
+<p><img src="/images/sla_board.png" /></p>
+
+<h2 id="基本参数">基本参数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>尺寸</th>
+      <th>115×93 mm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>重量</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>工作温度</td>
+      <td>-20～65℃</td>
+    </tr>
+    <tr>
+      <td>主处理器主频</td>
+      <td>1.4GHz</td>
+    </tr>
+    <tr>
+      <td>主处理器类型</td>
+      <td>4核 Cortex A7</td>
+    </tr>
+    <tr>
+      <td>协处理器</td>
+      <td>72MHz</td>
+    </tr>
+    <tr>
+      <td>内存容量</td>
+      <td>1Gbytes</td>
+    </tr>
+    <tr>
+      <td>Flash</td>
+      <td>4Gbytes</td>
+    </tr>
+    <tr>
+      <td>最大外接Flash</td>
+      <td>32Gbytes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="接线">接线</h2>
+
+<p><img src="/images/board_interface.png" />
+电源：电源接口供12V-24V电；
+电机X：接控制浮块的电机；
+电机Y：接控制刮刀的电机；
+电机Z：接控制平台的电机；
+XMIN,XMAX：分别接安装于X轴（浮块）上方和下方的碰撞开关；
+YMIN,YMAX：分别接安装于Y轴（刮刀）前方和后方的碰撞开关；
+ZMIN,ZMAX：分别接安装于Z轴（平台）上方和下方的碰撞开关；
+振镜1：接振镜db25连接线；
+激光器1GATA：接激光GATA口；
+OUT1：接真空泵；
+OUT2：接打印指示灯；
+OUT3：接Z轴抱闸；</p>
+
+<p><strong>注意事项：</strong>
+	振镜需要单独供正负15V电;
+	液位仪默认支持松下HG-C1050，线序从上到下依次为屏蔽，灰，粉，黑，褐，蓝。如使用其他型号需要单独做适配;</p>
+
+<h2 id="软件使用">软件使用</h2>
+
+<h3 id="主页">主页</h3>
+
+<p>​	主页主要包含一些常用操作及状态显示，具体如下图所示</p>
+
+<p><img src="/images/index.png" width="500" /></p>
+
+<p>点击坐下角的文件图标，弹出待打印文件界面，点击添加按钮可添加待打印文件，点击完成则关闭此界面，如下图所示；</p>
+
+<p><img src="/images/model_selector.png" width="500" /></p>
+
+<p>点击添加按钮，弹出文件选择界面，选择需要打印的文件，文件的数据来源可以是SD卡或U盘的任意目录中的SLC文件，选择时可以选择多个文件，点击确定关闭此界面，如下图所示；</p>
+
+<p><img src="/images/select_models.png" width="500" /></p>
+
+<p>选好文件后回到待打印界面，会自动显示之前选择的文件，并且会在主页自动加载待打印文件在当前层高的横切图。待打印界面还可点击文件左边的减号图标将文件从待打印目录中删除，拖动下方的进度条可以修改打印的起始层高，如下图所示。</p>
+
+<p><img src="/images/ready_print.png" width="500" /></p>
+
+<p>选择好文件和起始层高后，点击首页的开始图标即可开始打印，开始打印后可以看到总高度发生变化，并且开始图标变成了暂停图标，如下图所示。</p>
+
+<p><img src="/images/is_printing.png" width="500" /></p>
+
+<p>点击右下角的三点图标，可以打开更多菜单，其中包含5向操作，如下图所示：</p>
+
+<p><img src="/images/more_menu.png" width="500" /></p>
+
+<h3 id="硬件控制">硬件控制</h3>
+
+<p>如下图，硬件控制界面主要用于手动控制设备和设备状态显示，有电机运动、碰撞开关状态、当前坐标、激光开关、真空泵开关、振镜运动；</p>
+
+<p><img src="/images/hardware_control.png" width="500" /></p>
+
+<p>点击各轴的坐标，可弹出对应轴的运动控制界面，如下图。</p>
+
+<p>在此界面输入该轴坐标值，即可控制该轴运动到指定位置。</p>
+
+<p>也可点击各轴左右两边的减号和加号图标，执行回最小处和最大处的运动；</p>
+
+<p><img src="/images/axis_control.png" width="500" /></p>
+
+<p>点击 激光标定 按钮，弹出激光标定界面，此功能用于调整激光扫描的准确度。如图所示，标定点横竖方向各11个，将事前做好的标定板放在平台上，如果此时激光在标定板上的位置 和 软件界面中的位置不符，则控制软件中的上下左右四个方向键移动光斑，每次移动的距离可在编辑栏中修改，当光斑在标定板上的位置和软件界面中位置一致时，点击 下一个 将光斑移动到下一个标定点 ，继续观察位置是否一致，如不一致再和之前一样修改，以此类推将所有标定点都过一次即可完成标定操作；</p>
+
+<p><img src="/images/laser_calibration.png" width="500" /></p>
+
+<h3 id="参数设置">参数设置</h3>
+
+<p><img src="/images/paramer_setting.png" width="500" /></p>
+
+<h4 id="硬件设置">硬件设置</h4>
+<h5 id="刮刀">刮刀</h5>
+
+<h6 id="刮刀打印时速度">刮刀打印时速度</h6>
+
+<p>​	设置刮刀在打印模型时的运动速度，单位mm/s；</p>
+
+<h6 id="刮刀控制时速度">刮刀控制时速度</h6>
+
+<p>​	设置刮刀在手动控制时的运动速度，如在硬件控制界面控制刮刀运动时的速度，单位mm/s；</p>
+
+<h5 id="平台">平台</h5>
+<h6 id="平台打印时速度">平台打印时速度</h6>
+<p>​	设置平台在打印模型时的运动速度，单位mm/s；</p>
+<h6 id="平台控制时速度">平台控制时速度</h6>
+<p>​	设置平台在手动控制时的运动速度，如在硬件控制界面控制平台运动时的速度，单位mm/s；</p>
+<h6 id="距液面高度">距液面高度</h6>
+<p>​	设置平台在打印时的起始位置，指平台从最高点下降到起始位置所需的距离，单位mm；</p>
+
+<h5 id="浮块">浮块</h5>
+<h6 id="浮块打印时速度">浮块打印时速度</h6>
+<p>​	设置浮块在打印模型时的运动速度，单位mm/s；</p>
+<h6 id="浮块控制时速度">浮块控制时速度</h6>
+<p>​	设置浮块在手动控制时的运动速度，如在硬件控制界面控制浮块运动时的速度，单位mm/s；</p>
+
+<h5 id="激光">激光</h5>
+<h6 id="激光极性">激光极性</h6>
+<p>​	设置激光的开关极性，即激光打开时电压高还是低，分为高有效和低有效两种；</p>
+<h6 id="光路长度">光路长度</h6>
+<p>​	设置振镜距离平台起始位置的距离值，该值影响到打印时扫描速度的准确性，单位mm；</p>
+
+<h4 id="制作设置">制作设置</h4>
+<h5 id="刮刀-1">刮刀</h5>
+<h6 id="起刮高度">起刮高度</h6>
+<p>​	设置刮刀的运动条件，当层高大于等于该值且扫描路径包含模型实体部分时，刮刀开始运动，单位mm(若层高大于等于该值，但当前层高仍只是打印支撑部分，则刮刀不运动)；</p>
+
+<h6 id="刮平次数">刮平次数</h6>
+<p>​	设置刮刀开始运动后，每层的刮平次数；</p>
+<h5 id="激光-1">激光</h5>
+<h6 id="激光开延时">激光开延时</h6>
+<p>​	设置激光在打开时的延迟值，单位us(所有激光在打开和关闭时的均有一定的延迟，不同品牌的激光延迟值可能不一样);</p>
+<h6 id="激光关延时">激光关延时</h6>
+<p>​	设置激光在关闭时的延迟值，单位us(所有激光在打开和关闭时的均有一定的延迟，不同品牌的激光延迟值可能不一样);</p>
+<h5 id="等待时间">等待时间</h5>
+<h6 id="流平时间">流平时间</h6>
+<p>​	设置每一层电机运动完后，开始扫描前的等待时间，单位s;</p>
+<h6 id="固化时间">固化时间</h6>
+<p>​	设置每一层扫描完后，电机运动前的等待时间，单位s;</p>
+<h6 id="浸泡时间">浸泡时间</h6>
+<p>​	设置模型打印完后，平台上升前的等待时间，单位s;</p>
+<h4 id="液位设置">液位设置</h4>
+<h5 id="目标高度">目标高度</h5>
+<p>​	设置打印时的理想液位高度，打印时自动维持这个高度，单位mm;</p>
+<h5 id="当前高度">当前高度</h5>
+<p>​	当前反馈的液位高度，用于参考，自动显示，无需设置，单位mm;</p>
+<h5 id="允许偏差">允许偏差</h5>
+<p>​	设置在自动维持目标液位高度时，允许的误差值，单位mm;</p>
+<h5 id="最大高度">最大高度</h5>
+<p>​	设置液位仪支持的最大高度值，单位mm;</p>
+<h5 id="最小高度">最小高度</h5>
+<p>​	设置液位仪支持的最小高度值，单位mm;</p>
+<h4 id="扫描设置">扫描设置</h4>
+<h5 id="扫描间距">扫描间距</h5>
+<p>​	设置扫描填充部分时的扫描间距，和光斑大小一样最为合适，单位mm;</p>
+<h5 id="坐标轴">坐标轴</h5>
+<h6 id="x比例">X比例</h6>
+<p>​	设置打印时X轴模型缩放比例;</p>
+<h6 id="y比例">Y比例</h6>
+<p>​	设置打印时Y轴模型缩放比例;</p>
+<h6 id="xy方向">XY方向</h6>
+<p>​	设置扫描时XY轴的方向，由于激光和振镜的安装方位不同，可能会出现XY轴方向混乱的问题，改设置共有8种选项，分别为：XY不反向、X反向、Y反向、XY反向、XY对调、XY对调，X反向、XY对调，Y反向、XY对调，XY反向;</p>
+<h5 id="扫描速度">扫描速度</h5>
+<h6 id="支撑扫描速度">支撑扫描速度</h6>
+<p>​	设置打印模型支撑部分时的激光扫描速度;</p>
+<h6 id="轮廓扫描速度">轮廓扫描速度</h6>
+<p>​	设置打印模型轮廓部分时的激光扫描速度;</p>
+<h6 id="填充扫描速度">填充扫描速度</h6>
+<p>​	设置打印模型填充部分时的激光扫描速度;</p>
+<h6 id="空走扫描速度">空走扫描速度</h6>
+<p>​	设置激光空走(即不开激光移动)时的速度;</p>
+
+<h4 id="机器设置">机器设置</h4>
+<h5 id="浮块x轴刮刀y轴平台z轴设置">(浮块)X轴，(刮刀)Y轴，(平台)Z轴设置</h5>
+<h6 id="驱动电压">驱动电压</h6>
+<p>​	设置当前轴的电机驱动电压，只对使用4988驱动模块的场景下生效，可套用公式 <br />
+				127 x 电机标准电流 / 2
+计算，使用外置驱动时无需设置;</p>
+<h6 id="最大脉冲频率">最大脉冲频率</h6>
+<p>​	设置该轴的电机运动时的最大脉冲频率，用于限制电机最大速度；</p>
+<h6 id="归零脉冲频率">归零脉冲频率</h6>
+<p>​	设置该轴电机做复位运动时的默认脉冲频率；</p>
+<h6 id="每毫米步进数">每毫米步进数</h6>
+<p>​	设置该轴每运动1mm电机所需的步进数，可套用公式
+				细分数 x 200 / 丝杆间距(或传动轮周长)；</p>
+<h6 id="轴长">轴长</h6>
+<p>​	设置该轴的长度，单位mm；</p>
+<h6 id="碰撞开关安装位置">碰撞开关安装位置</h6>
+<p>​	设置该轴的碰撞开关安装的位置，选项有“安装在最小”，“安装在最大”，“均安装“三种；</p>
+<h6 id="碰撞开关极性">碰撞开关极性</h6>
+<p>​	设置该轴碰撞开关的极性，即平常状态下和触发状态下电压的高低，选项有”常低碰高“，”常高碰低“两种；</p>
+<h6 id="是否反向">是否反向</h6>
+<p>​	设置该轴运动方向是否相反；</p>
+<h3 id="软件更新">软件更新</h3>
+
+<p>本软件更新方式为离线更新，在产品交流群中可获取最新软件包，将软件包拷贝到U盘后插上主板USB接口，软件将自动检测更新包，并弹出更新提示，电机安装即可自动更新。</p>
+
+<p><img src="/images/version_update.png" width="500" /></p>
+
+<h2 id="打印前的检测">打印前的检测</h2>
+<h3 id="碰撞开关检测">碰撞开关检测</h3>
+
+<p>​	打开软件的 硬件控制 界面，分别触发浮块、刮刀、平台的两个碰撞开关，触发时观察界面上对应轴两侧的碰撞开关显示状态，正常情况下未触发时为灰色，触发时为绿色。如果颜色相反说明碰撞开关极性设置不对，可去 参数设置–机器设置–对应轴设置–碰撞开关极性 处修改极性；</p>
+
+<p>​	<img src="/images/check_endstop.png" width="500" /></p>
+
+<h3 id="电机运动检测">电机运动检测</h3>
+
+<p>​	1. 打开软件的 硬件控制 界面，分别触发浮块，刮刀，平台往最大和最小方向处复位的操作，浮块和平台最大方向为上方，最小方向为下方，刮刀最大方向为后方，最小方向为前方，看电机是否正常运动，点击两侧的 加号 和减号 图标即可发送 最大和最小方向的复位命令。</p>
+
+<p>​	如果电机运动方向相反，可在软件中 参数设置–机器设置–对应轴设置–是否反向 处修改，也可直接修改电机接线改变方向；</p>
+
+<p>​	2. 分别控制浮块，刮刀，平台移动指定距离，看实际移动的距离是否一致。电机对应轴的坐标值即可弹出控制界面，输入坐标值，电机确定即可开始运动；</p>
+
+<p>​	如果电机运动距离与实际不符，说明该电机的每毫米步进数设置错误，可在软件中去 参数设置–机器设置–对应轴设置–每毫米步进数 处修改，该值的设定可套用公式  细分数 x 200 / 丝杆间距(或传动轮周长)；</p>
+
+<p>​	<img src="/images/check_sport.png" width="500" /></p>
+
+<h3 id="激光开关检测">激光开关检测</h3>
+
+<p>​	打开软件的 硬件控制 界面，点击如下图所示的开关按钮，观察激光是否能开关，正常情况下点击关闭图标后激光处于关闭状态，点击打开图标后激光处于打开状态，如果相反则说明激光极性设置错误，可以在软件的</p>
+
+<p>参数设置–激光极性 处修改；</p>
+
+<p>​	<img src="/images/check_laser.png" width="500" /></p>
+
+<h3 id="振镜运动检测">振镜运动检测</h3>
+<h4 id="运动方向检测">运动方向检测</h4>
+
+<p>​	打开软件的 硬件控制 界面，点击如下图所示的激光标定按钮；</p>
+
+<p><img src="/images/start_calibrating.png" width="500" /></p>
+
+<p>​	弹出激光标定界面，分别选择上下左右四个方向的标定点，观察激光是否也是向这四个方向移动，如果激光点一直不移动则检查振镜接线和供电，如果移动方向不对可参考  XY方向 设置项 设置XY方向；</p>
+
+<p><img src="/images/check_scan_direction.png" width="500" /></p>
+
+<h4 id="扫描测试">扫描测试</h4>
+
+<p>​	打开软件首页，点击下图所示按钮，振镜开始以每次间隔1秒的时间扫描一个三角形，再次点击按钮则停止扫描。</p>
+
+<p><img src="/images/scan_test.png" width="500" /></p>
+
+<h3 id="液位仪数据检测">液位仪数据检测</h3>
+
+<p>​	打开软件首页，可用一张纸放到液位仪下方上下移动，观察软件上液位值变化，如下图所示。</p>
+
+<p>如移动时数值不变化则检查液位仪接线是否正确。</p>
+
+<p><img src="/images/check_liquid_height.png" width="500" /></p>
+
+<h3 id="真空泵开关检测">真空泵开关检测</h3>
+
+<p>​	打开软件 硬件控制 界面，如下图所示，点击真空泵开关按钮，观察真空泵是否能开关。</p>
+
+<p>​	<img src="/images/check_pump.png" width="500" /></p>
+
+<h2 id="常见问题">常见问题</h2>
+
+<p><strong>1. 电机运动距离与命令不符</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>检查该电机的每毫米步进数设置是否错误，在 参数设置--机器设置--对应轴(X为浮块，Y为刮刀，Z为平台)设置--每毫米步进数 处修改，该值可套用公式设置：
+
+		细分数 x 200 / 丝杆间距(或传动轮周长)；
+</code></pre>
+</div>
+
+<p><strong>2. 电机只能往一个方向运动</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>检查该轴的"碰撞开关安装位置"和"碰撞开关极性"这两个设置，在 参数设置--机器设置--对应轴(X为浮块，Y为刮刀，Z为平台)设置 下。这种情况一般是由于"碰撞开关安装位置"设为"安装在最大"或"安装在最小"，且碰撞开关极性设置错误导致的。只需将"碰撞开关极性"设对就没问题了，"碰撞开关安装位置"建议设为"均安装";	
+</code></pre>
+</div>
+
+<p><strong>3. 激光的打开和关闭操作相反</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>一般是"激光极性"没有设置对，在 参数设置--硬件设置--激光极性 处修改，选择另一种设置项即可;
+</code></pre>
+</div>
+
+<p><strong>4. 激光扫描速度与设置不符</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>一般是"光路长度"没有设置对，在 参数设置--硬件设置--光路长度 处修改，该值取振镜到平台打印位置的距离即可，单位mm;
+</code></pre>
+</div>
+
+<p><strong>5. 激光扫描方向错乱</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>由于激光和振镜的安装方位不同，可能会出现XY轴方向混乱的问题，可以在 参数设置--扫描设置--XY方向 处修改"XY方向"设置，判别方式可以通过在 硬件控制--激光标定 处打开标定界面，先点击中心处的标定点将激光光斑移到平台中心，然后分别点击上下左右的标定点，看激光是否向对应方向移动。如：点击上方标定点发现光斑实际向下移动，点击下方标定点光斑实际向上运动，则表明Y轴反向；点击左方标定点发现光斑实际向右移动，点击右方标定点光斑实际向左运动，则表明X轴反向；点击上方标定点发现光斑实际向右移动，点击下方标定点光斑实际向左运动，则表明XY轴对调；点击上方标定点发现光斑实际向左移动，点击下方标定点光斑实际向右运动，则表明XY轴对调且XY反向；	
+</code></pre>
+</div>
+
+<p><strong>6. 打印时模型无法固定在平台上，或模型被刮刀刮离平台</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>一般出现这种情况有3个可能的原因：
+	平台打印起始位置设置不合适，可在 参数设置--硬件设置--距液面高度 设置；
+	目标液值位设置不合适，可在 参数设置--液位设置--目标高度 设置；
+	平台不平整，没有调平，可通过调节平台上的螺丝旋钮调节；
+打印时，树脂液位应和平台、刮刀相持平为最佳。
+</code></pre>
+</div>
+
+<h2 id="附fpga烧录方法">附FPGA烧录方法</h2>
+
+<ol>
+  <li>
+    <p>工具准备：</p>
+
+    <p>​	USB-Blaster</p>
+
+    <p>​	Mini-Usb数据线</p>
+
+    <p>​	烧录软件Quartus II</p>
+
+    <p>​<img src="/images/fpga_write_tools.jpg" width="500" /></p>
+  </li>
+  <li>
+    <p>给SLA主板供12V电，主板CPLD-JTAG口接USB-Blaster，如下图所示</p>
+
+    <p>​	<img src="/images/usb_blaster_in_board.jpg" width="500" /></p>
+
+    <p>​</p>
+
+    <ol>
+      <li>
+        <p>在PC端打开Quartus软件，按CTRL+J打开要烧录的工程目录，选择.qpf文件，如下图所示</p>
+
+        <p><img src="/images/open_fpga_project.png" width="500" /></p>
+      </li>
+      <li>
+        <p>如下图所示，双击 Program Device选项，打开烧录对话框，选择USB-Blaster [USB-0]</p>
+
+        <p>​		<img src="/images/open_programmer.png" width="500" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>点击 start 按钮，开始烧录，烧录成功则progress显示100%，重启主板即可生效。如下图所示，</p>
+  </li>
+</ol>
+
+<p><img src="/images/writing.png" width="500" /></p>
+
+<p><img src="/images/write_success.png" width="500" /></p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/">RAYLAND RL-150型 SLA打印机数据手册
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/25/SLA-Comm-Protocol/">Rayland-SLA 主板控制协议
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://localhost:4000/2018/02/15/LCD-photocuring-send-out/">LCD光固化发货测试流程
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2018/03/05/h3-img-burn/">H3镜像烧录</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+         <script>
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	console.log(duoshuoQuery);
+</script>
+
+
+<!-- 多说评论框 start -->
+
+<div class="ds-thread" data-thread-key="http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/" data-title="用rayland-SLA主板控制SLA打印机" data-url="http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {
+		short_name: "leisong"
+	};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';
+		ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<!-- 多说公共JS代码 end -->
+ 
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+        <p class="power">
+        	<i class="fa fa-github" aria-hidden="true"></i>
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+	<a href="#top" class="scroll">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+</div>
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/cjy_info.js " charset="utf-8"></script>
+  </body>
+
+</html>
