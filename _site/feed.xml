@@ -3,11 +3,692 @@
   <channel>
     <title>锐蓝3D打印wiki</title>
     <description></description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 07 Mar 2018 18:53:57 +0800</pubDate>
-    <lastBuildDate>Wed, 07 Mar 2018 18:53:57 +0800</lastBuildDate>
+    <link>http://localhost:40001/</link>
+    <atom:link href="http://localhost:40001/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 08 Jun 2018 10:58:59 +0800</pubDate>
+    <lastBuildDate>Fri, 08 Jun 2018 10:58:59 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Rayland-Online wifi上传模型文件</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rayland-online-wifi-upload&quot; id=&quot;markdown-toc-rayland-online-wifi-upload&quot;&gt;Rayland-Online Wifi upload&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#1在app中找到对应网络文件功能入口&quot; id=&quot;markdown-toc-1在app中找到对应网络文件功能入口&quot;&gt;1）在app中找到对应网络文件功能入口&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#2点击网络文件按钮查看网络状态&quot; id=&quot;markdown-toc-2点击网络文件按钮查看网络状态&quot;&gt;2）点击&lt;code class=&quot;highlighter-rouge&quot;&gt;网络文件&lt;/code&gt;按钮查看网络状态&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#3上传文件&quot; id=&quot;markdown-toc-3上传文件&quot;&gt;3）上传文件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#4本地设备接收文件&quot; id=&quot;markdown-toc-4本地设备接收文件&quot;&gt;4）本地设备接收文件&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-Online&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;wifi&lt;/code&gt;上传文件功能使用说明。&lt;/p&gt;
+
+&lt;h2 id=&quot;rayland-online-wifi-upload&quot;&gt;Rayland-Online Wifi upload&lt;/h2&gt;
+
+&lt;p&gt;以一款&lt;code class=&quot;highlighter-rouge&quot;&gt;dlp&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt; 介绍使用流程：&lt;/p&gt;
+
+&lt;h3 id=&quot;1在app中找到对应网络文件功能入口&quot;&gt;1）在app中找到对应网络文件功能入口&lt;/h3&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/dlp_app.png&quot; height=&quot;340&quot; width=&quot;730&quot; /&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2点击网络文件按钮查看网络状态&quot;&gt;2）点击&lt;code class=&quot;highlighter-rouge&quot;&gt;网络文件&lt;/code&gt;按钮查看网络状态&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.1)&lt;/code&gt; 网络无连接&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/no_wifi.png&quot; height=&quot;170&quot; width=&quot;560&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;2.2)&lt;/code&gt; 网络已连接&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/wifi_connect.png&quot; height=&quot;170&quot; width=&quot;560&quot; /&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;3上传文件&quot;&gt;3）上传文件&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.1)&lt;/code&gt;登陆&lt;code class=&quot;highlighter-rouge&quot;&gt;ray-land&lt;/code&gt;开放的上传页面&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ray-land.cn/upload&quot;&gt;ray-land&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.2)&lt;/code&gt;输入设备&lt;code class=&quot;highlighter-rouge&quot;&gt;ip地址&lt;/code&gt;&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/ready_upload.png&quot; height=&quot;340&quot; width=&quot;730&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.3)&lt;/code&gt;点击&lt;code class=&quot;highlighter-rouge&quot;&gt;选择文件&lt;/code&gt;选择本地文件 （支持 .slc .cws .slice 文件）&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5)&lt;/code&gt;点击&lt;code class=&quot;highlighter-rouge&quot;&gt;开始上传&lt;/code&gt;上传文件&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3.5)&lt;/code&gt;上传成功&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/upload_success.png&quot; height=&quot;340&quot; width=&quot;730&quot; /&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4本地设备接收文件&quot;&gt;4）本地设备接收文件&lt;/h3&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/file_get.png&quot; height=&quot;170&quot; width=&quot;560&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4.1)&lt;/code&gt;接收文件成功&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/file_success.png&quot; height=&quot;170&quot; width=&quot;560&quot; /&gt;&lt;/div&gt;
+
+&lt;p&gt;可在文件列表看到上传的文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;4.2)&lt;/code&gt;服务器无上传文件或ip地址和页面输入不匹配&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;/images/no_file.png&quot; height=&quot;170&quot; width=&quot;560&quot; /&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 08 Jun 2018 09:00:00 +0800</pubDate>
+        <link>http://localhost:40001/2018/06/08/wifi-upload/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/06/08/wifi-upload/</guid>
+        
+        <category>3D打印</category>
+        
+        <category>Chenjy</category>
+        
+        
+        <category>3D打印</category>
+        
+      </item>
+    
+      <item>
+        <title>Rayland Protocol</title>
+        <description>
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#鸵鸟机器人控制协议&quot; id=&quot;markdown-toc-鸵鸟机器人控制协议&quot;&gt;鸵鸟机器人控制协议&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文档介绍了用&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-DUAL&lt;/code&gt;主板控制鸵鸟机器人的控制协议。&lt;/p&gt;
+
+&lt;h2 id=&quot;鸵鸟机器人控制协议&quot;&gt;鸵鸟机器人控制协议&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Android -&amp;gt; 下位机&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;1.1 &lt;strong&gt;控制指令&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,cmd_io,s_x,s_y,v_x,v_y&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;12bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_io&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;io口控制指令（8）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0;1&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;s_x&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;左轮里程&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;打点个数&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;s_y&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;右轮里程&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;打点个数&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;v_x&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;左轮速度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;正:前进;负:后退&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;v_y&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;右轮速度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;v_x&lt;/code&gt;一致&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;2.2 &lt;strong&gt;摄像头控制指令&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,angle_hor,angle_ver&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;7bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;angle_hor&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;水平方向转动角度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-180~180&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;°&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;angle_ver&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;垂直方向转动角度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-180~180&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;°&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;3.3 &lt;strong&gt;腰、升降控制指令&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,s_w,s_u&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;7bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;s_w&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;转腰里程&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;s_u&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;升降里程&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;4.4 &lt;strong&gt;out口控制指令&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,outputBit,maskBit&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;7bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;outputBit&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;输出&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0:move,1:stop&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;maskBit&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;mask&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;int16&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1:有效&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;outputbit:&lt;/code&gt;右转，左转，二右转，二左转，降，升，后退，后退&lt;/p&gt;
+
+&lt;p&gt;5.5 &lt;strong&gt;清空脉冲计数指令&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;3bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;下位机 -&amp;gt; Android&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;1.1 &lt;strong&gt;状态回传&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cmd_type,pkg_length,seq,lim,pro_change,pulse_count&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Param&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Describe&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Type&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Range&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Unit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cmd_type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令类型&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pkg_length&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;包长度&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;24bytes&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;seq&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;指令序号&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;lim&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;限位开关信息（15）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint32&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0;1&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pro&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;优先级控制&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pulse_count&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;脉冲计数（4）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;uint32 * 4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lim:&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;‭&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;正常&lt;/td&gt;
+      &lt;td&gt;0000 0000‭0001 11111010‬&lt;/td&gt;
+      &lt;td&gt;506&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;后到位&lt;/td&gt;
+      &lt;td&gt;0000 0000‭‭0001 11101010‬&lt;/td&gt;
+      &lt;td&gt;490&lt;/td&gt;
+      &lt;td&gt;5-0-15&lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;15-0&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;下降&lt;/td&gt;
+      &lt;td&gt;0000 0000‭0001 11111110‬&lt;/td&gt;
+      &lt;td&gt;510&lt;/td&gt;
+      &lt;td&gt;3-1-17&lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;17-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;上升&lt;/td&gt;
+      &lt;td&gt;‭0000 0000‭0001 11111011‬&lt;/td&gt;
+      &lt;td&gt;507&lt;/td&gt;
+      &lt;td&gt;1-1-19&lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;19-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;中间点&lt;/td&gt;
+      &lt;td&gt;0000 0000‭0001 01111010‬‬&lt;/td&gt;
+      &lt;td&gt;378&lt;/td&gt;
+      &lt;td&gt;8-0-12&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;12-0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;正转&lt;/td&gt;
+      &lt;td&gt;0000 0000‭‭0101 11111010‬&lt;/td&gt;
+      &lt;td&gt;1530&lt;/td&gt;
+      &lt;td&gt;11-1-9&lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;9-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;反转&lt;/td&gt;
+      &lt;td&gt;0000 0000‭‭1011 11111010‬&lt;/td&gt;
+      &lt;td&gt;3066&lt;/td&gt;
+      &lt;td&gt;12-1-8&lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;8-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台上&lt;/td&gt;
+      &lt;td&gt;‭0001 00000001 11111010‬&lt;/td&gt;
+      &lt;td&gt;66042&lt;/td&gt;
+      &lt;td&gt;17-1-3&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;3-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台下&lt;/td&gt;
+      &lt;td&gt;‭‭0010 00000001 11111010‬&lt;/td&gt;
+      &lt;td&gt;131578&lt;/td&gt;
+      &lt;td&gt;18-1-2&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;2-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台左&lt;/td&gt;
+      &lt;td&gt;‭0000 10000001 11111010‬&lt;/td&gt;
+      &lt;td&gt;33274&lt;/td&gt;
+      &lt;td&gt;16-1-4&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;4-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台右&lt;/td&gt;
+      &lt;td&gt;0000 ‭01000001 11111010‬&lt;/td&gt;
+      &lt;td&gt;16890&lt;/td&gt;
+      &lt;td&gt;15-1-5&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;5-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;‭&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;中间点&lt;/td&gt;
+      &lt;td&gt;‭0000 00000011 01001&lt;strong&gt;0&lt;/strong&gt;11‬&lt;/td&gt;
+      &lt;td&gt;0 不正常1&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;843&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;正常&lt;/td&gt;
+      &lt;td&gt;‭0000 00000011 01001111‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;847&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;后到位&lt;/td&gt;
+      &lt;td&gt;0000 0000‭00&lt;strong&gt;0&lt;/strong&gt;1 01001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;331 停&lt;/td&gt;
+      &lt;td&gt;10-0&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;下降&lt;/td&gt;
+      &lt;td&gt;0000 0000‭0011 &lt;strong&gt;1&lt;/strong&gt;1001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;12-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;上升&lt;/td&gt;
+      &lt;td&gt;0000 0000‭‭0011 01&lt;strong&gt;1&lt;/strong&gt;01011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;14-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;正转&lt;/td&gt;
+      &lt;td&gt;0000 0000‬‭0&lt;strong&gt;1&lt;/strong&gt;11 01001111‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;1871停&lt;/td&gt;
+      &lt;td&gt;9-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;反转&lt;/td&gt;
+      &lt;td&gt;0000 0000‭&lt;strong&gt;1&lt;/strong&gt;011 01011111‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;停&lt;/td&gt;
+      &lt;td&gt;8-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台上&lt;/td&gt;
+      &lt;td&gt;‭‭00&lt;strong&gt;1&lt;/strong&gt;0 00000011 01001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;131915&lt;/td&gt;
+      &lt;td&gt;2-1&lt;/td&gt;
+      &lt;td&gt;中 左转 右转&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台下&lt;/td&gt;
+      &lt;td&gt;‭000&lt;strong&gt;1&lt;/strong&gt; 00000011 01001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;66379&lt;/td&gt;
+      &lt;td&gt;3-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台左&lt;/td&gt;
+      &lt;td&gt;0000 ‭0&lt;strong&gt;1&lt;/strong&gt;000011 01001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;17227&lt;/td&gt;
+      &lt;td&gt;5-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;云台右&lt;/td&gt;
+      &lt;td&gt;0000 &lt;strong&gt;‭1&lt;/strong&gt;0000011 01001011‬&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;33611&lt;/td&gt;
+      &lt;td&gt;4-1&lt;/td&gt;
+      &lt;td&gt;中&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 05 May 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:40001/2018/05/05/rayland-Protocol/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/05/05/rayland-Protocol/</guid>
+        
+        
+      </item>
     
       <item>
         <title>用rayland-SLA主板控制SLA打印机</title>
@@ -495,8 +1176,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/write_success.png&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 07 Mar 2018 16:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/07/rayland-sla-on-sla-printer/</guid>
+        <link>http://localhost:40001/2018/03/07/rayland-sla-on-sla-printer/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/07/rayland-sla-on-sla-printer/</guid>
         
         <category>3D打印</category>
         
@@ -622,8 +1303,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 05 Mar 2018 15:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/05/h3-img-burn/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/05/h3-img-burn/</guid>
+        <link>http://localhost:40001/2018/03/05/h3-img-burn/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/05/h3-img-burn/</guid>
         
         <category>FDM</category>
         
@@ -764,8 +1445,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 05 Mar 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</guid>
+        <link>http://localhost:40001/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/05/DLP-dispaly-H3-A33-Protocol-%E5%89%AF%E6%9C%AC/</guid>
         
         <category>FDM</category>
         
@@ -1042,8 +1723,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 &lt;p&gt;车前进1圈，运行速度为20&lt;/p&gt;
 </description>
         <pubDate>Sun, 04 Mar 2018 15:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/04/DULA-ON-AGV-xian-debug/</guid>
+        <link>http://localhost:40001/2018/03/04/DULA-ON-AGV-xian-debug/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/04/DULA-ON-AGV-xian-debug/</guid>
         
         <category>AGV</category>
         
@@ -1166,8 +1847,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 02 Mar 2018 12:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/02/RAYLAND-RL-150-SLA-instructions/</guid>
+        <link>http://localhost:40001/2018/03/02/RAYLAND-RL-150-SLA-instructions/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/02/RAYLAND-RL-150-SLA-instructions/</guid>
         
         <category>3D打印</category>
         
@@ -1278,8 +1959,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 02 Mar 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/02/tianhe-robot-voice/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/02/tianhe-robot-voice/</guid>
+        <link>http://localhost:40001/2018/03/02/tianhe-robot-voice/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/02/tianhe-robot-voice/</guid>
         
         <category>TianHe</category>
         
@@ -1450,8 +2131,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 01 Mar 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/01/ostrich-robot/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/01/ostrich-robot/</guid>
+        <link>http://localhost:40001/2018/03/01/ostrich-robot/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/01/ostrich-robot/</guid>
         
         <category>AGV</category>
         
@@ -1806,8 +2487,8 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
 &lt;h2 id=&quot;控制界面&quot;&gt;控制界面&lt;/h2&gt;
 </description>
         <pubDate>Thu, 01 Mar 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/01/bangtuan-shop-windows-Protocol/</guid>
+        <link>http://localhost:40001/2018/03/01/bangtuan-shop-windows-Protocol/</link>
+        <guid isPermaLink="true">http://localhost:40001/2018/03/01/bangtuan-shop-windows-Protocol/</guid>
         
         <category>BangTuan</category>
         
@@ -1815,466 +2496,6 @@ OUT3：接Z轴抱闸；&lt;/p&gt;
         
         
         <category>BangTuan</category>
-        
-      </item>
-    
-      <item>
-        <title>Rayland-SLA 主板控制协议</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#sla控制协议&quot; id=&quot;markdown-toc-sla控制协议&quot;&gt;SLA控制协议&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#a33-stm32的配置包&quot; id=&quot;markdown-toc-a33-stm32的配置包&quot;&gt;A33-&amp;gt;STM32的配置包&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#a33-stm32的数据包&quot; id=&quot;markdown-toc-a33-stm32的数据包&quot;&gt;A33-&amp;gt;STM32的数据包&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-SLA&lt;/code&gt;主板控制协议。&lt;/p&gt;
-
-&lt;h1 id=&quot;sla控制协议&quot;&gt;SLA控制协议&lt;/h1&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rayland-SLA&lt;/code&gt;主板在使用&lt;code class=&quot;highlighter-rouge&quot;&gt;TTL&lt;/code&gt;激光器控制的时候遇到一个问题就是激光器无法精准控制延迟。目前的激光控制是伴随振镜步进进行的。&lt;/p&gt;
-
-&lt;p&gt;也就是说每进行一次脉冲步进才能进行一次激光的开关。按照目前TIM5的频率是40khz计算。激光延迟的最小单位是插点时间间距。
-&lt;script type=&quot;math/tex&quot;&gt;\Delta = \frac{1}{f} = \frac{1}{40k} = 25\mu s&lt;/script&gt;
-所以需要在这个延迟的基础上将将激光的延迟开关周期增加到1us这个单位，也就是说需要将现在的控制精度提高100倍左右，目前的激光延迟是用一个&lt;code class=&quot;highlighter-rouge&quot;&gt;uint16_t&lt;/code&gt;的变量存储的，我们需要将这个变量的长度修改为&lt;code class=&quot;highlighter-rouge&quot;&gt;uint32_t&lt;/code&gt;。然后在TIM5的中断响应函数里面对额外加入的这些精度进行利用。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/0A02105D-9CE3-4C1A-B35D-DD67206748C6.png&quot; alt=&quot;0A02105D-9CE3-4C1A-B35D-DD67206748C6&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;T1:开激光延迟&lt;/p&gt;
-
-&lt;p&gt;T2:关激光延迟&lt;/p&gt;
-
-&lt;h2 id=&quot;a33-stm32的配置包&quot;&gt;A33-&amp;gt;STM32的配置包&lt;/h2&gt;
-
-&lt;p&gt;总包长 20bytes&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;编号&lt;/th&gt;
-      &lt;th&gt;类型&lt;/th&gt;
-      &lt;th&gt;名称&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte0&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;head&lt;/td&gt;
-      &lt;td&gt;0x68&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte1&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td&gt;自增序列号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte2&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;pktType&lt;/td&gt;
-      &lt;td&gt;包类型&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte3&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;开激光电平&lt;/td&gt;
-      &lt;td&gt;0:低电压开，1:高电压开&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte4~Byte5&lt;/td&gt;
-      &lt;td&gt;uint16_t&lt;/td&gt;
-      &lt;td&gt;onDelay&lt;/td&gt;
-      &lt;td&gt;开激光延迟（单位us）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte6~Byte7&lt;/td&gt;
-      &lt;td&gt;uint16_t&lt;/td&gt;
-      &lt;td&gt;offDelay&lt;/td&gt;
-      &lt;td&gt;关激光延迟（单位us）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte8~Byte9&lt;/td&gt;
-      &lt;td&gt;uint16_t&lt;/td&gt;
-      &lt;td&gt;beforeJump&lt;/td&gt;
-      &lt;td&gt;快跳延迟（单位us）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte10～Byte17&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;reserve[8]&lt;/td&gt;
-      &lt;td&gt;备用&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte18&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;tail&lt;/td&gt;
-      &lt;td&gt;0xFF&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte19&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;checksum&lt;/td&gt;
-      &lt;td&gt;校验和&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;a33-stm32的数据包&quot;&gt;A33-&amp;gt;STM32的数据包&lt;/h2&gt;
-
-&lt;p&gt;总包长 20bytes&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;编号&lt;/th&gt;
-      &lt;th&gt;类型&lt;/th&gt;
-      &lt;th&gt;名称&lt;/th&gt;
-      &lt;th&gt;备注&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte0&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;head&lt;/td&gt;
-      &lt;td&gt;0x68&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte1&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;seq&lt;/td&gt;
-      &lt;td&gt;自增序列号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte2&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;pktType&lt;/td&gt;
-      &lt;td&gt;包类型&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte3&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;ctrl&lt;/td&gt;
-      &lt;td&gt;控制位&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte4~Byte7&lt;/td&gt;
-      &lt;td&gt;uint16_t&lt;/td&gt;
-      &lt;td&gt;posXY[2]&lt;/td&gt;
-      &lt;td&gt;目标位置&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte8~Byte11&lt;/td&gt;
-      &lt;td&gt;uint16_t&lt;/td&gt;
-      &lt;td&gt;stepCnt[2]&lt;/td&gt;
-      &lt;td&gt;插点数量&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte12~Byte15&lt;/td&gt;
-      &lt;td&gt;int16_t&lt;/td&gt;
-      &lt;td&gt;stepXY[2]&lt;/td&gt;
-      &lt;td&gt;插点空间间距&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte16&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;stepPeriod&lt;/td&gt;
-      &lt;td&gt;插点时间间距&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte17&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;reserve&lt;/td&gt;
-      &lt;td&gt;备用&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte18&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;tail&lt;/td&gt;
-      &lt;td&gt;0xFF&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Byte19&lt;/td&gt;
-      &lt;td&gt;uint8_t&lt;/td&gt;
-      &lt;td&gt;checksum&lt;/td&gt;
-      &lt;td&gt;校验和&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;ctrl内容&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;7&lt;/th&gt;
-      &lt;th&gt;6&lt;/th&gt;
-      &lt;th&gt;5&lt;/th&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;th&gt;0&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;reserved&lt;/td&gt;
-      &lt;td&gt;reserved&lt;/td&gt;
-      &lt;td&gt;reserved&lt;/td&gt;
-      &lt;td&gt;reserved&lt;/td&gt;
-      &lt;td&gt;reserved&lt;/td&gt;
-      &lt;td&gt;AutoOff&lt;/td&gt;
-      &lt;td&gt;onOff&lt;/td&gt;
-      &lt;td&gt;isReset&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-        <pubDate>Sun, 25 Feb 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/02/25/SLA-Comm-Protocol/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/02/25/SLA-Comm-Protocol/</guid>
-        
-        <category>3D打印</category>
-        
-        <category>FDM</category>
-        
-        <category>Rayland-SLA</category>
-        
-        <category>SongLei</category>
-        
-        
-        <category>FDM</category>
-        
-      </item>
-    
-      <item>
-        <title>LCD光固化发货测试流程</title>
-        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#环境搭建&quot; id=&quot;markdown-toc-环境搭建&quot;&gt;环境搭建&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#准备材料&quot; id=&quot;markdown-toc-准备材料&quot;&gt;准备材料&lt;/a&gt;        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;#接线&quot; id=&quot;markdown-toc-接线&quot;&gt;接线&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#测试要点&quot; id=&quot;markdown-toc-测试要点&quot;&gt;测试要点&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#启动过程&quot; id=&quot;markdown-toc-启动过程&quot;&gt;启动过程&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#h3连接测试&quot; id=&quot;markdown-toc-h3连接测试&quot;&gt;H3连接测试&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#电控测试&quot; id=&quot;markdown-toc-电控测试&quot;&gt;电控测试&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#打印流程测试&quot; id=&quot;markdown-toc-打印流程测试&quot;&gt;打印流程测试&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LCD光固化发货测试流程&lt;/p&gt;
-
-&lt;h2 id=&quot;环境搭建&quot;&gt;环境搭建&lt;/h2&gt;
-
-&lt;h3 id=&quot;准备材料&quot;&gt;准备材料&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;已烧录好最新镜像文件的TF卡1张；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;H3主板1块;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;可以正常显示的曝光屏一块以及配套电源；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;已烧录好最新Hex的Solo主板或Dual主板1块;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;已烧录好最新镜像文件和光固化软件的核心板1块;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;触摸屏1块，屏幕排线1条;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;HDMI连接线1条;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;带Micro USB接口的数据线1条;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;4988驱动1个，步进电机1个，碰撞开关1个；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;12V电源1个；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;带有CWS测试文件的U盘或SD卡；&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;接线&quot;&gt;接线&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TF卡插H3主板卡槽；&lt;/li&gt;
-  &lt;li&gt;核心板插Solo主板或Dual主板插槽；&lt;/li&gt;
-  &lt;li&gt;4988模块插Solo主板或Dual主板Z轴插槽，&lt;strong&gt;注意4988模块上箭头指向主板外沿&lt;/strong&gt;；&lt;/li&gt;
-  &lt;li&gt;步进电机接Solo主板或Dual主板Z轴电机接口；&lt;/li&gt;
-  &lt;li&gt;碰撞开关接Solo主板或Dual主板Z Min接口；&lt;/li&gt;
-  &lt;li&gt;用排线连接触摸屏与Solo主板或Dual主板；&lt;/li&gt;
-  &lt;li&gt;用带Micro USB接口的数据线连接H3主板与Solo主板或Dual主板；&lt;/li&gt;
-  &lt;li&gt;用HDMI线连接H3主板与曝光屏，曝光屏用其配套电源供电；&lt;/li&gt;
-  &lt;li&gt;确保以上所有步骤后用12V电源给Solo主板或Dual主板供电开始测试；&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/dlp_in_circuit.jpg&quot; alt=&quot;连接图&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;测试要点&quot;&gt;测试要点&lt;/h2&gt;
-
-&lt;h3 id=&quot;启动过程&quot;&gt;启动过程&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;H3主板指示灯点亮；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;曝光屏背光开启；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;触摸屏显示正常；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;软件自动启动；&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;h3连接测试&quot;&gt;H3连接测试&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;软件启动后，右上角的连接状态为已连接；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/main_page.png&quot; alt=&quot;主界面&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;点击“设置–光固化设置”，按照准备的曝光屏设置曝光屏宽(475），高(295)，分辨率(1680*1050)，接口(HDMI)。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/set_resolution.png&quot; alt=&quot;设置曝光屏参数&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;设置后H3板将会自动重启，右上角状态变为已断开，曝光屏在H3启动过程应有图像显示；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/h3_reboot.jpg&quot; alt=&quot;h3重启界面&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;重启完成后“曝光屏分辨率”的值变为设置的值，右上角的连接状态变为已连接，设置成功；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/set_resolution_success.png&quot; alt=&quot;设置成功&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;电控测试&quot;&gt;电控测试&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;在主界面连续点击空白处10次进入“机器设置”界面，点击“Z轴设置”，给Z轴设置合适的“驱动电压”，“每毫米步进数”，将“碰撞开关位置”设置为“安装在最小”；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/axis_z_config.png&quot; alt=&quot;Z轴设置&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;回到主界面点击“维护 – 回零点 – 平台归位到最低点”，电机开始转动，此时触发碰撞开关，电机停止转动。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/home_axis.png&quot; alt=&quot;归位&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;回到主界面电机“维护 – 清理”，弹出设置曝光时间，设置5，点击确定后Solo主板或Dual主板out1接口下方led灯点亮，曝光屏显示一张全屏的纯白色图片，5秒后，led灯熄灭，曝光屏显示的白色图片也消失。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/expose_full_screen.png&quot; alt=&quot;曝光&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;打印流程测试&quot;&gt;打印流程测试&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;将带有测试文件的U盘或SD卡插入主板，在主界面点击“模型”进入“模型列表”界面，按住右侧的列表下拉松手刷新，可以刷出测试文件；&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;点击选中测试文件，如果测试文件是CWS格式，左侧进度条会有变化，进度条加载完成后出现3D渲染界面；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/model_list.png&quot; alt=&quot;模型列表&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;点击“开始打印”进入打印界面，电机开始转动，触摸屏和曝光屏不显示图片，out1接口下方led灯熄灭状态；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/ready_expose.png&quot; alt=&quot;开始打印&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/out1_close.jpg&quot; alt=&quot;准备曝光&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;手动触发一次碰撞开关，电机开始反向转动一段距离然后再按原来的方向以更慢的速度转动，此时再触发一次碰撞开关，电机停止转动，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/expose_layer.png&quot; alt=&quot;曝光单层&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/out1_open.jpg&quot; alt=&quot;曝光单层&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;几秒后，触摸屏和曝光屏显示的图片消失，同时out1接口下方的led灯自动熄灭，电机在几秒后开始转动，转动时先往一个方向转动一定距离再往另一个方向转动一定距离。&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;几秒后，触摸屏和曝光屏开始显示图片，同时out1接口下方led灯点亮，点击“停止 – 确定”退出打印界面，此时out1接口下方led灯熄灭，曝光屏不显示图像，打印停止；&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/images/stop_print.png&quot; alt=&quot;停止打印&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-
-    &lt;p&gt;​&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Thu, 15 Feb 2018 07:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/02/15/LCD-photocuring-send-out/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/02/15/LCD-photocuring-send-out/</guid>
-        
-        <category>FDM</category>
-        
-        <category>3D打印</category>
-        
-        <category>SongLei</category>
-        
-        
-        <category>FDM</category>
         
       </item>
     
